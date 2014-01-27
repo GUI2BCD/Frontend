@@ -7,11 +7,12 @@ class LastResortRecovery {
   
   // Build head
   public function renderHead() {
-   	
-    echo 
-     '<head>
-  <meta charset="UTF-8">';
-    
+   	?>
+<html>
+  <head>
+    <meta charset="UTF-8">
+     
+    <?
     $this->copyrightHeader();
     
     
@@ -21,23 +22,21 @@ class LastResortRecovery {
   // Private methods
   
   private function copyrightHeader() {
-  ?>
-	
-<!--
-  University of Massachusetts Lowell
-
-  GUI Programming II, Prof. Jesse Heines
+  	?>
+    <!--
+        University of Massachusetts Lowell
+        GUI Programming II, Prof. Jesse Heines
 		
-  Senior Project: Last Resort Recovery
-  Authors - David Jelley, Jr.
-            Cameron Morris
-            Benjamin Cao
+        Senior Project: Last Resort Recovery
+        Authors - David Jelley, Jr.
+                  Cameron Morris
+                  Benjamin Cao
 
-  Description: This semester we are tasked to take the knowledge we learned in GUI I
-               and spend the entire semester developing an interesting, advanced, and proffessional webpage.
+        Description: This semester we are tasked to take the knowledge we learned in GUI I and spend 
+                     the entire semester developing an interesting, advanced, and proffessional webpage.
 
-  Verison 0.00001
--->
+        Verison 0.00001
+     -->
   <?
   }
   
