@@ -33,9 +33,9 @@ class LastResortRecovery {
                   Benjamin Cao
 
         Description: This semester we are tasked to take the knowledge we learned in GUI I and spend 
-                     the entire semester developing an interesting, advanced, and proffessional webpage.
+                     the entire semester developing an interesting, advanced, and professional webpage.
 
-        Verison 0.00001
+        Version 0.00001
      -->
   <?
   }
