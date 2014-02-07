@@ -1,2 +1,5 @@
 #Emacs
 *~
+.settings
+.project
+.buildpath
