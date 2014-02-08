@@ -8,7 +8,6 @@
  *           Cameron Morris
  *           Benjamin Cao
  *
- * Description: This file contains all the functionality related to interacting
- *              with the database.
+ * Description: This file handles the login/registration process.
  */
 ?>
