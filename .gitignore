@@ -1,7 +1,8 @@
 #Emacs
 *~
-
 # Eclipse
 .buildpath
 .project
 .settings
+.metadata
+
