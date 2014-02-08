@@ -66,14 +66,15 @@ function createUsersTable($host, $port, $user, $password, $dbname) {
 	$connection = mysqlConnect ( $host, $port, $user, $password, $dbname );
 	
 	// SQL Expression to create users table
-	$sql = "CREATE TABLE users
-            (
-              ID INT NOT NULL AUTO_INCREMENT,
-              PRIMARY KEY(ID),
-						  username TINYBLOB,
-						  password BLOB,
-			 			 email TINYBLOB
-            );";
+	$sql = 
+	"CREATE TABLE users
+	(
+	ID INT NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY(ID),
+	username TINYBLOB,
+	password BLOB,
+	email TINYBLOB
+	);";
 	
 	// Execute query
 	if (mysqli_query ( $connection, $sql )) {
@@ -106,13 +107,14 @@ function createDevicesTable($host, $port, $user, $password, $dbname) {
 	$connection = mysqlConnect ( $host, $port, $user, $password, $dbname );
 	
 	// SQL Expression to create devices table
-	$sql = "CREATE TABLE devices
-            (
-              ID INT NOT NULL AUTO_INCREMENT,
-              PRIMARY KEY(ID),
-			  			userid INT NOT NULL,
-			  			name TINYBLOB
-            );";
+	$sql = 
+	"CREATE TABLE devices
+	(
+	ID INT NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY(ID),
+	userid INT NOT NULL,
+	name TINYBLOB
+	);";
 	
 	// Execute query
 	if (mysqli_query ( $connection, $sql )) {
