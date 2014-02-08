@@ -15,9 +15,9 @@
 // Configuration of the mysql connection
 $host = "localhost";
 $port = 3306;
-$user = "";
+$user = "root";
 $password = "";
-$dbname = "";
+$dbname = "lastresortrecovery";
 
 /**
  * This function connects to a MySQL database and returns a connection object
@@ -60,7 +60,7 @@ function mysqlConnect($host, $port, $user, $password, $dbname) {
 
 /**
  * This function will create a MySQL database with the given name
- * 
+ *
  * @param string $host
  *          Hostname of MySQL server
  * @param integer $port
@@ -72,26 +72,24 @@ function mysqlConnect($host, $port, $user, $password, $dbname) {
  * @param string $dbname
  *          Name of the database to create
  */
-function createDatabase( $host, $port, $user, $password, $dbname) {
-
+function createDatabase($host, $port, $user, $password, $dbname) {
+  
   // Connect to mysql server
-  $connection = mysqlConnect( $host, $port, $user, $password, NULL);
-
+  $connection = mysqlConnect ( $host, $port, $user, $password, NULL );
+  
   // Create database
   $sql = "CREATE DATABASE " . $dbname . ";";
-
+  
   // Execute query
-  if( mysqli_query( $connection, $sql )) {
+  if (mysqli_query ( $connection, $sql )) {
     echo "Database " . $dbname . " created successfully.<br>";
+  } else {
+    echo "Error creating database: " . mysqli_error ( $connection ) . "<br>";
   }
-  else {
-    echo "Error creating database: " . mysqli_error($connection) . "<br>";
-  }
-
+  
   // Close connection
-  mysqli_close($connection);
+  mysqli_close ( $connection );
 }
-
 
 /**
  * This function creates the user table
@@ -170,6 +168,15 @@ function createDevicesTable($host, $port, $user, $password, $dbname) {
   
   // Close connection
   mysqli_close ( $connection );
+}
+
+// Setup the database
+if (isset ( $_GET ["action"] )) {
+  if ($_GET ["action"] == "setup") {
+    createDatabase ( $host, $port, $user, $password, $dbname );
+    createUsersTable ( $host, $port, $user, $password, $dbname );
+    createDevicesTable ( $host, $port, $user, $password, $dbname );
+  }
 }
 
 ?>
