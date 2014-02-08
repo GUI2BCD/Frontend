@@ -1,4 +1,6 @@
-<?php /*Include .PHP files here. */ ?>
+<?php /*Include .PHP files here. */ 
+include './LRR/servicebar.php';
+?>
 
 <html>
   <head>
@@ -27,24 +29,16 @@
   
     <div id="service">
      	<div id="service-content">
-     		<div id="service-left">
-     		  <img src="./images/icon.png" alt="Icon">
-     		</div>
-     		<div id="service-right">
-	     		<input class="service-login" type="text" placeholder="username" form="login" required="required">
-  	   		<input class="service-login" type="password" placeholder="password" form="login" required="required">
-  	   		<button type="submit" form="login">Log In</button>
-  	   		<a href="#">Sign-up</a>
-     		</div>
+     	  <?php $servicebar = new servicebar(); ?>
      	</div>
     </div>
-    
     <div id="wrapper">
       <div id="header">
       </div>
       <div id="content">
       </div>
       <div id="footer">
+        <p><center>This is filler text to get an idea of where the footer will render. </center></p>
       </div>
     </div>
   </body>

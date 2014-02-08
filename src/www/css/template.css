@@ -69,4 +69,6 @@ body {
   background: #000; */
   margin: 0; 
   height: 40px;
+  border-top-style: solid;
+  border-width: 1px;
 }
