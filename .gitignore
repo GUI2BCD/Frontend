@@ -1,0 +1,7 @@
+#Emacs
+*~
+
+# Eclipse
+.buildpath
+.project
+.settings
