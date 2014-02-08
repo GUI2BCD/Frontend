@@ -5,8 +5,8 @@
  *
  * Last Resort Recovery
  * Authors - David Jelley, Jr.
- * 					 Cameron Morris
- * 					 Benjamin Cao
+ *           Cameron Morris
+ *           Benjamin Cao
  *
  * Description: This file contains all the functionality related to interacting
  *              with the database.

@@ -1,28 +1,23 @@
 <?php
-ini_set('display_errors', 'On');
-
+ini_set ( 'display_errors', 'On' );
 class LastResortRecovery {
-
+  
   // Public methods
   
   // Build head
   public function renderHead() {
-   	?>
+    ?>
 <html>
-  <head>
-    <meta charset="UTF-8">
+<head>
+<meta charset="UTF-8">
      
     <?
-    $this->copyrightHeader();
-    
-    
+    $this->copyrightHeader ();
   }
   
-  
   // Private methods
-  
   private function copyrightHeader() {
-  	?>
+    ?>
     <!--
         University of Massachusetts Lowell
         GUI Programming II, Prof. Jesse Heines
@@ -41,10 +36,6 @@ class LastResortRecovery {
   }
   
   // Private variables
-  
-  
-  
-  
 }
 
 ?>
