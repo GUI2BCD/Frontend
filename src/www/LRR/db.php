@@ -1,4 +1,16 @@
 <?php
+/**
+ * University of Massachusetts Lowell
+ * GUI Programming II, Prof. Jesse Heines
+ * 
+ * Last Resort Recovery
+ * Authors - David Jelley, Jr.
+ * 					 Cameron Morris
+ * 					 Benjamin Cao
+ * 
+ * Description: This file contains all the functionality related to interacting
+ *              with the database.
+ */
 
 // Configuration of the mysql connection
 $host = "localhost";
@@ -66,8 +78,7 @@ function createUsersTable($host, $port, $user, $password, $dbname) {
 	$connection = mysqlConnect ( $host, $port, $user, $password, $dbname );
 	
 	// SQL Expression to create users table
-	$sql = 
-	"CREATE TABLE users
+	$sql = "CREATE TABLE users
 	(
 	ID INT NOT NULL AUTO_INCREMENT,
 	PRIMARY KEY(ID),
@@ -107,8 +118,7 @@ function createDevicesTable($host, $port, $user, $password, $dbname) {
 	$connection = mysqlConnect ( $host, $port, $user, $password, $dbname );
 	
 	// SQL Expression to create devices table
-	$sql = 
-	"CREATE TABLE devices
+	$sql = "CREATE TABLE devices
 	(
 	ID INT NOT NULL AUTO_INCREMENT,
 	PRIMARY KEY(ID),
