@@ -19,22 +19,21 @@ include_once 'session.php';
 Session::startSecureSession();
 
 // Check post variables
-if( isset( $_POST['email'], $_POST['password']) ) {
- 
+if (isset($_POST['email'], $_POST['password'])) {
+    
     $email = $_POST['email'];
     // Encrypted password
     $password = $_POST['password'];
     
     // Check if login valid
-    if( Session::login($email, $password, $connection) ) {
+    if (Session::login($email, $password, $connection)) {
         // Login success
         echo 'Login success';
-    }
-    else {
+    } else {
         // Login failed
         echo 'Login failed';
     }
-    
 } else {
     // Nothing was posted
+    echo 'Bad request';
 }
