@@ -6,14 +6,18 @@
 $(function() {
 // var username = $("#login-username"),
 // password = $("#login-password");
-
+    var $width = 350,
+        $height = 300,
+        $left = ($(window).width() / 2) - ($width / 2),
+        $top = 200;
+    
     /**
      * Setup for the Log in pop up window.
      */
     $("#login-prompt").dialog({
         autoOpen: false,
-        height: 300,
-        width: 350,
+        height: $height,
+        width: $width,
         modal: true,
         buttons: {
             "Log In": function() {
@@ -22,7 +26,8 @@ $(function() {
             Cancel: function(){
                 $(this).dialog("close");
             }
-        }
+        },
+        position: [$left, $top]
     });
     
     /**

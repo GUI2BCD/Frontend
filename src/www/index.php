@@ -35,12 +35,12 @@ include './LRR/servicebar.php';
   </head>
   <body class="homepage">
   <!-- Dialog Box Div -->
-  <div id="login-prompt" title="Log in to your account">
+  <div id="login-prompt" title="Sign in">
     <form>
         <fieldset>
-            <label for="login-username">Username</label>
-            <input type="text" name="login-username" id="login-username" class="text ui-widget-content ui-corner-all">
-            <label for="login-password">Password</label>
+            <label for="login-username">Username:</label><br />
+            <input type="text" name="login-username" id="login-username" class="text ui-widget-content ui-corner-all"><br />
+            <label for="login-password">Password:</label><br />
             <input type="password" name="login-password" id="login-password" class="text ui-widget-content ui-corner-all">
         </fieldset>
     </form>
