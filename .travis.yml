@@ -6,7 +6,7 @@ python:
 # command to install dependencies
 # - because we validate ourselves this is special
 install:
-  - pip install git://github.com/miohtama/vvv.git
+  - pip install vvv --use-mirrors
 
 # command to run tests
 script: vvv ./src/www
