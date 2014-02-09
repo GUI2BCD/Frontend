@@ -1,4 +1,6 @@
-<?php /*Include .PHP files here. */ ?>
+<?php /*Include .PHP files here. */ 
+include './LRR/servicebar.php';
+?>
 
 <html>
   <head>
@@ -18,31 +20,45 @@
         Version 0.01
       -->
 
-      <!-- Link stylesheets here. -->
+      <!-- Link local stylesheets and jQuery here. -->
       <link rel="stylesheet" type="text/css" media="all" href="./css/template.css" />
+      <link rel="stylesheet" type="text/css" media="all" href="./css/public.css" />
       <link rel="stylesheet" type="text/css" media="all" href="./css/servicebar.css" />
+
+      
+      <!-- Link jQuery UI here. -->
+      <link rel="stylesheet" type="text/css" media="all" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" />
+
+      <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
       
   </head>
   <body class="homepage">
   
     <div id="service">
      	<div id="service-content">
-     		<div id="service-left">
-     		  <img src="./images/icon.png" alt="Icon">
-     		</div>
-     		<div id="service-right">
-	     		<input class="service-login" type="text" placeholder="username" form="login" required="required">
-  	   		<input class="service-login" type="password" placeholder="password" form="login" required="required">
-  	   		<button type="submit" form="login">Log In</button>
-  	   		<a href="#">Sign-up</a>
-     		</div>
+     	  <?php $servicebar = new servicebar(); ?>
      	</div>
     </div>
-    
     <div id="wrapper">
       <div id="header">
+        <form>
+          <p><input type="text" name="username" id="signup-username" placeholder="Pick a username" class="text ui-widget-content ui-corner-all"></p>
+          <p><input type="text" name="email" id="signup-email" placeholder="Your email" class="text ui-widget-content ui-corner-all"></p>
+          <p><input type="password" name="password" id="signup-password" placeholder="Create a password" class="text ui-widget-content ui-corner-all"></p>
+          <p><input type="password" name="password2" id="signup-password2" placeholder="Verify your password" class="text ui-widget-content ui-corner-all"></p>
+          <p><input type="button" name="newuser-submit" id="signup-submit" value="Sign up now!"></p>
+        </form>
       </div>
       <div id="content">
+        <div class="content-image-left">
+        </div>
+        <div class="content-image-right">
+        </div>
+        <div class="content-image-left">
+        </div>
+        <div class="content-image-right">
+        </div>
       </div>
       <div id="footer">
       </div>
