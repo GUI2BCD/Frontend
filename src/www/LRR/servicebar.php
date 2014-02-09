@@ -18,15 +18,12 @@ class servicebar {
         <a href="./index.php"><img src="./images/icon2.png" alt="Icon"></a>
       </div>
       <div id="service-right">
-        <input class="service-login" type="text" placeholder="username" form="login" required="required">
-        <input class="service-login" type="password" placeholder="password" form="login" required="required">
-        <button type="submit" form="login">Log In</button>
-        <a href="#">Sign-up</a>
+        <button type="button" class="login-button">Log In</button>
       </div>
       
       <?php 
     } else {
-      echo '<p>CAM IS hi</p>';
+      echo '<p>Invalid Login</p>';
     }
   }
   
