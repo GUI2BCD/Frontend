@@ -1,0 +1,7 @@
+language: php
+php:
+  - "5.5"
+before_script: 
+  - pyrus install pear/PHP_CodeSniffer
+  - phpenv rehash
+script: phpcs --standard=Zend ./src/www
