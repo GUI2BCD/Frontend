@@ -4,4 +4,4 @@ php:
 before_script: 
   - pyrus install pear/PHP_CodeSniffer
   - phpenv rehash
-script: phpcs --standard=Zend ./src/www
+script: phpcs --standard=./src/ruleset.xml ./src/www
