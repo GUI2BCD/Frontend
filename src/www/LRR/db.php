@@ -12,12 +12,11 @@
  *              with the database.
  */
 
-// Configuration of the mysql connection
-$host = "localhost";
-$port = 3306;
-$user = "";
-$password = "";
-$dbname = "";
+// MySQL variables
+include_once 'config.php';
+
+// Holds the connection to the database
+$connection = mysqlConnect ( HOST, PORT, USER, PASSWORD, DATABASE );
 
 /**
  * This function connects to a MySQL database and returns a connection object
@@ -59,23 +58,36 @@ function mysqlConnect($host, $port, $user, $password, $dbname) {
 }
 
 /**
- * This function creates the user table
- *
- * @param string $host
- *          Hostname of MySQL server
- * @param integer $port
- *          Port number of MySQL server
- * @param string $user
- *          User with access to database
- * @param string $password
- *          Password for user
+ * This function will create a MySQL database with the given name
+ * 
+ * @param object $connection
+ *          MySQL connection object
  * @param string $dbname
- *          Name of the database to connect to
+ *          Name of the database to create
  */
-function createUsersTable($host, $port, $user, $password, $dbname) {
+function createDatabase($connection, $dbname) {
   
-  // Connect to mysql server
-  $connection = mysqlConnect ( $host, $port, $user, $password, $dbname );
+  // Create database
+  $sql = "CREATE DATABASE " . $dbname . ";";
+  
+  // Execute query
+  if (mysqli_query ( $connection, $sql )) {
+    echo "Database " . $dbname . " created successfully.<br>";
+  } else {
+    echo "Error creating database: " . mysqli_error ( $connection ) . "<br>";
+  }
+}
+
+/**
+ * This function creates the user table
+ * 
+ * @param object $connection
+ *          MySQL connection object
+ */
+function createUsersTable($connection) {
+  
+  // Select database
+  mysqli_select_db ( $connection, DATABASE );
   
   // SQL Expression to create users table
   $sql = "CREATE TABLE users
@@ -93,29 +105,18 @@ function createUsersTable($host, $port, $user, $password, $dbname) {
   } else {
     echo "Error creating table: " . mysqli_error ( $connection ) . "<br>";
   }
-  
-  // Close connection
-  mysqli_close ( $connection );
 }
 
 /**
  * This function creates the devices table
- *
- * @param string $host
- *          Hostname of MySQL server
- * @param integer $port
- *          Port number of MySQL server
- * @param string $user
- *          User with access to database
- * @param string $password
- *          Password for user
- * @param string $dbname
- *          Name of the database to connect to
+ * 
+ * @param object $connection
+ *          MySQL connection object
  */
-function createDevicesTable($host, $port, $user, $password, $dbname) {
+function createDevicesTable($connection) {
   
-  // Connect to mysql server
-  $connection = mysqlConnect ( $host, $port, $user, $password, $dbname );
+  // Select database
+  mysqli_select_db ( $connection, DATABASE );
   
   // SQL Expression to create devices table
   $sql = "CREATE TABLE devices
@@ -132,9 +133,15 @@ function createDevicesTable($host, $port, $user, $password, $dbname) {
   } else {
     echo "Error creating table: " . mysqli_error ( $connection ) . "<br>";
   }
-  
-  // Close connection
-  mysqli_close ( $connection );
+}
+
+// Setup the database
+if (isset ( $_GET ["action"] )) {
+  if ($_GET ["action"] == "setup") {
+    createDatabase ( $connection, DATABASE );
+    createUsersTable ( $connection );
+    createDevicesTable ( $connection );
+  }
 }
 
 ?>
