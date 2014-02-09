@@ -7,7 +7,6 @@ $(function() {
 // var username = $("#login-username"),
 // password = $("#login-password");
 
-    
     /**
      * Setup for the Log in pop up window.
      */
@@ -29,9 +28,9 @@ $(function() {
     /**
      * Opens the Log In pop up window.
      */
-    $("#login-prompt")
+    $( ".login-prompt" )
        .button()
        .click(function() {
-           $("#login-prompt").dialog("open");
+           $("#login-prompt").dialog( "open" );
        });
 });
