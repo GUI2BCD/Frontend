@@ -21,3 +21,5 @@ define("USER", "root");
 define("PASSWORD", "");
 // Name of MySQL database
 define("DATABASE", "lastresortrecovery");  
+
+?>
