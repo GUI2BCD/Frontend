@@ -27,15 +27,10 @@ namespace LastResortRecovery
         {
             // Name of session
             $sessionName = "lastresort_id";
-            // Use only cookies
-            if (! ini_set('session.use_only_cookies', 1)) {
-                die('Could not initiate secure session<br>');
-            }
-            
             // Setup cookie parameters
             $cookieParams = session_get_cookie_params();
             
-            session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], SECURE, true);
+            session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], false, true);
             // Name session
             session_name($sessionName);
             // Begin session
