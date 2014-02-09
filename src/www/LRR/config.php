@@ -20,6 +20,4 @@ define("USER", "root");
 // Database password
 define("PASSWORD", "");
 // Name of MySQL database
-define("DATABASE", "lastresortrecovery");  
-
-?>
+define("DATABASE", "lastresortrecovery");
