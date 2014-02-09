@@ -1,19 +1,19 @@
 @CHARSET "ISO-8859-1";
 
 #service-left {
-  float: left;
+    float: left;
 }
 
 #service-right {
-  float: right;
-  margin: 8px 0;
+    float: right;
+    margin: 8px 0;
 }
 
 #service-right button {
-	width: 70px;
-	height: 30px;
-	border-radius: 8px;	
-	font-family: tahoma;
-	boder: 0;
-	background-color: white;
+    width: 60px;
+    height: 30px;
+    border-radius: 8px;
+    font-family: tahoma;
+    boder: 0;
+    background-color: white;
 }
