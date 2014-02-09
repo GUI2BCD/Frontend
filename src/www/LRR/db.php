@@ -99,11 +99,11 @@ class Database
         // SQL Expression to create users table
         $sql = "CREATE TABLE users
                 (
-                ID INT NOT NULL AUTO_INCREMENT,
-                PRIMARY KEY(ID),
-                username TINYBLOB,
-                password BLOB,
-                email TINYBLOB
+                id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                username VARCHAR(30),
+                password CHAR(128),
+                salt CHAR(128),
+                email VARCHAR(50)
                 );";
         
         // Execute query
@@ -129,10 +129,9 @@ class Database
         // SQL Expression to create devices table
         $sql = "CREATE TABLE devices
 	              (
-	               ID INT NOT NULL AUTO_INCREMENT,
-	               PRIMARY KEY(ID),
+	               id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	               userid INT NOT NULL,
-	               name TINYBLOB
+	               name VARCHAR(30)
                	);";
         
         // Execute query
