@@ -43,7 +43,5 @@ class servicebar
     /* Check the cookie for a current session. */
     /* Return true if a user is logged in. */
     /* Return false if no current session is found. */
-  }
+    }
 }
-
-?>
