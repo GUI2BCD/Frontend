@@ -1,12 +1,9 @@
-language: python
-
-python:
-  - "3.2"
-
-# command to install dependencies
-# - because we validate ourselves this is special
-install:
-  - pip install vvv --use-mirrors
-
-# command to run tests
-script: vvv ./src/www
+language: php
+php:
+  - "5.5"
+  - "5.4"
+  - "5.3"
+before_script: 
+  - pyrus install pear/PHP_CodeSniffer
+  - phpenv rehash
+script: phpcs .
