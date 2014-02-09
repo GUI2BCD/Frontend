@@ -25,15 +25,26 @@ include './LRR/servicebar.php';
       <link rel="stylesheet" type="text/css" media="all" href="./css/public.css" />
       <link rel="stylesheet" type="text/css" media="all" href="./css/servicebar.css" />
 
+      <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="./js/login.js"></script>
       
       <!-- Link jQuery UI here. -->
       <link rel="stylesheet" type="text/css" media="all" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" />
-
-      <script src="//code.jquery.com/jquery-1.10.2.js"></script>
       <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
       
   </head>
   <body class="homepage">
+  <!-- Dialog Box Div -->
+  <div id="login-prompt" title="Log in to your account">
+    <form>
+        <fieldset>
+            <label for="login-username">Username</label>
+            <input type="text" name="login-username" id="login-username" class="text ui-widget-content ui-corner-all">
+            <label for="login-password">Password</label>
+            <input type="password" name="login-password" id="login-password" class="text ui-widget-content ui-corner-all">
+        </fieldset>
+    </form>
+  </div>
   
     <div id="service">
      	<div id="service-content">
