@@ -22,7 +22,7 @@ class servicebar
         <a href="./index.php"><img src="./images/icon2.png" alt="Icon"></a>
     </div>
     <div id="service-right">
-        <button type="button" class="login-button">Log In</button>
+        <button type="button" class="login-prompt">Log In</button>
     </div>
 
 <?php

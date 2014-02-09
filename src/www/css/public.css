@@ -110,3 +110,15 @@
  * This should hold the more structural links/information.
  *  - An about link, location, social media, resources, etc.
  */
+ 
+ /**
+  * Features:
+  */
+  #login-prompt {
+  
+  }
+  
+  #login-prompt fieldset {
+    border: none;
+  }
+  
