@@ -1,5 +1,6 @@
 <?php 
 /* Include .PHP files here. */
+namespace LastResortRecovery;
 include './LRR/servicebar.php';
 ?>
 
@@ -55,7 +56,7 @@ include './LRR/servicebar.php';
 
   <div id="service">
     <div id="service-content">
-     	  <?php $servicebar = new servicebar(); ?>
+     	  <?php $servicebar = new Servicebar(); ?>
      	</div>
   </div>
   <div id="wrapper">
