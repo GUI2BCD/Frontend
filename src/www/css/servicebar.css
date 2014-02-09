@@ -1,0 +1,13 @@
+@CHARSET "ISO-8859-1";
+
+#service-left {
+  float: left;
+}
+
+#service-right {
+  float: right;
+  margin: 10px;
+}
+
+.service-login {
+}
