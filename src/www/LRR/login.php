@@ -10,4 +10,3 @@
  *
  * Description: This file handles the login/registration process.
  */
-?>
