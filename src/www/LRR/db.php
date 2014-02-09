@@ -94,13 +94,13 @@ function createUsersTable ($connection)
     
     // SQL Expression to create users table
     $sql = "CREATE TABLE users
-	(
-	ID INT NOT NULL AUTO_INCREMENT,
-	PRIMARY KEY(ID),
-	username TINYBLOB,
-	password BLOB,
-	email TINYBLOB
-	);";
+(
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(30),
+password CHAR(128),
+salt CHAR(128),
+email VARCHAR(50)
+);";
     
     // Execute query
     if (mysqli_query($connection, $sql)) {
@@ -124,12 +124,11 @@ function createDevicesTable ($connection)
     
     // SQL Expression to create devices table
     $sql = "CREATE TABLE devices
-	(
-	ID INT NOT NULL AUTO_INCREMENT,
-	PRIMARY KEY(ID),
-	userid INT NOT NULL,
-	name TINYBLOB
-	);";
+(
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+userid INT NOT NULL,
+name VARCHAR(30)
+);";
     
     // Execute query
     if (mysqli_query($connection, $sql)) {
