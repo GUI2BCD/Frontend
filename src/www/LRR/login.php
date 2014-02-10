@@ -26,6 +26,9 @@ if (isset($_POST['email'], $_POST['password'])) {
     // Encrypted password
     $password = $_POST['password'];
     
+    echo 'Email=' .$email;
+    echo 'Password='.$password;
+    
     // Check if login valid
     if (Session::login($email, $password, $connection)) {
         // Login success
