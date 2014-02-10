@@ -9,7 +9,7 @@
  *           Benjamin Cao
  *
  * Description: This file contains the functions which manage the session
- *              This includes login authenication
+ *              This includes login authentication
  */
 namespace LastResortRecovery
 

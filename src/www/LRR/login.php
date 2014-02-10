@@ -16,9 +16,6 @@ namespace LastResortRecovery;
 include_once 'db.php';
 include_once 'session.php';
 
-// Spelling test mispel 
-
-
 // Start a session
 Session::startSecureSession();
 
