@@ -1,1 +1,2 @@
         http://www.colorzilla.com/gradient-editor/ This is used for gradients.
+        http://www.wikihow.com/Create-a-Secure-Login-Script-in-PHP-and-MySQL - Used this as a guide for the backend code
