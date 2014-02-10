@@ -221,7 +221,7 @@ namespace LastResortRecovery
             }
             
             // Create a salt to protect password
-            $salt = hash('sha512', uniqid(openssl_random_pseudo_bytes(16), TRUE));
+            $salt = hash('sha512', uniqid(openssl_random_pseudo_bytes(16), true));
             
             // Salt password
             $password = hash('sha512', $password . $salt);
