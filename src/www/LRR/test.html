@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="../js/sha512.js"></script>
+
+<script type="text/javascript">
+function encrypt() {
+    var password = document.getElementById("n2").value;
+    
+    var shaObj = new jsSHA(password, "TEXT");
+    document.getElementById("n2").value = shaObj.getHash("SHA-512","HEX");
+    console.log(shaObj.getHash("SHA-512","HEX"));
+}
+</script>
+
+</head>
+<body>
+
+  <form id="testForm" action="login.php" method="post" onSubmit="encrypt()"">
+
+    <label for="n1"> Email: <input id="n1" type="text"
+      name="email" tabindex="1"></label> <label for="n2">password
+      <input id="n2" type="password" name="password" tabindex="2">
+    </label> <input type="submit" value="Submit" tabindex="5">
+  </form>
+
+
+</body>
+</html>
