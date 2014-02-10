@@ -35,7 +35,7 @@ namespace LastResortRecovery
     define("REGISTER_SUCCESS", "Registered");
     define("REGISTER_EMAIL", "Email in use");
     define("REGISTER_USER", "Username is use");
-
+    define("REGISTER_BAD_EMAIL", "Email invalid");
 
 
     define("DATABASE_ERROR", "Database error");
