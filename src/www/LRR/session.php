@@ -49,7 +49,7 @@ namespace LastResortRecovery
          *            User's password
          * @param object $connection
          *            MySQL connection object
-         * @return boolean whether the login was sucessful or not
+         * @return string whether the login was sucessful or approriate error
          */
         public static function login($email, $password, $connection)
         {
@@ -87,24 +87,24 @@ namespace LastResortRecovery
                         $_SESSION['loginString'] = hash('sha512', $password . $browserAgent);
                         
                         // Login successful
-                        return true;
+                        return LOGIN_SUCCESS;
                     } else {
                         // Password incorrect
-                        return false;
+                        return LOGIN_PASSWORD;
                     }
                 } else {
                     // User doesn't exist
-                    return false;
+                    return LOGIN_EMAIL;
                 }
             } else {
                 // No results
-                return false;
+                return DATABASE_ERROR;
             }
         }
 
         /**
          * Checks if a session is logged in and is a valid session
-         * 
+         *
          * @param object $connection
          *            MySQL connection object
          * @return boolean result whether logged in with a valid session
@@ -161,6 +161,88 @@ namespace LastResortRecovery
             } else {
                 // Invalid session
                 return false;
+            }
+        }
+
+        /**
+         * Checks if username & email is available and registers user into database
+         *
+         * @param string $username
+         *            User's name
+         * @param string $email
+         *            User's email address
+         * @param string $password
+         *            User's password
+         * @param object $connection
+         *            MySQL connection object
+         * @return string result whether registration was successful or approriate error
+         */
+        public static function register($username, $email, $password, $connection)
+        {
+            
+            // Check if email exists
+            $sql = "SELECT id FROM users WHERE email = ? LIMIT 1";
+            
+            // Prepare statement
+            if ($result = $connection->prepare($sql)) {
+                // Bind email into query
+                $result->bind_param('s', $email);
+                // Execute query
+                $result->execute();
+                // Save results
+                $result->store_result();
+                
+                if ($result->num_rows == 1) {
+                    // Email exists
+                    return REGISTER_EMAIL;
+                }
+            } else {
+                return DATABASE_ERROR;
+            }
+            
+            // Check if username exists
+            $sql = "SELECT id FROM users WHERE username = ? LIMIT 1";
+            
+            // Prepare statement
+            if ($result = $connection->prepare($sql)) {
+                // Bind username into query
+                $result->bind_param('s', $username);
+                // Execute query
+                $result->execute();
+                // Save results
+                $result->store_result();
+                
+                if ($result->num_rows == 1) {
+                    // Username exists
+                    return REGISTER_USER;
+                }
+            } else {
+                return DATABASE_ERROR;
+            }
+            
+            // Create a salt to protect password
+            $salt = hash('sha512', uniqid(openssl_random_pseudo_bytes(16), TRUE));
+            
+            // Salt password
+            $password = hash('sha512', $password . $salt);
+            
+            // Insert user into database
+            $sql = "INSERT INTO users (username, password, salt, email) VALUES( ?, ?, ?, ?)";
+            
+            // Prepare statement
+            if ($result = $connection->prepare($sql)) {
+                // Bind parameters
+                $result->bind_param('ssss', $username, $password, $salt, $email);
+                
+                // Execute query
+                if (! $result->execute()) {
+                    return DATABASE_ERROR;
+                }
+                
+                // Success
+                return REGISTER_SUCCESS;
+            } else {
+                return DATABASE_ERROR;
             }
         }
     }
