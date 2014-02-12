@@ -18,15 +18,13 @@ include_once 'session.php';
 
 // Check post variables
 if (isset($_POST['username'])) {
-    //Check username
+    // Check username
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
     echo Session::checkUsername($username, $connection);
-}
-else if( isset($_POST['email'])) {
-    //Check email
+} elseif (isset($_POST['email'])) {
+    // Check email
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     echo Session::checkEmail($email, $connection);
-}
-else {
+} else {
     echo BAD_REQUEST;
 }
