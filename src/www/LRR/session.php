@@ -210,6 +210,14 @@ namespace LastResortRecovery
          */
         public static function checkEmail($email, $connection)
         {
+            
+            // Validate email
+            $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+            if (! filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                // Invalid
+                return VALIDATION_BAD_EMAIL;
+            }
+            
             // Check if email exists
             $sql = "SELECT id FROM users WHERE email = ? LIMIT 1";
             
@@ -253,6 +261,11 @@ namespace LastResortRecovery
             // Check if username already exists
             if (Session::checkUsername($username, $connection) == VALIDATION_USER) {
                 return REGISTER_USER;
+            }
+            
+            // Check if email valid
+            if (Session::checkEmail($email, $connection) == VALIDATION_BAD_EMAIL) {
+                return REGISTER_BAD_EMAIL;
             }
             
             // Check if email already exists

@@ -31,5 +31,5 @@ if (isset($_POST['email'], $_POST['password'])) {
 
 } else {
     // Nothing was posted
-    echo 'Bad request';
+    echo BAD_REQUEST;
 }
