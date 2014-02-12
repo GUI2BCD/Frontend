@@ -165,6 +165,76 @@ namespace LastResortRecovery
         }
 
         /**
+         * Checks if a username is already in use
+         *
+         * @param string $username
+         *            Username in question
+         * @param string $connection
+         *            MySQL connection object
+         * @return string whether the username is in use or not
+         */
+        public static function checkUsername($username, $connection)
+        {
+            // Check if username exists
+            $sql = "SELECT id FROM users WHERE username = ? LIMIT 1";
+            
+            // Prepare statement
+            if ($result = $connection->prepare($sql)) {
+                // Bind username into query
+                $result->bind_param('s', $username);
+                // Execute query
+                $result->execute();
+                // Save results
+                $result->store_result();
+                
+                if ($result->num_rows == 1) {
+                    // Username exists
+                    return VALIDATION_USER;
+                } else {
+                    // Username doesn't exist
+                    return VALIDATION_OK;
+                }
+            } else {
+                return DATABASE_ERROR;
+            }
+        }
+
+        /**
+         * Checks if a email is already in use
+         *
+         * @param string $email
+         *            Email in question
+         * @param string $connection
+         *            MySQL connection object
+         * @return string whether the email is in use or not
+         */
+        public static function checkEmail($email, $connection)
+        {
+            // Check if email exists
+            $sql = "SELECT id FROM users WHERE email = ? LIMIT 1";
+            
+            // Prepare statement
+            if ($result = $connection->prepare($sql)) {
+                // Bind email into query
+                $result->bind_param('s', $email);
+                // Execute query
+                $result->execute();
+                // Save results
+                $result->store_result();
+                
+                if ($result->num_rows == 1) {
+                    // Email exists
+                    return VALIDATION_EMAIL;
+                } else {
+                    // Email doesn't exist
+                    return VALIDATION_OK;
+                }
+            } else {
+                return DATABASE_ERROR;
+            }
+        }
+
+        /**
          * Checks if username & email is available and registers user into database
          *
          * @param string $username
@@ -180,44 +250,14 @@ namespace LastResortRecovery
         public static function register($username, $email, $password, $connection)
         {
             
-            // Check if email exists
-            $sql = "SELECT id FROM users WHERE email = ? LIMIT 1";
-            
-            // Prepare statement
-            if ($result = $connection->prepare($sql)) {
-                // Bind email into query
-                $result->bind_param('s', $email);
-                // Execute query
-                $result->execute();
-                // Save results
-                $result->store_result();
-                
-                if ($result->num_rows == 1) {
-                    // Email exists
-                    return REGISTER_EMAIL;
-                }
-            } else {
-                return DATABASE_ERROR;
+            // Check if username already exists
+            if (Session::checkUsername($username, $connection) == VALIDATION_USER) {
+                return REGISTER_USER;
             }
             
-            // Check if username exists
-            $sql = "SELECT id FROM users WHERE username = ? LIMIT 1";
-            
-            // Prepare statement
-            if ($result = $connection->prepare($sql)) {
-                // Bind username into query
-                $result->bind_param('s', $username);
-                // Execute query
-                $result->execute();
-                // Save results
-                $result->store_result();
-                
-                if ($result->num_rows == 1) {
-                    // Username exists
-                    return REGISTER_USER;
-                }
-            } else {
-                return DATABASE_ERROR;
+            // Check if email already exists
+            if (Session::checkEmail($email, $connection) == VALIDATION_EMAIL) {
+                return REGISTER_EMAIL;
             }
             
             // Create a salt to protect password

@@ -15,7 +15,6 @@ namespace LastResortRecovery;
 
 include_once 'db.php';
 include_once 'session.php';
-
 // Check post variables
 if (isset($_POST['username'], $_POST['email'], $_POST['password'])) {
     

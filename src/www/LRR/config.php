@@ -13,7 +13,6 @@
 namespace LastResortRecovery
 
 {
-    
     // Hostname of the MySQL server
     define("HOST", "localhost");
     // Port number of MySQL server
@@ -31,12 +30,15 @@ namespace LastResortRecovery
     define("LOGIN_USER", "User not found");
     define("LOGIN_EMAIL", "Email not found");
     define("LOGIN_SESSION", "Invalid session");
-
+    
     define("REGISTER_SUCCESS", "Registered");
     define("REGISTER_EMAIL", "Email in use");
     define("REGISTER_USER", "Username is use");
     define("REGISTER_BAD_EMAIL", "Email invalid");
-
-
+    
+    define("VALIDATION_USER", "Username in use");
+    define("VALIDATION_EMAIL", "Email in use");
+    define("VALIDATION_OK", "OK");
+    
     define("DATABASE_ERROR", "Database error");
 }
