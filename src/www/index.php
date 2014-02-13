@@ -1,4 +1,4 @@
-<?php 
+<?php
 /* Include .PHP files here. */
 namespace LastResortRecovery;
 
@@ -67,10 +67,12 @@ include './LRR/servicebar.php';
 				<form class="navbar-form navbar-right" role="form"
 					action="LRR/login.php" method="post" onSubmit="encrypt_login()">
 					<div class="form-group">
-						<input id="email" type="text" placeholder="Email" class="form-control">
+						<input id="email" type="text" placeholder="Email"
+							class="form-control">
 					</div>
 					<div class="form-group">
-						<input id="password" type="password" placeholder="Password" class="form-control">
+						<input id="password" type="password" placeholder="Password"
+							class="form-control">
 					</div>
 					<button type="submit" class="btn btn-success">Sign in</button>
 				</form>
@@ -82,11 +84,8 @@ include './LRR/servicebar.php';
 	<!-- Main jumbotron for a primary marketing message or call to action -->
 	<div class="jumbotron">
 		<div class="container">
-			<h1>Hello, world!</h1>
-			<p>This is a template for a simple marketing or informational
-				website. It includes a large callout called a jumbotron and three
-				supporting pieces of content. Use it as a starting point to create
-				something more unique.</p>
+			<h1>From lost, to found</h1>
+			<p>The simple missing laptop recovery tool</p>
 			<p>
 				<a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a>
 			</p>
