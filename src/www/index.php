@@ -2,7 +2,6 @@
 /* Include .PHP files here. */
 namespace LastResortRecovery;
 
-include './LRR/servicebar.php';
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +37,14 @@ include './LRR/servicebar.php';
 	document.getElementById("password").value = shaObj.getHash("SHA-512", "HEX");
 	console.log(shaObj.getHash("SHA-512", "HEX"));
     }
+
+    function encrypt_register() {
+	var password = document.getElementById("regpassword").value;
+
+	var shaObj = new jsSHA(password, "TEXT");
+	document.getElementById("regpassword").value = shaObj.getHash("SHA-512", "HEX");
+	console.log(shaObj.getHash("SHA-512", "HEX"));
+    }
 </script>
 
 <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -67,17 +74,42 @@ include './LRR/servicebar.php';
 				<form class="navbar-form navbar-right" role="form"
 					action="LRR/login.php" method="post" onSubmit="encrypt_login()">
 					<div class="form-group">
-						<input id="email" type="text" placeholder="Email"
-							class="form-control">
+						<input id="email" name="email" type="text" placeholder="Email"
+							class="form-control" required>
 					</div>
 					<div class="form-group">
-						<input id="password" type="password" placeholder="Password"
-							class="form-control">
+						<input id="password" name="password" type="password" placeholder="Password"
+							class="form-control" required>
 					</div>
 					<button type="submit" class="btn btn-success">Sign in</button>
 				</form>
 			</div>
 			<!--/.navbar-collapse -->
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="RegisterForm" tabindex="-1" role="dialog"
+		aria-labelledby="RegisterForm" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+					<form class="form-register" role="form" 
+					     action="LRR/register.php" method="post" onSubmit="encrypt_register()">
+						<h2 class="form-register-heading">Create your account</h2>
+						<input id="username" name="username" type="text" class="form-control"
+							placeholder="Username" required autofocus>
+						<input id="regemail" name="email" type="email" class="form-control"
+							placeholder="Email address" required> 
+						<input id="regpassword" name="password" type="password" class="form-control" 
+						    placeholder="Password" required>
+						<input id="regcpassword" name="cpassword" type="password" class="form-control" 
+						    placeholder="Confirm Password" required>
+						<button class="btn btn-lg btn-primary btn-block" 
+						    type="submit">Sign up</button>
+					</form>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -87,7 +119,8 @@ include './LRR/servicebar.php';
 			<h1>From lost, to found</h1>
 			<p>The simple missing laptop recovery tool</p>
 			<p>
-				<a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a>
+				<button class="btn btn-primary btn-lg" data-toggle="modal"
+					data-target="#RegisterForm">Sign up</button>
 			</p>
 		</div>
 	</div>
