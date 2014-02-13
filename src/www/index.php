@@ -1,3 +1,10 @@
+<?php 
+/* Include .PHP files here. */
+namespace LastResortRecovery;
+
+include './LRR/servicebar.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

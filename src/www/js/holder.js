@@ -7,6 +7,7 @@ Provided under the MIT License.
 Commercial use requires attribution.
 
 */
+// @codingStandardsIgnoreFile
 var Holder = Holder || {};
 (function (app, win) {
 var system_config = {
