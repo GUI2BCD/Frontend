@@ -45,7 +45,7 @@ include './LRR/servicebar.php';
 <body class="homepage">
   <!-- Dialog Box Div -->
   <div id="login-prompt" title="Sign in">
-    <form>
+    <form name="login" id = "login">
       <fieldset>
         <label for="login-username">Username:</label><br /> <input
           type="text" name="login-username" id="login-username"
@@ -64,7 +64,7 @@ include './LRR/servicebar.php';
   </div>
   <div id="wrapper">
     <div id="header">
-      <form name="reg" id="reg" method="get">
+      <form name="reg" id="reg">
         <p>
           <input type="text" name="username" id="signup-username"
             placeholder="Pick a username"
