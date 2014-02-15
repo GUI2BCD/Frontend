@@ -90,3 +90,10 @@ body {
   border-top-style: solid;
   border-width: 1px;
 }
+
+/* Error label for jQuery validation */
+#reg label.error {
+  color : red;
+  font-size : 12px;
+  display : block;
+}

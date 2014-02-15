@@ -31,7 +31,9 @@ include './LRR/servicebar.php';
 <link rel="stylesheet" type="text/css" media="all"
   href="./css/servicebar.css" />
 
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>   
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script src="./js/validation.js"></script>
 <script src="./js/login.js"></script>
 
 <!-- Link jQuery UI here. -->
@@ -62,7 +64,7 @@ include './LRR/servicebar.php';
   </div>
   <div id="wrapper">
     <div id="header">
-      <form>
+      <form name="reg" id="reg" method="get">
         <p>
           <input type="text" name="username" id="signup-username"
             placeholder="Pick a username"
