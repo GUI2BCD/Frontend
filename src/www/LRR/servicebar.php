@@ -22,7 +22,7 @@ namespace LastResortRecovery
                 ?>
 
                 <div id="service-left">
-                    <a href="./index.php"><img src="./images/icon2.png" alt="Icon"></a>
+                    <a href="./index.php"><img src="./images/Icon2.png" alt="Icon"></a>
                 </div>
                 <div id="service-right">
                     <button type="button" class="login-prompt">Log In</button>
