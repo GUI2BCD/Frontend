@@ -29,8 +29,11 @@ namespace LastResortRecovery
             $sessionName = "lastresort";
             // Setup cookie parameters
             $cookieParams = session_get_cookie_params();
-            
-            session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], $cookieParams["domain"], false, true);
+            session_set_cookie_params($cookieParams["lifetime"], 
+                                      $cookieParams["path"], 
+                                      $cookieParams["domain"], 
+                                      false, 
+                                      true);
             // Name session
             session_name($sessionName);
             // Begin session
@@ -86,7 +89,6 @@ namespace LastResortRecovery
                         $_SESSION['username'] = $username;
                         $_SESSION['loginString'] = hash('sha512', $password . $browserAgent);
                         
-                        
                         // Login successful
                         return LOGIN_SUCCESS;
                     } else {
@@ -121,7 +123,7 @@ namespace LastResortRecovery
                 $loginString = $_SESSION['loginString'];
                 // Get browser agent
                 $browserAgent = $_SERVER['HTTP_USER_AGENT'];
-       
+                
                 // Get user's password from database
                 $sql = "SELECT password FROM users WHERE id = ? LIMIT 1";
                 
