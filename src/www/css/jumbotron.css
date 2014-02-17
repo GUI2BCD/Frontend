@@ -21,7 +21,7 @@ body {
 -------------------------------------------------- */
 @media ( min-width : 768px) {
   /* Remove the edge padding needed for mobile */
-  .marketing {
+  .content {
     padding-right: 0;
     padding-left: 0;
   }

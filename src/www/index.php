@@ -72,14 +72,14 @@ namespace LastResortRecovery;
 			</div>
 			<div class="navbar-collapse collapse">
 				<form class="navbar-form navbar-right" role="form"
-					action="LRR/login.php" method="post" onSubmit="encrypt_login()">
+					action="login.php" method="post" onSubmit="encrypt_login()">
 					<div class="form-group">
 						<input id="email" name="email" type="text" placeholder="Email"
 							class="form-control" required>
 					</div>
 					<div class="form-group">
-						<input id="password" name="password" type="password" placeholder="Password"
-							class="form-control" required>
+						<input id="password" name="password" type="password"
+							placeholder="Password" class="form-control" required>
 					</div>
 					<button type="submit" class="btn btn-success">Sign in</button>
 				</form>
@@ -94,19 +94,19 @@ namespace LastResortRecovery;
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-body">
-					<form class="form-register" role="form" 
-					     action="LRR/register.php" method="post" onSubmit="encrypt_register()">
+					<form class="form-register" role="form" action="register.php"
+						method="post" onSubmit="encrypt_register()">
 						<h2 class="form-register-heading">Create your account</h2>
-						<input id="username" name="username" type="text" class="form-control"
-							placeholder="Username" required autofocus>
-						<input id="regemail" name="email" type="email" class="form-control"
-							placeholder="Email address" required> 
-						<input id="regpassword" name="password" type="password" class="form-control" 
-						    placeholder="Password" required>
-						<input id="regcpassword" name="cpassword" type="password" class="form-control" 
-						    placeholder="Confirm Password" required>
-						<button class="btn btn-lg btn-primary btn-block" 
-						    type="submit">Sign up</button>
+						<input id="username" name="username" type="text"
+							class="form-control" placeholder="Username" required autofocus> <input
+							id="regemail" name="email" type="email" class="form-control"
+							placeholder="Email address" required> <input id="regpassword"
+							name="password" type="password" class="form-control"
+							placeholder="Password" required> <input id="regcpassword"
+							name="cpassword" type="password" class="form-control"
+							placeholder="Confirm Password" required>
+						<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
+							up</button>
 					</form>
 				</div>
 			</div>
@@ -130,7 +130,7 @@ namespace LastResortRecovery;
     ================================================== -->
 	<!-- Wrap the rest of the page in another container to center all the content. -->
 
-	<div class="container marketing">
+	<div class="container content">
 
 		<!-- START THE FEATURETTES -->
 
@@ -195,9 +195,10 @@ namespace LastResortRecovery;
 
 		<!-- /END THE FEATURETTES -->
 
-		<hr>
+
 
 		<!-- FOOTER -->
+		<hr>
 		<footer>
 			<p class="pull-right">
 				<a href="#">Back to top</a>
