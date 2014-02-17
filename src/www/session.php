@@ -30,10 +30,10 @@ namespace LastResortRecovery
             // Setup cookie parameters
             $cookieParams = session_get_cookie_params();
             session_set_cookie_params(
-                $cookieParams["lifetime"], 
-                $cookieParams["path"], 
-                $cookieParams["domain"], 
-                false, 
+                $cookieParams["lifetime"],
+                $cookieParams["path"],
+                $cookieParams["domain"],
+                false,
                 true
             );
             // Name session
