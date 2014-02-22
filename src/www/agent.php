@@ -66,8 +66,7 @@ if (isset($_GET['action'])) {
         } else {
             echo BAD_REQUEST;
         }
-    }
-    elseif ($_GET['action'] == 'register') {
+    } elseif ($_GET['action'] == 'register') {
         // Agent registering a new device
         
         // Check post variables
