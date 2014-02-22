@@ -59,7 +59,7 @@ if (isset($_GET['action'])) {
             $result = Session::login($email, $password, $connection);
             if ($result == LOGIN_SUCCESS) {
                 // Check device status
-                echo 'OK';
+                echo Device::status($deviceid, $connection);
             } else {
                 echo $result;
             }

@@ -19,11 +19,16 @@ namespace LastResortRecovery
 
     class Device
     {
+
         /**
          * Registers a device to a user account
-         * @param string $email User's email
-         * @param string $deviceName Name of the device being registered
-         * @param object $connection MySQL connection Object
+         * 
+         * @param string $email
+         *            User's email
+         * @param string $deviceName
+         *            Name of the device being registered
+         * @param object $connection
+         *            MySQL connection Object
          * @return number id of registered device, -1 if error
          */
         public static function registerDevice($email, $deviceName, $connection)
@@ -90,6 +95,40 @@ namespace LastResortRecovery
                         return - 1;
                     }
                 }
+            }
+        }
+        /**
+         * Get's the current status of a device
+         * @param integer $deviceID ID of the user's device
+         * @param object $connection MySQL connection object
+         * @return string status of the device
+         */
+        public static function status($deviceID, $connection)
+        {
+            // Get status
+            $sql = "SELECT status FROM devices WHERE id = ? LIMIT 1";
+            
+            // Prepare statement
+            if ($result = $connection->prepare($sql)) {
+                // Bind ID into query
+                $result->bind_param('i', $deviceID);
+                // Execute query
+                $result->execute();
+                // Save results
+                $result->store_result();
+                
+                // Check if user exists
+                if ($result->num_rows == 1) {
+                    // Get user's database password
+                    $result->bind_result($status);
+                    $result->fetch();
+                    
+                    return $status;
+                } else {
+                    return AGENT_DEVICE;
+                }
+            } else {
+                return DATABASE_ERROR;
             }
         }
     }
