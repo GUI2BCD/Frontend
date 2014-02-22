@@ -133,7 +133,8 @@ namespace LastResortRecovery
 	              (
 	               id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	               userid INT NOT NULL,
-	               name VARCHAR(30)
+	               name VARCHAR(30),
+	               status VARCHAR(10)
                	);";
             
             // Execute query

@@ -19,7 +19,13 @@ namespace LastResortRecovery
 
     class Device
     {
-
+        /**
+         * Registers a device to a user account
+         * @param string $email User's email
+         * @param string $deviceName Name of the device being registered
+         * @param object $connection MySQL connection Object
+         * @return number id of registered device, -1 if error
+         */
         public static function registerDevice($email, $deviceName, $connection)
         {
             // Get user's id
