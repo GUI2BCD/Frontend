@@ -1,101 +1,226 @@
-<?php 
+<?php
 /* Include .PHP files here. */
 namespace LastResortRecovery;
 
-include './LRR/servicebar.php';
 ?>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<!--
-        University of Massachusetts Lowell
-        GUI Programming II, Prof. Jesse Heines
-		
-        Senior Project: Last Resort Recovery
-        Authors - David Jelley, Jr.
-                  Cameron Morris
-                  Benjamin Cao
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-        Description: This semester we are tasked to take the knowledge we learned in GUI I and spend 
-                     the entire semester developing an interesting, advanced, and professional webpage.
+<title>Last Resort Recovery</title>
 
-        Version 0.01
-      -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 
-<!-- Link local stylesheets and jQuery here. -->
-<link rel="stylesheet" type="text/css" media="all"
-  href="./css/template.css" />
-<link rel="stylesheet" type="text/css" media="all"
-  href="./css/public.css" />
-<link rel="stylesheet" type="text/css" media="all"
-  href="./css/servicebar.css" />
+<!-- Custom styles for this template -->
+<link href="css/jumbotron.css" rel="stylesheet">
 
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="./js/login.js"></script>
+<script src="js/holder.js"></script>
+<script type="text/javascript" src="js/sha512.js"></script>
 
-<!-- Link jQuery UI here. -->
-<link rel="stylesheet" type="text/css" media="all"
-  href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" />
-<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script type="text/javascript">
+    function encrypt_login() {
+	var password = document.getElementById("password").value;
 
+	var shaObj = new jsSHA(password, "TEXT");
+	document.getElementById("password").value = shaObj.getHash("SHA-512", "HEX");
+	console.log(shaObj.getHash("SHA-512", "HEX"));
+    }
+
+    function encrypt_register() {
+	var password = document.getElementById("regpassword").value;
+
+	var shaObj = new jsSHA(password, "TEXT");
+	document.getElementById("regpassword").value = shaObj.getHash("SHA-512", "HEX");
+	console.log(shaObj.getHash("SHA-512", "HEX"));
+    }
+</script>
+
+<!-- Just for debugging purposes. Don't actually copy this line! -->
+<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
-<body class="homepage">
-  <!-- Dialog Box Div -->
-  <div id="login-prompt" title="Sign in">
-    <form>
-      <fieldset>
-        <label for="login-username">Username:</label><br /> <input
-          type="text" name="login-username" id="login-username"
-          class="text ui-widget-content ui-corner-all"><br /> <label
-          for="login-password">Password:</label><br /> <input
-          type="password" name="login-password" id="login-password"
-          class="text ui-widget-content ui-corner-all">
-      </fieldset>
-    </form>
-  </div>
 
-  <div id="service">
-    <div id="service-content">
-     	  <?php $servicebar = new Servicebar(); ?>
-     	</div>
-  </div>
-  <div id="wrapper">
-    <div id="header">
-      <form>
-        <p>
-          <input type="text" name="username" id="signup-username"
-            placeholder="Pick a username"
-            class="text ui-widget-content ui-corner-all">
-        </p>
-        <p>
-          <input type="text" name="email" id="signup-email"
-            placeholder="Your email"
-            class="text ui-widget-content ui-corner-all">
-        </p>
-        <p>
-          <input type="password" name="password" id="signup-password"
-            placeholder="Create a password"
-            class="text ui-widget-content ui-corner-all">
-        </p>
-        <p>
-          <input type="password" name="password2" id="signup-password2"
-            placeholder="Verify your password"
-            class="text ui-widget-content ui-corner-all">
-        </p>
-        <p>
-          <input type="button" name="newuser-submit" id="signup-submit"
-            value="Sign up now!">
-        </p>
-      </form>
-    </div>
-    <div id="content">
-      <div class="content-image-left"></div>
-      <div class="content-image-right"></div>
-      <div class="content-image-left"></div>
-      <div class="content-image-right"></div>
-    </div>
-    <div id="footer"></div>
-  </div>
+<body>
+
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Last Resort Recovery</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<form class="navbar-form navbar-right" role="form"
+					action="login.php" method="post" onSubmit="encrypt_login()">
+					<div class="form-group">
+						<input id="email" name="email" type="text" placeholder="Email"
+							class="form-control" required>
+					</div>
+					<div class="form-group">
+						<input id="password" name="password" type="password"
+							placeholder="Password" class="form-control" required>
+					</div>
+					<button type="submit" class="btn btn-success">Sign in</button>
+				</form>
+			</div>
+			<!--/.navbar-collapse -->
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="RegisterForm" tabindex="-1" role="dialog"
+		aria-labelledby="RegisterForm" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+					<form class="form-register" role="form" action="register.php"
+						method="post" onSubmit="encrypt_register()">
+						<h2 class="form-register-heading">Create your account</h2>
+						<input id="username" name="username" type="text"
+							class="form-control" placeholder="Username" required autofocus> <input
+							id="regemail" name="email" type="email" class="form-control"
+							placeholder="Email address" required> <input id="regpassword"
+							name="password" type="password" class="form-control"
+							placeholder="Password" required> <input id="regcpassword"
+							name="cpassword" type="password" class="form-control"
+							placeholder="Confirm Password" required>
+						<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
+							up</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Main jumbotron for a primary marketing message or call to action -->
+	<div class="jumbotron">
+		<div class="container">
+			<h1>From lost, to found</h1>
+			<p>The simple missing laptop recovery tool</p>
+			<p>
+				<button class="btn btn-primary btn-lg" data-toggle="modal"
+					data-target="#RegisterForm">Sign up</button>
+			</p>
+		</div>
+	</div>
+
+
+	<!-- Marketing messaging and featurettes
+    ================================================== -->
+	<!-- Wrap the rest of the page in another container to center all the content. -->
+
+	<div class="container content">
+
+		<!-- START THE FEATURETTES -->
+
+
+		<div class="row featurette">
+			<div class="col-md-7">
+				<h2 class="featurette-heading">
+					First featurette heading. <span class="text-muted">It'll blow your
+						mind.</span>
+				</h2>
+				<p class="lead">Donec ullamcorper nulla non metus auctor fringilla.
+					Vestibulum id ligula porta felis euismod semper. Praesent commodo
+					cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
+					tellus ac cursus commodo.</p>
+			</div>
+			<div class="col-md-5">
+				<img class="featurette-image img-responsive"
+					data-src="js/holder.js/500x500/auto"
+					alt="Generic placeholder image">
+			</div>
+		</div>
+
+		<hr class="featurette-divider">
+
+		<div class="row featurette">
+			<div class="col-md-5">
+				<img class="featurette-image img-responsive"
+					data-src="js/holder.js/500x500/auto"
+					alt="Generic placeholder image">
+			</div>
+			<div class="col-md-7">
+				<h2 class="featurette-heading">
+					Oh yeah, it's that good. <span class="text-muted">See for yourself.</span>
+				</h2>
+				<p class="lead">Donec ullamcorper nulla non metus auctor fringilla.
+					Vestibulum id ligula porta felis euismod semper. Praesent commodo
+					cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
+					tellus ac cursus commodo.</p>
+			</div>
+		</div>
+
+		<hr class="featurette-divider">
+
+		<div class="row featurette">
+			<div class="col-md-7">
+				<h2 class="featurette-heading">
+					And lastly, this one. <span class="text-muted">Checkmate.</span>
+				</h2>
+				<p class="lead">Donec ullamcorper nulla non metus auctor fringilla.
+					Vestibulum id ligula porta felis euismod semper. Praesent commodo
+					cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
+					tellus ac cursus commodo.</p>
+			</div>
+			<div class="col-md-5">
+				<img class="featurette-image img-responsive"
+					data-src="js/holder.js/500x500/auto"
+					alt="Generic placeholder image">
+			</div>
+		</div>
+
+		<hr class="featurette-divider">
+
+		<!-- /END THE FEATURETTES -->
+
+
+
+		<!-- FOOTER -->
+		<hr>
+		<footer>
+			<p class="pull-right">
+				<a href="#">Back to top</a>
+			</p>
+			<p>
+				&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot;
+				<a href="#">Terms</a>
+			</p>
+		</footer>
+
+	</div>
+
+
+
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script
+		src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </body>
 </html>
