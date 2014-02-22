@@ -29,13 +29,7 @@ namespace LastResortRecovery
             $sessionName = "lastresort";
             // Setup cookie parameters
             $cookieParams = session_get_cookie_params();
-            session_set_cookie_params(
-                $cookieParams["lifetime"],
-                $cookieParams["path"],
-                $cookieParams["domain"],
-                false,
-                true
-            );
+            session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], $cookieParams["domain"], false, true);
             // Name session
             session_name($sessionName);
             // Begin session
@@ -301,6 +295,42 @@ namespace LastResortRecovery
                 return REGISTER_SUCCESS;
             } else {
                 return DATABASE_ERROR;
+            }
+        }
+
+        /**
+         * Gets the id of user from an email
+         * @param string $email User's email
+         * @param object $connection MySQL connection object
+         * @return string|number ID or error
+         */
+        public static function getUserID($email, $connection)
+        {
+            
+            // Get user's id
+            $sql = "SELECT id FROM users WHERE email = ? LIMIT 1";
+            
+            // Prepare statement
+            if ($result = $connection->prepare($sql)) {
+                // Bind ID into query
+                $result->bind_param('s', $email);
+                // Execute query
+                $result->execute();
+                // Save results
+                $result->store_result();
+                
+                // Check if user exists
+                if ($result->num_rows == 1) {
+                    // Get user's database password
+                    $result->bind_result($id);
+                    $result->fetch();
+                    
+                    return id;
+                } else {
+                    return - 1;
+                }
+            } else {
+                return - 1;
             }
         }
     }
