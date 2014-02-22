@@ -42,8 +42,9 @@ if (isset($_GET['action'])) {
         } else {
             echo BAD_REQUEST;
         }
-    }     // Agent requesting status of device
-    elseif ($_GET['action'] == 'status') {
+    } elseif ($_GET['action'] == 'status') {
+        // Agent requesting status of device
+        
         // Check post variables
         if (isset($_POST['email'], $_POST['password'], $_POST['deviceid'])) {
             
@@ -65,8 +66,10 @@ if (isset($_GET['action'])) {
         } else {
             echo BAD_REQUEST;
         }
-    }     // Agent registering a new device
+    }
     elseif ($_GET['action'] == 'register') {
+        // Agent registering a new device
+        
         // Check post variables
         if (isset($_POST['email'], $_POST['password'], $_POST['devicename'])) {
             
@@ -84,8 +87,7 @@ if (isset($_GET['action'])) {
             } else {
                 $result;
             }
-        }
-        else {
+        } else {
             echo BAD_REQUEST;
         }
     }

@@ -12,6 +12,7 @@
  *
  */
 namespace LastResortRecovery
+
 {
 
     include_once 'config.php';
@@ -63,10 +64,8 @@ namespace LastResortRecovery
                     $result->bind_result($id);
                     $result->fetch();
                     return $id;
-                }                 
-
-                // Create a new device entry
-                else {
+                } else {
+                    // Create a new device entry
                     $sql = "INSERT INTO devices (userid, name) VALUES( ?, ?)";
                     
                     // Prepare statement
