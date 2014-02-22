@@ -19,7 +19,7 @@ $().ready(function() {
                 required: true
             },
             password2: {
-            	required: true,
+                required: true,
                 equalTo: '#password'
             }
         }, //end rules
@@ -36,27 +36,27 @@ $().ready(function() {
                 required: "Password is required."
             },
             password2: {
-            	equalTo: "Passwords do not match."
+                equalTo: "Passwords do not match."
             }
         } //end messages
     }); //end validate
     
     //Creates the set of rules that need to be fulfilled for proper log in.
     $("#login").validate({
-    	rules: {
-    	    'login-username': {
-    		    required: true,
-    		    remote: './LRR/login.php'
-    	    },
+        rules: {
+            'login-username': {
+                required: true,
+                remote: './LRR/login.php'
+            },
             'login-password': {
                 required: true,
                 remote: './LRR/login.php'
             }
         }, //end rules
         messages: {
-        	'login-username': {
-        	    required: "Username is required.",
-        	    remote: "Username is incorrect or doesn't exist."
+            'login-username': {
+                required: "Username is required.",
+                remote: "Username is incorrect or doesn't exist."
             },
             'login-password': {
                 required: "Password is required."
