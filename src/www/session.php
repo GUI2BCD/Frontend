@@ -26,11 +26,16 @@ namespace LastResortRecovery
         public static function startSecureSession()
         {
             // Name of session
-            $sessionName = "lastresort_id";
+            $sessionName = "lastresort";
             // Setup cookie parameters
             $cookieParams = session_get_cookie_params();
-            
-            session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], false, true);
+            session_set_cookie_params(
+                $cookieParams["lifetime"],
+                $cookieParams["path"],
+                $cookieParams["domain"],
+                false,
+                true
+            );
             // Name session
             session_name($sessionName);
             // Begin session
@@ -122,7 +127,7 @@ namespace LastResortRecovery
                 $browserAgent = $_SERVER['HTTP_USER_AGENT'];
                 
                 // Get user's password from database
-                $sql = "SELECT password FROM users FROM id = ? LIMIT 1";
+                $sql = "SELECT password FROM users WHERE id = ? LIMIT 1";
                 
                 // Prepare statement
                 if ($result = $connection->prepare($sql)) {

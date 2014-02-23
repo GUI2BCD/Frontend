@@ -4,23 +4,23 @@
 
 $().ready(function() {
     //Creates the set of rules that need to be fulfilled for proper registration.
-    $("#reg").validate({
+    $("#form-register").validate({
         rules: {
             username: {
                 required: true,
-                remote: './LRR/validation.php'
+                remote: './validation.php'
             },
             email: {
                 required: true,
                 email: true,
-                remote: './LRR/validation.php'
+                remote: './validation.php'
             },
             password: {
                 required: true
             },
-            password2: {
+            cpassword: {
                 required: true,
-                equalTo: '#password'
+                equalTo: '#regpassword'
             }
         }, //end rules
         messages: {
@@ -35,7 +35,8 @@ $().ready(function() {
             password: {
                 required: "Password is required."
             },
-            password2: {
+            cpassword: {
+            	required: "Confirming password is required.",
                 equalTo: "Passwords do not match."
             }
         } //end messages
@@ -44,22 +45,23 @@ $().ready(function() {
     //Creates the set of rules that need to be fulfilled for proper log in.
     $("#login").validate({
         rules: {
-            'login-username': {
+            email: {
                 required: true,
-                remote: './LRR/login.php'
+                email: true,
+                remote: './login.php'
             },
-            'login-password': {
+            password: {
                 required: true,
-                remote: './LRR/login.php'
+                remote: './login.php'
             }
         }, //end rules
         messages: {
-            'login-username': {
+            email: {
                 required: "Username is required.",
                 remote: "Username is incorrect or doesn't exist."
             },
-            'login-password': {
-                required: "Password is required."
+            password: {
+                required: "Password is required.",
                 remote: "Password is incorrect."
             }
         } //end messages

@@ -27,8 +27,11 @@ if (isset($_POST['email'], $_POST['password'])) {
     $password = $_POST['password'];
     
     // Check if login valid
-    echo Session::login($email, $password, $connection);
-
+    $result = Session::login($email, $password, $connection);
+    if ($result == LOGIN_SUCCESS) {
+        header('Location: dashboard.php');
+        exit();
+    }
 } else {
     // Nothing was posted
     echo BAD_REQUEST;
