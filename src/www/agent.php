@@ -93,7 +93,8 @@ if (isset($_GET['action'])) {
         // Agent submitting a report
         
         // Check post variables
-        if (isset($_POST['email'], $_POST['password'], $_POST['deviceid'], $_POST['localip'], $_POST['wifi'], $_POST['traceroute'])) {
+        if (isset($_POST['email'], $_POST['password'], $_POST['deviceid'], $_POST['localip'], $_POST['wifi'], 
+            $_POST['traceroute'])) {
             
             // User
             $email = $_POST['email'];
