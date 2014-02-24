@@ -83,58 +83,62 @@ if (! Session::loginCheck($connection)) {
 
         <!-- Tab panes -->
         <div class="tab-content">
+            <!-- Dashboard Tab -->
             <div class="tab-pane active" id="dashboard">
-
-
+                <!-- Panels on left side of window. -->
                 <div class="dashboard-left">
-
+                    <!-- Account Panel on Dashboard -->
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <h3 class="panel-title">Account</h3>
                         </div>
                         <div class="panel-body">
-                            <strong>Name: </strong> David Jelley, Jr.<br />
-                            <strong>Username: </strong> Envisi0n<br /> <br />
-                            <strong>Last Login: </strong> Nov. 22nd 2014<br />
-                            <strong>Account ID: </strong> LR0012893<br />
+                            <strong>Name: </strong>David Jelley, Jr.<br><!-- TODO: Pull from DB. -->
+                            <strong>Username: </strong><?php echo $_SESSION['username'] ?><br> <br>
+                            <strong>Last Login: </strong>Nov. 22nd 2014<br><!-- TODO: Pull from DB. -->
+                            <strong>Account ID: </strong>LR0012893<br><!-- TODO: Pull from DB. -->
                         </div>
                     </div>
 
+                    <!-- News Panel on Dashboard -->
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <h3 class="panel-title">News</h3>
                         </div>
                         <div class="panel-body">
-                            <strong>Important Information</strong><br />
-                            <a href="">See more...</a><br /> <br /> Like
+                            <strong>Important Information</strong><br>
+                            <a href="">See more...</a>
+                            <br> <br> 
+                            Like
                             the name says, Last Resort should not be
                             your cure-all for laptop security. We at
                             Last Resort highly recommend our users take
                             advantage of other hardware and software
                             securities. The following list will provide
                             you with information on the various other
-                            methods of computer security. <br /> <strong>Anti-virus:
-                            </strong> <a href="">Top 5 Anti-virus
-                                softwares.</a><br /> <strong>Data
-                                Encryption: </strong> <a href="">What is
-                                Data Encryption?</a><br /> <strong>Cloud
-                                Storage: </strong> <a href="">Google vs.
-                                Amazon, who should I use?</a><br /> <br />
+                            methods of computer security. <br> 
+                            <strong>Anti-virus: </strong>
+                            <a href="">Top 5 Anti-virus softwares.</a><br> 
+                            <strong>Data Encryption: </strong> 
+                            <a href="">What is Data Encryption?</a><br> 
+                            <strong>Cloud Storage: </strong> 
+                            <a href="">Google vs. Amazon, who should I use?</a><br><br>
                             For more information and news about Last
-                            Resort and computer security in general... <a
-                                href="">To the Forums!</a>
+                            Resort and computer security in general... 
+                            <a href="">To the Forums!</a>
                         </div>
                     </div>
-
                 </div>
+                <!-- Panels along right side of window. -->
                 <div class="dashboard-right">
-
+                    <!-- Devices Panel on Dashboard page. -->
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <h3 class="panel-title">Devices</h3>
                         </div>
                         <div class="panel-body">
 
+                            <!-- TODO: Generated based on number of devices. -->
                             <strong>Number of Devices: </strong> 3<br />
                             <br /> <strong>Device Name: </strong> School
                             Laptop<br /> <strong>ID: </strong> 3342<br />
@@ -148,16 +152,16 @@ if (! Session::loginCheck($connection)) {
                             Missing<br /> <a href="">To Device...</a><br />
                             <br />
 
-
                         </div>
                     </div>
-
+                    <!-- Missing Devices Panel on Dashboard -->
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <h3 class="panel-title">Missing Devices</h3>
                         </div>
                         <div class="panel-body">
 
+                            <!-- TODO: Generated based on number of devices. -->
                             <strong>Device Name: </strong> Work Laptop<br />
                             <strong>Current Status: </strong> Tracking,
                             5 responses.<br /> <strong>Poll Interval: </strong>
@@ -171,11 +175,10 @@ if (! Session::loginCheck($connection)) {
 
                         </div>
                     </div>
-
                 </div>
-
-
             </div>
+            
+            <!-- Devices Tab -->
             <div class="tab-pane" id="devices">
                 <br /> This page is currently under construction.
             </div>
