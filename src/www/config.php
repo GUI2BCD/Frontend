@@ -43,4 +43,13 @@ namespace LastResortRecovery
     
     define("DATABASE_ERROR", "Database error");
     define("BAD_REQUEST", "Bad request");
+    
+    
+    // Agent actions
+    define("AGENT_AUTH", "AUTH");
+    define("AGENT_REGISTER_USER", "Invalid user");
+    define("AGENT_REGISTER_SUCCESS", "Device registered");
+    define("AGENT_DEVICE", "Device not found");
+    define("AGENT_REPORT", "Submitted");
+    define("AGENT_REPORT_FAIL", "Failed to submit");
 }
