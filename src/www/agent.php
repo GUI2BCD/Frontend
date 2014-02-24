@@ -89,14 +89,44 @@ if (isset($_GET['action'])) {
         } else {
             echo BAD_REQUEST;
         }
-    } elseif ($_GET['action'] == 'report' ) {
+    } elseif ($_GET['action'] == 'report') {
         // Agent submitting a report
         
         // Check post variables
-        if( isset($_POST['localip'], $_POST['wifi'], $_POST['traceroute'])) {
+        if (isset($_POST['email'], $_POST['password'], $_POST['deviceid'], $_POST['localip'], $_POST['wifi'], $_POST['traceroute'])) {
             
-            
-            
+            // User
+            $email = $_POST['email'];
+            // Encrypted password
+            $password = $_POST['password'];
+            // Check if login valid
+            $result = Session::login($email, $password, $connection);
+            if ($result == LOGIN_SUCCESS) {
+                
+                $deviceid = $_POST['deviceid'];
+                $localip = $_POST['localip'];
+                $remoteip = $_SERVER['REMOTE_ADDR'];
+                $wifi = $_POST['wifi'];
+                $traceroute = $_POST['traceroute'];
+                
+                $sql = "INSERT INTO reports (deviceid, localip, remoteip, wifi, traceroute) VALUES(?,?,?,?,?)";
+                
+                // Prepare statement
+                if ($result = $connection->prepare($sql)) {
+                    // Bind parameters
+                    $result->bind_param('issss', $deviceid, $localip, $remoteip, $wifi, $traceroute);
+                    
+                    // Execute query
+                    if (! $result->execute()) {
+                        echo DATABASE_ERROR;
+                    } else {
+                        // Success
+                        echo $connection->insert_id;
+                    }
+                } else {
+                    echo DATABASE_ERROR;
+                }
+            }
         } else {
             echo BAD_REQUEST;
         }

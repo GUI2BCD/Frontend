@@ -144,6 +144,31 @@ namespace LastResortRecovery
                 echo "Error creating table: " . mysqli_error($connection) . "<br>";
             }
         }
+        
+        public static function createReportsTable($connection)
+        {
+        
+            // Select database
+            mysqli_select_db($connection, DATABASE);
+        
+            // SQL Expression to create devices table
+            $sql = "CREATE TABLE reports
+	              (
+	               id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	               deviceid INT NOT NULL,
+	               localip VARCHAR(30),
+	               remoteip VARCHAR(30),
+	               wifi BLOB,
+	               traceroute BLOB
+               	);";
+        
+            // Execute query
+            if (mysqli_query($connection, $sql)) {
+                echo "Table reports created successfully.<br>";
+            } else {
+                echo "Error creating table: " . mysqli_error($connection) . "<br>";
+            }
+        }
     }
     // Setup the database
     if (isset($_GET["action"])) {
@@ -151,6 +176,7 @@ namespace LastResortRecovery
             Database::createDatabase($connection, DATABASE);
             Database::createUsersTable($connection);
             Database::createDevicesTable($connection);
+            Database::createReportsTable($connection);
         }
     }
 }

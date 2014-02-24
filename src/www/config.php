@@ -50,5 +50,6 @@ namespace LastResortRecovery
     define("AGENT_REGISTER_USER", "Invalid user");
     define("AGENT_REGISTER_SUCCESS", "Device registered");
     define("AGENT_DEVICE", "Device not found");
-    
+    define("AGENT_REPORT", "Submitted");
+    define("AGENT_REPORT_FAIL", "Failed to submit");
 }
