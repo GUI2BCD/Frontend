@@ -94,7 +94,7 @@ if (isset($_GET['action'])) {
         
         // Check post variables
         // TODO Make this a function please
-        if (isset($_POST['email'], $_POST['password'], $_POST['deviceid'], $_POST['localip'], $_POST['wifi'], 
+        if (isset($_POST['email'], $_POST['password'], $_POST['deviceid'], $_POST['localip'], $_POST['wifi'],
             $_POST['traceroute'])) {
             
             // User

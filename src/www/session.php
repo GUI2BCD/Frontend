@@ -29,8 +29,13 @@ namespace LastResortRecovery
             $sessionName = "lastresort";
             // Setup cookie parameters
             $cookieParams = session_get_cookie_params();
-            session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], $cookieParams["domain"], false, 
-                true);
+            session_set_cookie_params(
+                $cookieParams["lifetime"],
+                $cookieParams["path"],
+                $cookieParams["domain"],
+                false,
+                true
+            );
             // Name session
             session_name($sessionName);
             // Begin session
@@ -301,12 +306,9 @@ namespace LastResortRecovery
 
         /**
          * Gets the id of user from an email
-         * 
-         * @param string $email
-         *            User's email
-         * @param object $connection
-         *            MySQL connection object
-         * @return string number or error
+         * @param string $email User's email
+         * @param object $connection MySQL connection object
+         * @return string|number ID or error
          */
         public static function getUserID($email, $connection)
         {
