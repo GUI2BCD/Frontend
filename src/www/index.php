@@ -97,7 +97,7 @@ namespace LastResortRecovery;
 			<div class="modal-content">
 				<div class="modal-body">
 					<form id="form-register" class="form-register" role="form" action="register.php"
-						method="post" onSubmit="encrypt_register()">
+						method="post">
 						<h2 class="form-register-heading">Create your account</h2>
 						<input id="username" name="username" type="text"
 							class="form-control" placeholder="Username" required autofocus> <input

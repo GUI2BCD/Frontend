@@ -36,10 +36,17 @@ $().ready(function() {
                 required: "Password is required."
             },
             cpassword: {
-            	required: "Confirming password is required.",
+                required: "Confirming password is required.",
                 equalTo: "Passwords do not match."
             }
-        } //end messages
+        }, //end messages
+        submitHandler: function(form) {
+            $(form).ajaxSubmit({
+                success: function() {
+                    encrypt_register();
+                }
+            })    	
+        } //end submitHandler
     }); //end validate
     
     //Creates the set of rules that need to be fulfilled for proper log in.
