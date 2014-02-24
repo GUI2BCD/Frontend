@@ -74,7 +74,7 @@ namespace LastResortRecovery;
 			</div>
 			<div class="navbar-collapse collapse">
 				<form id="login" class="navbar-form navbar-right" role="form"
-					action="login.php" method="post" onSubmit="encrypt_login()">
+					action="login.php" method="post">
 					<div class="form-group">
 						<input id="email" name="email" type="text" placeholder="Email"
 							class="form-control" required>
@@ -97,7 +97,7 @@ namespace LastResortRecovery;
 			<div class="modal-content">
 				<div class="modal-body">
 					<form id="form-register" class="form-register" role="form" action="register.php"
-						method="post">
+						method="post" >
 						<h2 class="form-register-heading">Create your account</h2>
 						<input id="username" name="username" type="text"
 							class="form-control" placeholder="Username" required autofocus> <input

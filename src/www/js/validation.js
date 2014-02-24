@@ -40,12 +40,9 @@ $().ready(function() {
                 equalTo: "Passwords do not match."
             }
         }, //end messages
-        submitHandler: function(form) {
-            $(form).ajaxSubmit({
-                success: function() {
-                    encrypt_register();
-                }
-            })    	
+        submitHandler: function(form){
+            encrypt_register();
+            form.submit();
         } //end submitHandler
     }); //end validate
     
@@ -71,6 +68,10 @@ $().ready(function() {
                 required: "Password is required.",
                 remote: "Password is incorrect."
             }
-        } //end messages
+        }, //end messages
+        submitHandler: function(form){
+            encrypt_login();
+            form.submit();
+        } //end submitHandler
     }); //end validate
 }); //end ready
