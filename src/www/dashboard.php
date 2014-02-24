@@ -42,6 +42,10 @@ if (! Session::loginCheck($connection)) {
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+<!-- Local Overrides -->
+<link rel="stylesheet" href="./css/verified.css">
+
 </head>
 
 <body>
@@ -69,48 +73,64 @@ if (! Session::loginCheck($connection)) {
 
     <div class="container content">
 
-<!-- Nav tabs -->
-<ul class="nav nav-tabs">
-  <li class="active"><a href="#dashboard" data-toggle="tab">Dashboard</a></li>
-  <li><a href="#devices" data-toggle="tab">Devices</a></li>
-  <li><a href="#agent" data-toggle="tab">Agent</a></li>
-  <li><a href="#account" data-toggle="tab">Account</a></li>
-</ul>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#dashboard" data-toggle="tab">Dashboard</a></li>
+            <li><a href="#devices" data-toggle="tab">Devices</a></li>
+            <li><a href="#agent" data-toggle="tab">Agent</a></li>
+            <li><a href="#account" data-toggle="tab">Account</a></li>
+        </ul>
 
-<!-- Tab panes -->
-<div class="tab-content">
-  <div class="tab-pane active" id="dashboard">
-  
-  <div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Account</h3>
-  </div>
-  <div class="panel-body">
-    Name: <br /><br />
-    Username:
-  </div>
-</div>
-  
-  </div>
-  <div class="tab-pane" id="devices">test2</div>
-  <div class="tab-pane" id="agent">3</div>
-  <div class="tab-pane" id="account">and 4</div>
-</div>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane active" id="dashboard">
 
 
+                <div class="dashboard-left">
 
-        <!-- FOOTER -->
-        <hr>
-        <footer>
-            <p class="pull-right">
-                <a href="#">Back to top</a>
-            </p>
-            <p>
-                &copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a>
-                &middot; <a href="#">Terms</a>
-            </p>
-        </footer>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Account</h3>
+                        </div>
+                        <div class="panel-body">
+                            <strong>Name: </strong><br /> <strong>Username:
+                            </strong>
+                        </div>
+                    </div>
 
+                </div>
+                <div class="dashboard-right">
+
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Account</h3>
+                        </div>
+                        <div class="panel-body">
+                            Name: <br /> Username:
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="tab-pane" id="devices">test2</div>
+            <div class="tab-pane" id="agent">3</div>
+            <div class="tab-pane" id="account">and 4</div>
+        </div>
+
+        		<!-- FOOTER -->
+		<hr>
+		<footer>
+			<p class="pull-right">
+				<a href="#">Back to top</a>
+			</p>
+			<p>
+				&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot;
+				<a href="#">Terms</a>
+			</p>
+		</footer>
+        
     </div>
 
     <!-- Bootstrap core JavaScript
