@@ -36,11 +36,20 @@ namespace LastResortRecovery
     define("REGISTER_USER", "Username is use");
     define("REGISTER_BAD_EMAIL", "Email invalid");
     
-    define("VALIDATION_USER", "Username in use");
-    define("VALIDATION_BAD_EMAIL", "Email invalid");
-    define("VALIDATION_EMAIL", "Email in use");
-    define("VALIDATION_OK", "OK");
+    define("VALIDATION_USER", "false");
+    define("VALIDATION_BAD_EMAIL", "false");
+    define("VALIDATION_EMAIL", "false");
+    define("VALIDATION_OK", "true");
     
     define("DATABASE_ERROR", "Database error");
     define("BAD_REQUEST", "Bad request");
+    
+    
+    // Agent actions
+    define("AGENT_AUTH", "AUTH");
+    define("AGENT_REGISTER_USER", "Invalid user");
+    define("AGENT_REGISTER_SUCCESS", "Device registered");
+    define("AGENT_DEVICE", "Device not found");
+    define("AGENT_REPORT", "Submitted");
+    define("AGENT_REPORT_FAIL", "Failed to submit");
 }

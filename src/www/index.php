@@ -26,9 +26,11 @@ namespace LastResortRecovery;
 <!-- Custom styles for this template -->
 <link href="css/jumbotron.css" rel="stylesheet">
 
+<!-- Load javascript files -->
 <script src="js/holder.js"></script>
 <script type="text/javascript" src="js/sha512.js"></script>
 
+<!-- Used for hashing passwords post-registration/login -->
 <script type="text/javascript">
     function encrypt_login() {
 	var password = document.getElementById("password").value;
@@ -71,8 +73,8 @@ namespace LastResortRecovery;
 				<a class="navbar-brand" href="#">Last Resort Recovery</a>
 			</div>
 			<div class="navbar-collapse collapse">
-				<form class="navbar-form navbar-right" role="form"
-					action="login.php" method="post" onSubmit="encrypt_login()">
+				<form id="login" class="navbar-form navbar-right" role="form"
+					action="login.php" method="post">
 					<div class="form-group">
 						<input id="email" name="email" type="text" placeholder="Email"
 							class="form-control" required>
@@ -94,8 +96,8 @@ namespace LastResortRecovery;
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-body">
-					<form class="form-register" role="form" action="register.php"
-						method="post" onSubmit="encrypt_register()">
+					<form id="form-register" class="form-register" role="form" action="register.php"
+						method="post" >
 						<h2 class="form-register-heading">Create your account</h2>
 						<input id="username" name="username" type="text"
 							class="form-control" placeholder="Username" required autofocus> <input
@@ -219,6 +221,9 @@ namespace LastResortRecovery;
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script 
+	    src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <script src="./js/validation.js"></script>
 	<!-- Latest compiled and minified JavaScript -->
 	<script
 		src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
