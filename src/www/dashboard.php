@@ -93,21 +93,36 @@ if (! Session::loginCheck($connection)) {
                             <h3 class="panel-title">Account</h3>
                         </div>
                         <div class="panel-body">
-                            <strong>Name: </strong><br /> 
-                            <strong>Username: </strong><br />
-                            <br />
-                            <strong>Last Login: </strong><br />
-                            <strong>Account ID: </strong><br />
+                            <strong>Name: </strong> David Jelley, Jr.<br />
+                            <strong>Username: </strong> Envisi0n<br /> <br />
+                            <strong>Last Login: </strong> Nov. 22nd 2014<br />
+                            <strong>Account ID: </strong> LR0012893<br />
                         </div>
                     </div>
-                    
+
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <h3 class="panel-title">News</h3>
                         </div>
                         <div class="panel-body">
-                            <strong>Name: </strong><br /> <strong>Username:
-                            </strong>
+                            <strong>Important Information</strong><br />
+                            <a href="">See more...</a><br /> <br /> Like
+                            the name says, Last Resort should not be
+                            your cure-all for laptop security. We at
+                            Last Resort highly recommend our users take
+                            advantage of other hardware and software
+                            securities. The following list will provide
+                            you with information on the various other
+                            methods of computer security. <br /> <strong>Anti-virus:
+                            </strong> <a href="">Top 5 Anti-virus
+                                softwares.</a><br /> <strong>Data
+                                Encryption: </strong> <a href="">What is
+                                Data Encryption?</a><br /> <strong>Cloud
+                                Storage: </strong> <a href="">Google vs.
+                                Amazon, who should I use?</a><br /> <br />
+                            For more information and news about Last
+                            Resort and computer security in general... <a
+                                href="">To the Forums!</a>
                         </div>
                     </div>
 
@@ -119,16 +134,41 @@ if (! Session::loginCheck($connection)) {
                             <h3 class="panel-title">Devices</h3>
                         </div>
                         <div class="panel-body">
-                            Name: <br /> Username:
+
+                            <strong>Number of Devices: </strong> 3<br />
+                            <br /> <strong>Device Name: </strong> School
+                            Laptop<br /> <strong>ID: </strong> 3342<br />
+                            <strong>Last Poll: </strong> 5 minutes ago.
+                            1:54PM 2/20/2014<br /> <strong>Status: </strong>
+                            Safe<br /> <a href="">To Device...</a><br />
+                            <br /> <strong>Device Name: </strong> Work
+                            Laptop<br /> <strong>ID: </strong> 3341<br />
+                            <strong>Last Poll: </strong> 4 days ago.
+                            9:59AM 2/16/2014<br /> <strong>Status: </strong>
+                            Missing<br /> <a href="">To Device...</a><br />
+                            <br />
+
+
                         </div>
                     </div>
-                    
+
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <h3 class="panel-title">Missing Devices</h3>
                         </div>
                         <div class="panel-body">
-                            Name: <br /> Username:
+
+                            <strong>Device Name: </strong> Work Laptop<br />
+                            <strong>Current Status: </strong> Tracking,
+                            5 responses.<br /> <strong>Poll Interval: </strong>
+                            Every minute.<br /> <strong>History: </strong>
+                            <br /> Response at 9:59AM 2/16/2014. <a
+                                href="">More...</a><br /> Response at
+                            9:58AM 2/16/2014. <a href="">More...</a><br />
+                            Response at 9:56AM 2/16/2014. <a href="">More...</a><br />
+                            Response at 9:55AM 2/16/2014. <a href="">More...</a><br />
+                            Response at 9:54AM 2/16/2014. <a href="">More...</a><br />
+
                         </div>
                     </div>
 
@@ -136,25 +176,29 @@ if (! Session::loginCheck($connection)) {
 
 
             </div>
-            <div class="tab-pane" id="devices">test2</div>
-            <div class="tab-pane" id="agent">3</div>
-            <div class="tab-pane" id="account">and 4</div>
+            <div class="tab-pane" id="devices">
+                <br /> This page is currently under construction.
+            </div>
+            <div class="tab-pane" id="agent">
+                <br /> This page is currently under construction.
+            </div>
+            <div class="tab-pane" id="account"></div>
         </div>
-        
+
     </div>
-    
+
     <div class="container content">
-    		<footer>
-			<p class="pull-right">
-				<a href="#">Back to top</a>
-			</p>
-			<p>
-				&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot;
-				<a href="#">Terms</a>
-			</p>
-		</footer>
+        <footer>
+            <p class="pull-right">
+                <a href="#">Back to top</a>
+            </p>
+            <p>
+                &copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a>
+                &middot; <a href="#">Terms</a>
+            </p>
+        </footer>
     </div>
-		
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

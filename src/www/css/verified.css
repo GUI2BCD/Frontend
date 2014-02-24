@@ -15,3 +15,8 @@
 .nav {
     margin-top: 15px;
 }
+
+.tab-pane {
+    min-height: 300px;
+}
+
