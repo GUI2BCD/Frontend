@@ -144,13 +144,13 @@ namespace LastResortRecovery
                 echo "Error creating table: " . mysqli_error($connection) . "<br>";
             }
         }
-        
+
         public static function createReportsTable($connection)
         {
-        
+            
             // Select database
             mysqli_select_db($connection, DATABASE);
-        
+            
             // SQL Expression to create devices table
             $sql = "CREATE TABLE reports
 	              (
@@ -161,7 +161,7 @@ namespace LastResortRecovery
 	               wifi BLOB,
 	               traceroute BLOB
                	);";
-        
+            
             // Execute query
             if (mysqli_query($connection, $sql)) {
                 echo "Table reports created successfully.<br>";

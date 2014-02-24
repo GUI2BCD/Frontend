@@ -22,7 +22,7 @@ namespace LastResortRecovery
 
         /**
          * Registers a device to a user account
-         * 
+         *
          * @param string $email
          *            User's email
          * @param string $deviceName
@@ -97,10 +97,14 @@ namespace LastResortRecovery
                 }
             }
         }
+
         /**
          * Get's the current status of a device
-         * @param integer $deviceID ID of the user's device
-         * @param object $connection MySQL connection object
+         * 
+         * @param integer $deviceID
+         *            ID of the user's device
+         * @param object $connection
+         *            MySQL connection object
          * @return string status of the device
          */
         public static function status($deviceID, $connection)

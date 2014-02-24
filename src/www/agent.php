@@ -93,6 +93,7 @@ if (isset($_GET['action'])) {
         // Agent submitting a report
         
         // Check post variables
+        // TODO Make this a function please
         if (isset($_POST['email'], $_POST['password'], $_POST['deviceid'], $_POST['localip'], $_POST['wifi'], 
             $_POST['traceroute'])) {
             
@@ -102,6 +103,9 @@ if (isset($_GET['action'])) {
             $password = $_POST['password'];
             // Check if login valid
             $result = Session::login($email, $password, $connection);
+            
+            // Add to database
+            // TODO Make this a function please
             if ($result == LOGIN_SUCCESS) {
                 
                 $deviceid = $_POST['deviceid'];
