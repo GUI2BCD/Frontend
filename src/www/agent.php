@@ -89,6 +89,17 @@ if (isset($_GET['action'])) {
         } else {
             echo BAD_REQUEST;
         }
+    } elseif ($_GET['action'] == 'report' ) {
+        // Agent submitting a report
+        
+        // Check post variables
+        if( isset($_POST['localip'], $_POST['wifi'], $_POST['traceroute'])) {
+            
+            
+            
+        } else {
+            echo BAD_REQUEST;
+        }
     }
 } else {
     echo BAD_REQUEST;
