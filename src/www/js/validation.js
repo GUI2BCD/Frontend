@@ -8,12 +8,18 @@ $().ready(function() {
         rules: {
             username: {
                 required: true,
-                remote: './validation.php'
+                remote: {
+                    url: 'validation.php',
+                    type: 'post'
+                }
             },
             email: {
                 required: true,
                 email: true,
-                remote: './validation.php'
+                remote: {
+                    url: 'validation.php',
+                    type: 'post'
+                }
             },
             password: {
                 required: true
@@ -51,22 +57,18 @@ $().ready(function() {
         rules: {
             email: {
                 required: true,
-                email: true,
-                remote: './login.php'
+                email: true
             },
             password: {
-                required: true,
-                remote: './login.php'
+                required: true
             }
         }, //end rules
         messages: {
             email: {
-                required: "Username is required.",
-                remote: "Username is incorrect or doesn't exist."
+                required: "Username is required."
             },
             password: {
-                required: "Password is required.",
-                remote: "Password is incorrect."
+                required: "Password is required."
             }
         }, //end messages
         submitHandler: function(form){
