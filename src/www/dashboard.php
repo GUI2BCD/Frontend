@@ -64,7 +64,7 @@ if (! Session::loginCheck($connection)) {
                 <a class="navbar-brand" href="#">Last Resort Recovery</a>
             </div>
             <div class="navbar-right">
-                <a class="navbar-brand">Welcome, username!</a>
+                <a class="navbar-brand">Welcome, <?php echo $_SESSION['username'] ?>!</a>
             </div>
             <div class="navbar-collapse collapse"></div>
             <!--/.navbar-collapse -->
@@ -93,6 +93,19 @@ if (! Session::loginCheck($connection)) {
                             <h3 class="panel-title">Account</h3>
                         </div>
                         <div class="panel-body">
+                            <strong>Name: </strong><br /> 
+                            <strong>Username: </strong><br />
+                            <br />
+                            <strong>Last Login: </strong><br />
+                            <strong>Account ID: </strong><br />
+                        </div>
+                    </div>
+                    
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">News</h3>
+                        </div>
+                        <div class="panel-body">
                             <strong>Name: </strong><br /> <strong>Username:
                             </strong>
                         </div>
@@ -103,7 +116,16 @@ if (! Session::loginCheck($connection)) {
 
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Account</h3>
+                            <h3 class="panel-title">Devices</h3>
+                        </div>
+                        <div class="panel-body">
+                            Name: <br /> Username:
+                        </div>
+                    </div>
+                    
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Missing Devices</h3>
                         </div>
                         <div class="panel-body">
                             Name: <br /> Username:
@@ -118,10 +140,11 @@ if (! Session::loginCheck($connection)) {
             <div class="tab-pane" id="agent">3</div>
             <div class="tab-pane" id="account">and 4</div>
         </div>
-
-        		<!-- FOOTER -->
-		<hr>
-		<footer>
+        
+    </div>
+    
+    <div class="container content">
+    		<footer>
 			<p class="pull-right">
 				<a href="#">Back to top</a>
 			</p>
@@ -130,9 +153,8 @@ if (! Session::loginCheck($connection)) {
 				<a href="#">Terms</a>
 			</p>
 		</footer>
-        
     </div>
-
+		
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
