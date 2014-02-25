@@ -257,10 +257,18 @@ while ($row = mysqli_fetch_array($result)) {
                 </div>
                     
             </div>
+            <!-- Agent Tab on Dashboard --><!-- TODO: BEN WORK HERE -->
             <div class="tab-pane" id="agent">
+            
                 <br /> This page is currently under construction.
+                
             </div>
-            <div class="tab-pane" id="account"></div>
+            <!-- BEN DON'T EDIT BEYOND THIS POINT! -->
+            
+            <!-- Account Tab on Dashboard -->
+            <div class="tab-pane" id="account">
+            <br /> This page is currently under construction.</div>
+            
         </div>
 
     </div>
