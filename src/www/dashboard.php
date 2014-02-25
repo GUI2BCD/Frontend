@@ -93,10 +93,10 @@ if (! Session::loginCheck($connection)) {
                             <h3 class="panel-title">Account</h3>
                         </div>
                         <div class="panel-body">
-                            <strong>Name: </strong><?php echo $_SESSION['username'] ?><br><!-- TODO: Pull from DB. -->
+                            <strong>Name: </strong><?php echo $_SESSION['username'] ?><br>
                             <strong>Username: </strong><?php echo $_SESSION['username'] ?><br> <br>
                             <strong>Last Login: </strong>Nov. 22nd 2014<br><!-- TODO: Pull from DB. -->
-                            <strong>Account ID: </strong><?php echo $_SESSION['userid'] ?><br><!-- TODO: Pull from DB. -->
+                            <strong>Account ID: </strong><?php echo $_SESSION['userid'] ?><br>
                         </div>
                     </div>
 
@@ -147,7 +147,7 @@ if (! Session::loginCheck($connection)) {
                         echo "<strong>Number of Devices: </strong>";
                         echo $result->num_rows . "<br><br>";
                         
-                        while($row = mysqli_fetch_array($result)) {
+                        while ($row = mysqli_fetch_array($result)) {
                             echo "<strong>Device name: </strong>";
                             echo $row['name'] . "<br>";
                             echo "<strong>ID: </strong>";
@@ -178,7 +178,7 @@ if (! Session::loginCheck($connection)) {
                         echo "<strong>Number of Devices: </strong>";
                         echo $result->num_rows . "<br><br>";
                         
-                        while($row = mysqli_fetch_array($result)) {
+                        while ($row = mysqli_fetch_array($result)) {
                             echo "<strong>Device name: </strong>";
                             echo $row['name'] . "<br>";
                             echo "<strong>Current status: </strong>";
@@ -192,7 +192,7 @@ if (! Session::loginCheck($connection)) {
                             
                             echo $reports->num_rows . "<br>";
                             
-                            while( $reportrow = mysqli_fetch_array($reports) ) {
+                            while ( $reportrow = mysqli_fetch_array($reports) ) {
                                 echo '<a class="report-link" href="report.php?id=';
                                 echo $reportrow['id'];
                                 echo '">';
