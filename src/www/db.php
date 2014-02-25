@@ -156,6 +156,7 @@ namespace LastResortRecovery
 	              (
 	               id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	               deviceid INT NOT NULL,
+	               time TIMESTAMP NOT NULL,
 	               localip VARCHAR(30),
 	               remoteip VARCHAR(30),
 	               wifi BLOB,
