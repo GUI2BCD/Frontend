@@ -77,7 +77,7 @@ if (! Session::loginCheck($connection)) {
         <ul class="nav nav-tabs">
             <li class="active"><a href="#dashboard" data-toggle="tab">Dashboard</a></li>
             <li class="dropdown">
-                <a class="dropdown-toggle" href="#" data-toggle="dropdown">Dashboard<span class="caret"></span></a>
+                <a class="dropdown-toggle" href="#" data-toggle="dropdown">Devices <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="#devices" data-toggle="tab">All</a></li> <!-- TODO: Pull from db -->
                     <li class="divider"></li>
