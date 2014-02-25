@@ -137,29 +137,26 @@ if (! Session::loginCheck($connection)) {
                             <h3 class="panel-title">Devices</h3>
                         </div>
                         <div class="panel-body">
-                        
-                        <?php 
-                        
-                        $sql = "SELECT * FROM devices WHERE userid='".$_SESSION['userid']."';";
-    
-                        $result = mysqli_query($connection, $sql);
-                        
-                        echo "<strong>Number of Devices: </strong>";
-                        echo $result->num_rows . "<br><br>";
-                        
-                        while ($row = mysqli_fetch_array($result)) {
-                            echo "<strong>Device name: </strong>";
-                            echo $row['name'] . "<br>";
-                            echo "<strong>ID: </strong>";
-                            echo $row['id'] . "<br>";
-                            echo "<strong>Status: </strong>";
-                            echo $row['status'] . "<br>";
-                            // TODO Last report
-                            // TODO Link to device
-                            echo "<br>";
-                        }
-                        
-                        ?>
+<?php 
+$sql = "SELECT * FROM devices WHERE userid='" . $_SESSION['userid'] . "';";
+
+$result = mysqli_query($connection, $sql);
+
+echo "<strong>Number of Devices: </strong>";
+echo $result->num_rows . "<br><br>";
+
+while ($row = mysqli_fetch_array($result)) {
+    echo "<strong>Device name: </strong>";
+    echo $row['name'] . "<br>";
+    echo "<strong>ID: </strong>";
+    echo $row['id'] . "<br>";
+    echo "<strong>Status: </strong>";
+    echo $row['status'] . "<br>";
+    // TODO Last report
+    // TODO Link to device
+    echo "<br>";
+}
+?>
                         </div>
                     </div>
                     <!-- Missing Devices Panel on Dashboard -->
@@ -169,40 +166,40 @@ if (! Session::loginCheck($connection)) {
                         </div>
                         <div class="panel-body">
 
-                        <?php 
-                        
-                        $sql = "SELECT * FROM devices WHERE status='LOST' AND userid='".$_SESSION['userid']."';";
+<?php 
+
+
+$sql = "SELECT * FROM devices WHERE status='LOST' AND userid='" . $_SESSION['userid'] . "';";
+
+$result = mysqli_query($connection, $sql);
+
+echo "<strong>Number of Devices: </strong>";
+echo $result->num_rows . "<br><br>";
+
+while ($row = mysqli_fetch_array($result)) {
+    echo "<strong>Device name: </strong>";
+    echo $row['name'] . "<br>";
+    echo "<strong>Current status: </strong>";
+    echo $row['status'] . "<br>";
+    echo "<strong>Poll Interval: </strong> 30 seconds<br>";
+    echo "<strong>Reports: </strong>";
     
-                        $result = mysqli_query($connection, $sql);
-                        
-                        echo "<strong>Number of Devices: </strong>";
-                        echo $result->num_rows . "<br><br>";
-                        
-                        while ($row = mysqli_fetch_array($result)) {
-                            echo "<strong>Device name: </strong>";
-                            echo $row['name'] . "<br>";
-                            echo "<strong>Current status: </strong>";
-                            echo $row['status'] . "<br>";
-                            echo "<strong>Poll Interval: </strong> 30 seconds<br>";
-                            echo "<strong>Reports: </strong>";
-                            
-                            $reportsql = "SELECT * FROM reports WHERE deviceid='"
-                            .$row['id']."' ORDER BY 'time' ASC LIMIT 5;";
-                            
-                            $reports = mysqli_query($connection, $reportsql);
-                            
-                            echo $reports->num_rows . "<br>";
-                            while ($reportrow = mysqli_fetch_array($reports)) {
-                                echo '<a class="report-link" href="report.php?id=';
-                                echo $reportrow['id'];
-                                echo '">';
-                                echo $reportrow['time'] . "</a>";
-                                echo '<br>';
-                            }
-                            echo "<br>";
-                        }
-                        
-                        ?>
+    $reportsql = "SELECT * FROM reports WHERE deviceid='" . $row['id'] . "' ORDER BY 'time' ASC LIMIT 5;";
+    
+    $reports = mysqli_query($connection, $reportsql);
+    
+    echo $reports->num_rows . "<br>";
+    while ($reportrow = mysqli_fetch_array($reports)) {
+        echo '<a class="report-link" href="report.php?id=';
+        echo $reportrow['id'];
+        echo '">';
+        echo $reportrow['time'] . "</a>";
+        echo '<br>';
+    }
+    echo "<br>";
+}
+
+?>
 
 
                         </div>
