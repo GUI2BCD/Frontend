@@ -76,7 +76,15 @@ if (! Session::loginCheck($connection)) {
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
             <li class="active"><a href="#dashboard" data-toggle="tab">Dashboard</a></li>
-            <li><a href="#devices" data-toggle="tab">Devices</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" href="#" data-toggle="dropdown">Dashboard<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#devices" data-toggle="tab">All</a></li> <!-- TODO: Pull from db -->
+                    <li class="divider"></li>
+                    <li><a href="">Device Two</a></li> <!-- TODO: Pull from db -->
+                    <li><a href="">Device Three</a></li> <!-- TODO: Pull from db -->
+                </ul>
+            </li>
             <li><a href="#agent" data-toggle="tab">Agent</a></li>
             <li><a href="#account" data-toggle="tab">Account</a></li>
         </ul>
@@ -188,7 +196,8 @@ if (! Session::loginCheck($connection)) {
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                    <!-- TODO: Fill with static device info. -->WORK
+                                    <!-- TODO: Fill with static device info. -->
+                                    <strong>Device 1</strong>
                                 </a>
                             </h4>
                         </div>
@@ -203,7 +212,8 @@ if (! Session::loginCheck($connection)) {
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                    <!-- TODO: Fill with static device info. -->Work2
+                                    <!-- TODO: Fill with static device info. -->
+                                    <strong>Device 1</strong>
                                 </a>
                             </h4>
                         </div>
