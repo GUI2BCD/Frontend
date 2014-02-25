@@ -186,12 +186,12 @@ if (! Session::loginCheck($connection)) {
                             echo "<strong>Poll Interval: </strong> 30 seconds<br>";
                             echo "<strong>Reports: </strong>";
                             
-                            $reportsql = "SELECT * FROM reports WHERE deviceid='".$row['id']."' ORDER BY 'time' ASC LIMIT 5;";
+                            $reportsql = "SELECT * FROM reports WHERE deviceid='"
+                            .$row['id']."' ORDER BY 'time' ASC LIMIT 5;";
                             
                             $reports = mysqli_query($connection, $reportsql);
                             
                             echo $reports->num_rows . "<br>";
-                            
                             while ( $reportrow = mysqli_fetch_array($reports) ) {
                                 echo '<a class="report-link" href="report.php?id=';
                                 echo $reportrow['id'];
