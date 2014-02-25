@@ -180,7 +180,43 @@ if (! Session::loginCheck($connection)) {
             
             <!-- Devices Tab -->
             <div class="tab-pane" id="devices">
-                <br /> This page is currently under construction.
+
+                <!-- TODO: Generate based on devices. -->
+                <div class="panel-group spacer" id="accordion">
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                    <!-- TODO: Fill with static device info. -->WORK
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                Content
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                    <!-- TODO: Fill with static device info. -->Work2
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                Content
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                    
             </div>
             <div class="tab-pane" id="agent">
                 <br /> This page is currently under construction.
@@ -210,5 +246,6 @@ if (! Session::loginCheck($connection)) {
     <!-- Latest compiled and minified JavaScript -->
     <script
         src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
 </body>
 </html>
