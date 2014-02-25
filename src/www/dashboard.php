@@ -183,7 +183,7 @@ if (! Session::loginCheck($connection)) {
                             echo $row['name'] . "<br>";
                             echo "<strong>Current status: </strong>";
                             echo $row['status'] . "<br>";
-                            echo "<strong>Poll Interval: </strong> 8==D<br>";
+                            echo "<strong>Poll Interval: </strong> 30 seconds<br>";
                             echo "<strong>Reports: </strong>";
                             
                             $reportsql = "SELECT * FROM reports WHERE deviceid='".$row['id']."' ORDER BY 'time' ASC LIMIT 5;";
