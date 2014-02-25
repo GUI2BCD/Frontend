@@ -93,10 +93,10 @@ if (! Session::loginCheck($connection)) {
                             <h3 class="panel-title">Account</h3>
                         </div>
                         <div class="panel-body">
-                            <strong>Name: </strong>David Jelley, Jr.<br><!-- TODO: Pull from DB. -->
+                            <strong>Name: </strong><?php echo $_SESSION['username'] ?><br><!-- TODO: Pull from DB. -->
                             <strong>Username: </strong><?php echo $_SESSION['username'] ?><br> <br>
                             <strong>Last Login: </strong>Nov. 22nd 2014<br><!-- TODO: Pull from DB. -->
-                            <strong>Account ID: </strong>LR0012893<br><!-- TODO: Pull from DB. -->
+                            <strong>Account ID: </strong><?php echo $_SESSION['userid'] ?><br><!-- TODO: Pull from DB. -->
                         </div>
                     </div>
 
@@ -137,21 +137,29 @@ if (! Session::loginCheck($connection)) {
                             <h3 class="panel-title">Devices</h3>
                         </div>
                         <div class="panel-body">
-
-                            <!-- TODO: Generated based on number of devices. -->
-                            <strong>Number of Devices: </strong> 3<br />
-                            <br /> <strong>Device Name: </strong> School
-                            Laptop<br /> <strong>ID: </strong> 3342<br />
-                            <strong>Last Poll: </strong> 5 minutes ago.
-                            1:54PM 2/20/2014<br /> <strong>Status: </strong>
-                            Safe<br /> <a href="">To Device...</a><br />
-                            <br /> <strong>Device Name: </strong> Work
-                            Laptop<br /> <strong>ID: </strong> 3341<br />
-                            <strong>Last Poll: </strong> 4 days ago.
-                            9:59AM 2/16/2014<br /> <strong>Status: </strong>
-                            Missing<br /> <a href="">To Device...</a><br />
-                            <br />
-
+                        
+                        <?php 
+                        
+                        $sql = "SELECT * FROM devices WHERE userid='".$_SESSION['userid']."';";
+    
+                        $result = mysqli_query($connection, $sql);
+                        
+                        echo "<strong>Number of Devices: </strong>";
+                        echo $result->num_rows . "<br><br>";
+                        
+                        while($row = mysqli_fetch_array($result)) {
+                            echo "<strong>Device name: </strong>";
+                            echo $row['name'] . "<br>";
+                            echo "<strong>ID: </strong>";
+                            echo $row['id'] . "<br>";
+                            echo "<strong>Status: </strong>";
+                            echo $row['status'] . "<br>";
+                            // TODO Last report
+                            // TODO Link to device
+                            echo "<br>";
+                        }
+                        
+                        ?>
                         </div>
                     </div>
                     <!-- Missing Devices Panel on Dashboard -->
@@ -161,17 +169,41 @@ if (! Session::loginCheck($connection)) {
                         </div>
                         <div class="panel-body">
 
-                            <!-- TODO: Generated based on number of devices. -->
-                            <strong>Device Name: </strong> Work Laptop<br />
-                            <strong>Current Status: </strong> Tracking,
-                            5 responses.<br /> <strong>Poll Interval: </strong>
-                            Every minute.<br /> <strong>History: </strong>
-                            <br /> Response at 9:59AM 2/16/2014. <a
-                                href="">More...</a><br /> Response at
-                            9:58AM 2/16/2014. <a href="">More...</a><br />
-                            Response at 9:56AM 2/16/2014. <a href="">More...</a><br />
-                            Response at 9:55AM 2/16/2014. <a href="">More...</a><br />
-                            Response at 9:54AM 2/16/2014. <a href="">More...</a><br />
+                        <?php 
+                        
+                        $sql = "SELECT * FROM devices WHERE status='LOST' AND userid='".$_SESSION['userid']."';";
+    
+                        $result = mysqli_query($connection, $sql);
+                        
+                        echo "<strong>Number of Devices: </strong>";
+                        echo $result->num_rows . "<br><br>";
+                        
+                        while($row = mysqli_fetch_array($result)) {
+                            echo "<strong>Device name: </strong>";
+                            echo $row['name'] . "<br>";
+                            echo "<strong>Current status: </strong>";
+                            echo $row['status'] . "<br>";
+                            echo "<strong>Poll Interval: </strong> 8==D<br>";
+                            echo "<strong>Reports: </strong>";
+                            
+                            $reportsql = "SELECT * FROM reports WHERE deviceid='".$row['id']."' ORDER BY 'time' ASC LIMIT 5;";
+                            
+                            $reports = mysqli_query($connection, $reportsql);
+                            
+                            echo $reports->num_rows . "<br>";
+                            
+                            while( $reportrow = mysqli_fetch_array($reports) ) {
+                                echo '<a class="report-link" href="report.php?id=';
+                                echo $reportrow['id'];
+                                echo '">';
+                                echo $reportrow['time'] . "</a>";
+                                echo '<br>';
+                            }
+                            echo "<br>";
+                        }
+                        
+                        ?>
+
 
                         </div>
                     </div>
