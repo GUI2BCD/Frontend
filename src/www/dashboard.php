@@ -261,7 +261,6 @@ while ($row = mysqli_fetch_array($result)) {
             <div class="tab-pane" id="agent">
             
                 <br /> This page is currently under construction.
-                
             </div>
             <!-- BEN DON'T EDIT BEYOND THIS POINT! -->
             
