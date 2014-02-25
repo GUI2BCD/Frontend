@@ -192,7 +192,7 @@ if (! Session::loginCheck($connection)) {
                             $reports = mysqli_query($connection, $reportsql);
                             
                             echo $reports->num_rows . "<br>";
-                            while ( $reportrow = mysqli_fetch_array($reports) ) {
+                            while ($reportrow = mysqli_fetch_array($reports)) {
                                 echo '<a class="report-link" href="report.php?id=';
                                 echo $reportrow['id'];
                                 echo '">';
