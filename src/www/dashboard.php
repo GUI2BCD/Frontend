@@ -225,7 +225,6 @@ while ($row = mysqli_fetch_array($result)) {
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                    <!-- TODO: Fill with static device info. -->
                                     <strong>Device 1</strong>
                                 </a>
                             </h4>
@@ -241,7 +240,6 @@ while ($row = mysqli_fetch_array($result)) {
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                    <!-- TODO: Fill with static device info. -->
                                     <strong>Device 1</strong>
                                 </a>
                             </h4>
