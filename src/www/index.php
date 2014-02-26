@@ -140,18 +140,15 @@ namespace LastResortRecovery;
 		<div class="row featurette">
 			<div class="col-md-7">
 				<h2 class="featurette-heading">
-					First featurette heading. <span class="text-muted">It'll blow your
+					Why Last Resort Recovery? <span class="text-muted">It'll blow your
 						mind.</span>
 				</h2>
-				<p class="lead">Donec ullamcorper nulla non metus auctor fringilla.
-					Vestibulum id ligula porta felis euismod semper. Praesent commodo
-					cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
-					tellus ac cursus commodo.</p>
+				<p class="lead">For the college student, their laptop is a tool
+				for academic success, but it can be lost, misplaced, or stolen.
+				Last Resort Recovery works to assist you in the recovery of your device.</p>
 			</div>
 			<div class="col-md-5">
-				<img class="featurette-image img-responsive"
-					data-src="js/holder.js/500x500/auto"
-					alt="Generic placeholder image">
+				<img src="images/homeImage1.jpg" alt="HomeImage1">
 			</div>
 		</div>
 
@@ -159,18 +156,15 @@ namespace LastResortRecovery;
 
 		<div class="row featurette">
 			<div class="col-md-5">
-				<img class="featurette-image img-responsive"
-					data-src="js/holder.js/500x500/auto"
-					alt="Generic placeholder image">
+				<img src="images/homeImage2.jpg" alt="HomeImage2">
 			</div>
 			<div class="col-md-7">
 				<h2 class="featurette-heading">
-					Oh yeah, it's that good. <span class="text-muted">See for yourself.</span>
+					The Agent: <span class="text-muted">Your recovery friend.</span>
 				</h2>
-				<p class="lead">Donec ullamcorper nulla non metus auctor fringilla.
-					Vestibulum id ligula porta felis euismod semper. Praesent commodo
-					cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
-					tellus ac cursus commodo.</p>
+				<p class="lead">An agent for a Linux based operating system will help
+				you document your lost device so that assistance for recovery can
+				begin right away.</p>
 			</div>
 		</div>
 
@@ -179,17 +173,14 @@ namespace LastResortRecovery;
 		<div class="row featurette">
 			<div class="col-md-7">
 				<h2 class="featurette-heading">
-					And lastly, this one. <span class="text-muted">Checkmate.</span>
+					The Dashboard: <span class="text-muted">Quick and relevant information for you.</span>
 				</h2>
-				<p class="lead">Donec ullamcorper nulla non metus auctor fringilla.
-					Vestibulum id ligula porta felis euismod semper. Praesent commodo
-					cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
-					tellus ac cursus commodo.</p>
+				<p class="lead">Your dashboard will be personalized with the information
+				from the agent and user registration to give clear and concise reports
+				about the status of your lost device.</p>
 			</div>
 			<div class="col-md-5">
-				<img class="featurette-image img-responsive"
-					data-src="js/holder.js/500x500/auto"
-					alt="Generic placeholder image">
+				<img src="images/homeImage3.jpg" alt="HomeImage3">
 			</div>
 		</div>
 
