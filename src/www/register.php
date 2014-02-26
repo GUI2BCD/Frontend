@@ -15,6 +15,10 @@ namespace LastResortRecovery;
 
 include_once 'db.php';
 include_once 'session.php';
+
+// Start a session
+Session::startSecureSession();
+
 // Check post variables
 if (isset($_POST['username'], $_POST['email'], $_POST['password'])) {
     
@@ -22,9 +26,18 @@ if (isset($_POST['username'], $_POST['email'], $_POST['password'])) {
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-       
+    
     // Perform register
-    echo Session::register($username, $email, $password, $connection);
+    if (Session::register($username, $email, $password, $connection) == REGISTER_SUCCESS) {
+        $result = Session::login($email, $password, $connection);
+        if ($result == LOGIN_SUCCESS) {
+            header('Location: dashboard.php');
+            exit();
+        }
+    } else {
+        header('Location: index.php');
+        exit();
+    }
 } else {
     echo BAD_REQUEST;
 }
