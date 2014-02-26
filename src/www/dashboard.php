@@ -255,12 +255,20 @@ while ($row = mysqli_fetch_array($result)) {
                 </div>
                     
             </div>
-            <!-- Agent Tab on Dashboard --><!-- TODO: BEN WORK HERE -->
+            <!-- Agent Tab on Dashboard -->
             <div class="tab-pane" id="agent">
-            
-                <br /> This page is currently under construction.
+                <ol>
+                    <!-- Download link isn't actually for real. Just filler. -->
+                    <li>Download <a href="/download/agent.deb">agent.deb</a> file.</li>
+                    <li>Install with deb file by either using a package manager or running:<br>
+                        <kbd>dpkg -i agent.deb</kbd>
+                        <br>
+                        <kbd>sudo apt-get -f install</kbd>
+                    </li>
+                    <li>Run linux_agent.</li>
+                    <li>Follow application instructions.</li>
+                </ol>
             </div>
-            <!-- BEN DON'T EDIT BEYOND THIS POINT! -->
             
             <!-- Account Tab on Dashboard -->
             <div class="tab-pane" id="account">
