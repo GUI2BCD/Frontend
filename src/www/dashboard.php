@@ -81,8 +81,8 @@ if (! Session::loginCheck($connection)) {
                 <ul class="dropdown-menu">
                     <li><a href="#devices" data-toggle="tab">All</a></li> <!-- TODO: Pull from db -->
                     <li class="divider"></li>
-                    <li><a href="">Device Two</a></li> <!-- TODO: Pull from db -->
-                    <li><a href="">Device Three</a></li> <!-- TODO: Pull from db -->
+                    <li><a href="#device1">Device One</a></li> <!-- TODO: Pull from db -->
+                    <li><a href="#device2">Device Two</a></li> <!-- TODO: Pull from db -->
                 </ul>
             </li>
             <li><a href="#agent" data-toggle="tab">Agent</a></li>
@@ -238,11 +238,13 @@ while ($row = mysqli_fetch_array($result)) {
                     
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                    <strong>Device 1</strong>
-                                </a>
-                            </h4>
+                            <div class="panel-title accordion-icon-swap" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                <p class="pull-right"><strong>ID: </strong>PUT ID HERE</p>
+                                <p class=""><strong>Device Name</strong></p>
+                                <div class="panel-icon-centered">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </div>
+                            </div>
                         </div>
                         <div id="collapseTwo" class="panel-collapse collapse">
                             <div class="panel-body">
@@ -298,6 +300,10 @@ while ($row = mysqli_fetch_array($result)) {
     <!-- Latest compiled and minified JavaScript -->
     <script
         src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        
+    <!-- Additional Scripts -->
+    <script
+        src="./js/common.js"></script>
     
 </body>
 </html>

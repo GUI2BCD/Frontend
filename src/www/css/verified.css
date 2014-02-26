@@ -23,3 +23,16 @@
 .spacer {
     margin: 20px 40px 0 40px;
 }
+
+.panel-heading {
+    cursor: pointer;
+
+}
+
+.panel-title p {
+    margin: 0;        
+}
+
+.panel-icon-centered {
+    text-align: center;
+}
