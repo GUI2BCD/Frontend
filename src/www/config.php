@@ -12,9 +12,10 @@
  */
 namespace LastResortRecovery
 
-{  
-	include 'db_config.php';
-  
+{
+
+    include 'db_config.php';
+    
     // Error messages
     define("LOGIN_SUCCESS", "Logged in");
     define("LOGIN_PASSWORD", "Bad password");
@@ -34,7 +35,6 @@ namespace LastResortRecovery
     
     define("DATABASE_ERROR", "Database error");
     define("BAD_REQUEST", "Bad request");
-    
     
     // Agent actions
     define("AGENT_AUTH", "AUTH");
