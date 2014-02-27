@@ -220,86 +220,81 @@ while ($row = mysqli_fetch_array($result)) {
 
                 <!-- TODO: Generate based on devices. -->
                 <div class="panel-group spacer" id="accordion">
-                    
+<?php 
+$sql = "SELECT * FROM devices WHERE userid='" . $_SESSION['userid'] . "';";
+
+$result = mysqli_query($connection, $sql);
+$i = 0;
+
+
+while ($row = mysqli_fetch_array($result)) {
+
+    $reportsql = "SELECT * FROM reports WHERE deviceid='" . $row['id'] . "' ORDER BY 'time' ASC LIMIT 1;";
+
+    $reports = mysqli_query($connection, $reportsql);
+
+    $reportrow = mysqli_fetch_array($reports);
+
+    ?>
+
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <div class="panel-title accordion-icon-swap" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                <p class="pull-right"><strong>ID: </strong>PUT ID HERE</p>
-                                <p class=""><strong>Device Name</strong></p>
+                            <div class="panel-title accordion-icon-swap" data-toggle="collapse" 
+                            data-parent="#accordion" href="#collapse<?php echo $i ?>">
+                                <p class="pull-right"><strong>ID: </strong><?php echo $row['id'] ?></p>
+                                <p class=""><strong><?php echo $row['name'] ?></strong></p>
                                 <div class="panel-icon-centered">
                                     <span class="glyphicon glyphicon-chevron-down"></span>
                                 </div>
                             </div>
                         </div>
-                        <div id="collapseOne" class="panel-collapse collapse">
+                        <div id="collapse<?php echo $i ?>" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <div class="accordion-status">
-                                    <h4>Status: </h4><h4 class="status-green">OK</h4>
+                                    <h4>Status: </h4><h4 class="status-
+    <?php 
+    if ($row['status'] == "OK") {
+        echo 'green';
+    } else {
+        echo 'red';
+    }
+    ?>">
+    <?php echo $row['status']?></h4>
                                 </div>
                                 
                                 <div class="column-left">
-                                    <h5>Data Added: </h5>May 2nd, 2014<br>
-                                    <h5>Agent Version: </h5>Linux 1.2<br>
+                                    <h5>Date Added: </h5><?php echo 'todo'?><br>
+                                    <h5>Agent Version: </h5>Linux 0.1<br>
                                 </div>
                                 <div class="column-right">
                                     <h5>Poll Interval: </h5>30 sec<br>
-                                    <h5>Last Record Received: </h5>4:34PM January 2nd, 2014<br>
+                                    <h5>Last Report Received: </h5><?php echo $reportrow['time']?><br>
                                 </div>
 
                                 <div class="panel-body accordion-body clear">
-                                    <h4>Latest Record:</h4><br><br>
-                                    <h5>Network Info:</h5><br>
-                                    <h5>IP Address: </h5>192.168.1.z<br>
-                                    <h5>Subnet Mask: </h5>255.255.255.255<br>
+                                    <h4>Latest Report:</h4><br><br>
+                                    <h5>Local IP Address: </h5><br><code>
+                                    <?php echo nl2br($reportrow['localip'])?>
+                                    </code><br>
+                                    <h5>Remote IP Address: </h5><br><code><?php echo $reportrow['remoteip']?></code><br>
                                     <br>
-                                    <h5>Detected Wifi:</h5>
-                                    <br>
-                                    <h5>Trace Route:</h5>
+                                    <h5>Detected WiFi Hotspot(s):</h5><br><code>
+                                    <?php echo nl2br($reportrow['wifi'])?>
+                                    </code><br>
+                                    <h5>Trace Route:</h5><br><code><?php echo nl2br($reportrow['traceroute'])?></code>
                                 </div>
                                 
                             </div>
                         </div>
                     </div>
+
+
                     
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="panel-title accordion-icon-swap" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                <p class="pull-right"><strong>ID: </strong>PUT ID HERE</p>
-                                <p class=""><strong>Device Name</strong></p>
-                                <div class="panel-icon-centered">
-                                    <span class="glyphicon glyphicon-chevron-down"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="collapseTwo" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <div class="accordion-status">
-                                    <h4>Status: </h4><h4 class="status-green">OK</h4>
-                                </div>
-                                
-                                <div class="column-left">
-                                    <h5>Data Added: </h5>May 2nd, 2014<br>
-                                    <h5>Agent Version: </h5>Linux 1.2<br>
-                                </div>
-                                <div class="column-right">
-                                    <h5>Poll Interval: </h5>30 sec<br>
-                                    <h5>Last Record Received: </h5>4:34PM January 2nd, 2014<br>
-                                </div>
-
-                                <div class="panel-body accordion-body clear">
-                                    <h4>Latest Record:</h4><br><br>
-                                    <h5>Network Info:</h5><br>
-                                    <h5>IP Address: </h5>192.168.1.z<br>
-                                    <h5>Subnet Mask: </h5>255.255.255.255<br>
-                                    <br>
-                                    <h5>Detected Wifi:</h5>
-                                    <br>
-                                    <h5>Trace Route:</h5>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
+    <?php
+    $i++;
+}
+?>
+                    
                     
                     
                 </div>
@@ -313,7 +308,8 @@ while ($row = mysqli_fetch_array($result)) {
                     
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <div class="panel-title accordion-icon-swap" data-toggle="collapse" data-parent="#accordion" href="#collapseDeviceOne">
+                            <div class="panel-title accordion-icon-swap" data-toggle="collapse" 
+                            data-parent="#accordion" href="#collapseDeviceOne">
                                 <p class="center">Date of Record</p>
                                 <div class="panel-icon-centered">
                                     <span class="glyphicon glyphicon-chevron-down"></span>
@@ -328,7 +324,8 @@ while ($row = mysqli_fetch_array($result)) {
                    
                    <div class="panel panel-default">
                         <div class="panel-heading">
-                            <div class="panel-title accordion-icon-swap" data-toggle="collapse" data-parent="#accordion" href="#collapseDeviceTwo">
+                            <div class="panel-title accordion-icon-swap" data-toggle="collapse" 
+                            data-parent="#accordion" href="#collapseDeviceTwo">
                                 <p class="center">Date of Record</p>
                                 <div class="panel-icon-centered">
                                     <span class="glyphicon glyphicon-chevron-down"></span>
