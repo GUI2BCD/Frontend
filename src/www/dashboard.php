@@ -63,9 +63,10 @@ if (! Session::loginCheck($connection)) {
                 </button>
                 <a class="navbar-brand" href="#">Last Resort Recovery</a>
             </div>
-            <div class="navbar-right navbar-collapse collapse">
+            <div class="navbar-right">
                 <a class="navbar-brand">Welcome, <?php echo $_SESSION['username'] ?>!</a>
             </div>
+            <div class="navbar-collapse collapse"></div>
             <!--/.navbar-collapse -->
         </div>
     </div>
@@ -328,7 +329,10 @@ while ($row = mysqli_fetch_array($result)) {
                                <h3 class="panel-title">Last Known Location</h3>
                             </div>
                             <div class="panel-body clear-padding">
+                                //@codingStandardsIgnoreStart
+                                <!-- Google Maps Embedding - Plan to make this generated and code style compliant. -->
                                 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script><div style="overflow:hidden;height:400px;width:700px;"><div id="gmap_canvas" style="height:400px;width:680px;"></div><a class="google-map-code" href="http://www.embed-google-map.com/de/" id="get-map-data">google maps einbinden</a><iframe src="http://www.embed-google-map.com/map-embed.php"></iframe><a class="google-map-data" href="http://www.stromleo.de" id="get-map-data">hier umgeleitet</a></div><script type="text/javascript"> function init_map(){var myOptions = {zoom:17,center:new google.maps.LatLng(42.6530618,-71.32574769999997),mapTypeId: google.maps.MapTypeId.HYBRID};map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(42.6530618, -71.32574769999997)});infowindow = new google.maps.InfoWindow({content:"<div style='position:relative;line-height:1.34;overflow:hidden;white-space:nowrap;display:block;'><div style='margin-bottom:2px;font-weight:500;'>Area 51</div><span>1 University Way <br>  Lowell</span></div>" });google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+                                //@codingStandardsIgnoreEnd
                             </div>
                         </div>
                     </div><!-- END OF DEVICE - LAST KNOWN LOCATION -->
