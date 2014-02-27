@@ -2,6 +2,14 @@
 /* Include .PHP files here. */
 namespace LastResortRecovery;
 
+include 'db.php';
+include 'session.php';
+// Redirect to dashboard if already logged in
+Session::startSecureSession();
+if (Session::loginCheck($connection)) {
+    header('Location: dashboard.php');
+}
+
 ?>
 
 <!DOCTYPE html>

@@ -1,5 +1,17 @@
 @CHARSET "ISO-8859-1";
 
+/********** Verified User pages. **********/
+/** Space between the tab nav and the service bar. **/
+.nav {
+    margin-top: 15px;
+}
+
+/** Restricts footer from the primary view. **/
+.tab-pane {
+    min-height: 300px;
+}
+
+/********** Dashboard Tab **********/
 .dashboard-left {
     float: left;
     width: 50%;
@@ -12,14 +24,148 @@
     padding: 20px 0 0 20px;
 }
 
-.nav {
-    margin-top: 15px;
-}
-
-.tab-pane {
-    min-height: 300px;
-}
-
+/********** Devices Tab(All) *********/
+/** Centers the accordion on the page. **/
 .spacer {
     margin: 20px 40px 0 40px;
+}
+
+/** Changes the cursor to a pointer when 
+  * hovering over the heading of an accordion. 
+  */
+.panel-heading {
+    cursor: pointer;
+}
+
+.panel-title p {
+    margin: 0;
+}
+
+.panel-icon-centered {
+    text-align: center;
+}
+
+.accordion-status {
+    margin-bottom: 15px;
+}
+
+.column-left {
+    width: 50%;
+    float: left !important;
+    margin-bottom: 15px;
+}
+
+.column-right {
+    width: 50%;
+    float: right !important;
+    margin-bottom: 15px;
+}
+
+.accordion-body {
+    padding: 15px 0 0 0;
+}
+
+/********** Devices(Individual) **********/
+.device-panel-left {
+    width: 40%;
+    float: left !important;
+    padding: 20px 20px 0 0;
+}
+
+.device-panel-right {
+    width: 60%;
+    float: right !important;
+    padding: 20px 0 0 20px;
+}
+
+.device-group-left {
+    width: 50%;
+    float: left !important;
+    margin-bottom: 20px;
+}
+
+.device-group-left fieldset {
+    border: 1px solid black !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin-right: 20px;
+}
+
+.device-group-left legend {
+    width: auto;
+    padding: 0 10px;
+    border-bottom: none;
+}
+
+.device-group-right {
+    width: 50%;
+    float: right !important;
+    margin-bottom: 20px;
+}
+
+.device-group-right fieldset {
+    border: 1px solid black !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin-left: 20px;
+}
+
+.device-group-right legend {
+    width: auto;
+    padding: 0 10px;
+    border-bottom: none;
+}
+
+.records-column-left {
+    width: 50%;
+    float: left !important;
+    text-align: center;
+}
+
+.records-column-right {
+    width: 50%;
+    float: right !important;
+    text-align: center;
+}
+
+.device-accordion {
+    
+}
+
+/** General **/
+.clear {
+    clear: both;
+}
+
+.clear-padding {
+    padding: 0;
+}
+
+.clear-margin {
+    margin: 0;
+}
+
+.center {
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin: 0;
+}
+
+.status-green {
+    color: green;
+}
+
+.status-red {
+    color: red;
+}
+
+h4 {
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    display: inline;
+}
+
+h5 {
+    font-weight: 700;
+    margin: 0;
+    display: inline;
 }
