@@ -308,8 +308,42 @@ while ($row = mysqli_fetch_array($result)) {
             
             <!-- Device Page(Generated per device) -->
             <div class="tab-pane" id="device1">
-                
-            </div>
+                This is other sterf:
+                <div class="panel-group spacer" id="accordion">
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-title accordion-icon-swap" data-toggle="collapse" data-parent="#accordion" href="#collapseDeviceOne">
+                                <p class="center">Date of Record</p>
+                                <div class="panel-icon-centered">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="collapseDeviceOne" class="panel-collapse collapse">
+                            <div class="panel-body">
+                            </div>
+                        </div>
+                   </div><!-- END OF PANEL 1 -->
+                   
+                   <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-title accordion-icon-swap" data-toggle="collapse" data-parent="#accordion" href="#collapseDeviceTwo">
+                                <p class="center">Date of Record</p>
+                                <div class="panel-icon-centered">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="collapseDeviceTwo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                            heelo
+                            </div>
+                        </div>
+                   </div><!-- END OF PANEL 2 -->
+                   
+               </div> <!-- END OF ACCORDION -->
+            </div><!-- END OF DEVICE(Individual) -->
             
             
             
