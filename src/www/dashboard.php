@@ -63,11 +63,9 @@ if (! Session::loginCheck($connection)) {
                 </button>
                 <a class="navbar-brand" href="#">Last Resort Recovery</a>
             </div>
-            <div class="navbar-right">
+            <div class="navbar-right navbar-collapse collapse">
                 <a class="navbar-brand">Welcome, <?php echo $_SESSION['username'] ?>!</a>
             </div>
-            <div class="navbar-collapse collapse"></div>
-            <!--/.navbar-collapse -->
         </div>
     </div>
 
