@@ -253,9 +253,9 @@ while ($row = mysqli_fetch_array($result)) {
                                 <div class="accordion-status">
                                     <h4>Status: </h4><h4 class="status-
     <?php 
-    if($row['status'] == "OK"){ 
-        echo 'green'; 
-    } else { 
+    if ($row['status'] == "OK") {
+        echo 'green';
+    } else {
         echo 'red';
     }
     ?>">
@@ -273,11 +273,14 @@ while ($row = mysqli_fetch_array($result)) {
 
                                 <div class="panel-body accordion-body clear">
                                     <h4>Latest Report:</h4><br><br>
-                                    <h5>Local IP Address: </h5><br><code><?php echo nl2br($reportrow['localip'])?></code><br>
+                                    <h5>Local IP Address: </h5><br><code>
+                                    <?php echo nl2br($reportrow['localip'])?>
+                                    </code><br>
                                     <h5>Remote IP Address: </h5><br><code><?php echo $reportrow['remoteip']?></code><br>
                                     <br>
-                                    <h5>Detected WiFi Hotspot(s):</h5><br><code><?php echo nl2br($reportrow['wifi'])?></code>
-                                    <br>
+                                    <h5>Detected WiFi Hotspot(s):</h5><br><code>
+                                    <?php echo nl2br($reportrow['wifi'])?>
+                                    </code><br>
                                     <h5>Trace Route:</h5><br><code><?php echo nl2br($reportrow['traceroute'])?></code>
                                 </div>
                                 
@@ -287,8 +290,8 @@ while ($row = mysqli_fetch_array($result)) {
 
 
                     
-<?php
-$i++;
+    <?php
+    $i++;
 }
 ?>
                     
@@ -305,7 +308,8 @@ $i++;
                     
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <div class="panel-title accordion-icon-swap" data-toggle="collapse" data-parent="#accordion" href="#collapseDeviceOne">
+                            <div class="panel-title accordion-icon-swap" data-toggle="collapse" 
+                            data-parent="#accordion" href="#collapseDeviceOne">
                                 <p class="center">Date of Record</p>
                                 <div class="panel-icon-centered">
                                     <span class="glyphicon glyphicon-chevron-down"></span>
@@ -320,7 +324,8 @@ $i++;
                    
                    <div class="panel panel-default">
                         <div class="panel-heading">
-                            <div class="panel-title accordion-icon-swap" data-toggle="collapse" data-parent="#accordion" href="#collapseDeviceTwo">
+                            <div class="panel-title accordion-icon-swap" data-toggle="collapse" 
+                            data-parent="#accordion" href="#collapseDeviceTwo">
                                 <p class="center">Date of Record</p>
                                 <div class="panel-icon-centered">
                                     <span class="glyphicon glyphicon-chevron-down"></span>
