@@ -235,11 +235,12 @@ while ($row = mysqli_fetch_array($result)) {
 
     $reportrow = mysqli_fetch_array($reports);
 
-?>
+    ?>
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <div class="panel-title accordion-icon-swap" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $i ?>">
+                            <div class="panel-title accordion-icon-swap" data-toggle="collapse" 
+                            data-parent="#accordion" href="#collapse<?php echo $i ?>">
                                 <p class="pull-right"><strong>ID: </strong><?php echo $row['id'] ?></p>
                                 <p class=""><strong><?php echo $row['name'] ?></strong></p>
                                 <div class="panel-icon-centered">
@@ -250,7 +251,15 @@ while ($row = mysqli_fetch_array($result)) {
                         <div id="collapse<?php echo $i ?>" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <div class="accordion-status">
-                                    <h4>Status: </h4><h4 class="status-<?php if($row['status'] == "OK"){ echo 'green'; }else{ echo 'red';}?>"><?php echo $row['status']?></h4>
+                                    <h4>Status: </h4><h4 class="status-
+    <?php 
+    if($row['status'] == "OK"){ 
+        echo 'green'; 
+    } else { 
+        echo 'red';
+    }
+    ?>">
+    <?php echo $row['status']?></h4>
                                 </div>
                                 
                                 <div class="column-left">
