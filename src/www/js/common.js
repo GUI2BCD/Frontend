@@ -9,6 +9,6 @@
  */
 $(".accordion-icon-swap").click(
         function() {
-            $(this).find('.chevron').toggleClass('glyphicon-chevron-down').toggleClass(
+            $(this).find('.glyphicon').toggleClass('glyphicon-chevron-down').toggleClass(
                     'glyphicon-chevron-up');
         });

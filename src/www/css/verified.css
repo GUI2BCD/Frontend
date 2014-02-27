@@ -1,5 +1,17 @@
 @CHARSET "ISO-8859-1";
 
+/********** Verified User pages. **********/
+/** Space between the tab nav and the service bar. **/
+.nav {
+    margin-top: 15px;
+}
+
+/** Restricts footer from the primary view. **/
+.tab-pane {
+    min-height: 300px;
+}
+
+/********** Dashboard Tab **********/
 .dashboard-left {
     float: left;
     width: 50%;
@@ -12,27 +24,75 @@
     padding: 20px 0 0 20px;
 }
 
-.nav {
-    margin-top: 15px;
-}
-
-.tab-pane {
-    min-height: 300px;
-}
-
+/********** Devices Tab(All) *********/
+/** Centers the accordion on the page. **/
 .spacer {
     margin: 20px 40px 0 40px;
 }
 
+/** Changes the cursor to a pointer when 
+  * hovering over the heading of an accordion. 
+  */
 .panel-heading {
     cursor: pointer;
-
 }
 
 .panel-title p {
-    margin: 0;        
+    margin: 0;
 }
 
 .panel-icon-centered {
     text-align: center;
+}
+
+.accordion-status {
+    margin-bottom: 15px;
+}
+
+.column-left {
+    width: 50%;
+    float: left !important;
+    margin-bottom: 15px;
+}
+
+.column-right {
+    width: 50%;
+    float: right !important;
+    margin-bottom: 15px;
+}
+
+.accordion-body {
+    padding: 15px 0 0 0;
+}
+
+.clear {
+    clear: both;
+}
+
+/** General **/
+.center {
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin: 0;
+}
+
+.status-green {
+    color: green;
+}
+
+.status-red {
+    color: red;
+}
+
+h4 {
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    display: inline;
+}
+
+h5 {
+    font-weight: 700;
+    margin: 0;
+    display: inline;
 }

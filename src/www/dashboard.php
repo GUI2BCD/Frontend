@@ -101,10 +101,10 @@ if (! Session::loginCheck($connection)) {
                             <h3 class="panel-title">Account</h3>
                         </div>
                         <div class="panel-body">
-                            <strong>Name: </strong><?php echo $_SESSION['username'] ?><br>
-                            <strong>Username: </strong><?php echo $_SESSION['username'] ?><br> <br>
-                            <strong>Last Login: </strong>Nov. 22nd 2014<br><!-- TODO: Pull from DB. -->
-                            <strong>Account ID: </strong><?php echo $_SESSION['userid'] ?><br>
+                            <h5>Name: </h5><?php echo $_SESSION['username'] ?><br>
+                            <h5>Username: </h5><?php echo $_SESSION['username'] ?><br> <br>
+                            <h5>Last Login: </h5>Nov. 22nd 2014<br><!-- TODO: Pull from DB. -->
+                            <h5>Account ID: </h5><?php echo $_SESSION['userid'] ?><br>
                         </div>
                     </div>
 
@@ -114,7 +114,7 @@ if (! Session::loginCheck($connection)) {
                             <h3 class="panel-title">News</h3>
                         </div>
                         <div class="panel-body">
-                            <strong>Important Information</strong><br>
+                            <h5>Important Information</h5><br>
                             <a href="">See more...</a>
                             <br> <br> 
                             Like
@@ -125,11 +125,11 @@ if (! Session::loginCheck($connection)) {
                             securities. The following list will provide
                             you with information on the various other
                             methods of computer security. <br> 
-                            <strong>Anti-virus: </strong>
+                            <h5>Anti-virus: </h5>
                             <a href="">Top 5 Anti-virus softwares.</a><br> 
-                            <strong>Data Encryption: </strong> 
+                            <h5>Data Encryption: </h5> 
                             <a href="">What is Data Encryption?</a><br> 
-                            <strong>Cloud Storage: </strong> 
+                            <h5>Cloud Storage: </h5> 
                             <a href="">Google vs. Amazon, who should I use?</a><br><br>
                             For more information and news about Last
                             Resort and computer security in general... 
@@ -150,15 +150,15 @@ $sql = "SELECT * FROM devices WHERE userid='" . $_SESSION['userid'] . "';";
 
 $result = mysqli_query($connection, $sql);
 
-echo "<strong>Number of Devices: </strong>";
+echo "<h5>Number of Devices: </h5>";
 echo $result->num_rows . "<br><br>";
 
 while ($row = mysqli_fetch_array($result)) {
-    echo "<strong>Device name: </strong>";
+    echo "<h5>Device name: </h5>";
     echo $row['name'] . "<br>";
-    echo "<strong>ID: </strong>";
+    echo "<h5>ID: </h5>";
     echo $row['id'] . "<br>";
-    echo "<strong>Status: </strong>";
+    echo "<h5>Status: </h5>";
     echo $row['status'] . "<br>";
     // TODO Last report
     // TODO Link to device
@@ -181,16 +181,16 @@ $sql = "SELECT * FROM devices WHERE status='LOST' AND userid='" . $_SESSION['use
 
 $result = mysqli_query($connection, $sql);
 
-echo "<strong>Number of Devices: </strong>";
+echo "<h5>Number of Devices: </h5>";
 echo $result->num_rows . "<br><br>";
 
 while ($row = mysqli_fetch_array($result)) {
-    echo "<strong>Device name: </strong>";
+    echo "<h5>Device name: </h5>";
     echo $row['name'] . "<br>";
-    echo "<strong>Current status: </strong>";
+    echo "<h5>Current status: </h5>";
     echo $row['status'] . "<br>";
-    echo "<strong>Poll Interval: </strong> 30 seconds<br>";
-    echo "<strong>Reports: </strong>";
+    echo "<h5>Poll Interval: </h5> 30 seconds<br>";
+    echo "<h5>Reports: </h5>";
     
     $reportsql = "SELECT * FROM reports WHERE deviceid='" . $row['id'] . "' ORDER BY 'time' ASC LIMIT 5;";
     
@@ -223,15 +223,40 @@ while ($row = mysqli_fetch_array($result)) {
                     
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                    <strong>Device 1</strong>
-                                </a>
-                            </h4>
+                            <div class="panel-title accordion-icon-swap" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                <p class="pull-right"><strong>ID: </strong>PUT ID HERE</p>
+                                <p class=""><strong>Device Name</strong></p>
+                                <div class="panel-icon-centered">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </div>
+                            </div>
                         </div>
                         <div id="collapseOne" class="panel-collapse collapse">
                             <div class="panel-body">
-                                Content
+                                <div class="accordion-status">
+                                    <h4>Status: </h4><h4 class="status-green">OK</h4>
+                                </div>
+                                
+                                <div class="column-left">
+                                    <h5>Data Added: </h5>May 2nd, 2014<br>
+                                    <h5>Agent Version: </h5>Linux 1.2<br>
+                                </div>
+                                <div class="column-right">
+                                    <h5>Poll Interval: </h5>30 sec<br>
+                                    <h5>Last Record Received: </h5>4:34PM January 2nd, 2014<br>
+                                </div>
+
+                                <div class="panel-body accordion-body clear">
+                                    <h4>Latest Record:</h4><br><br>
+                                    <h5>Network Info:</h5><br>
+                                    <h5>IP Address: </h5>192.168.1.z<br>
+                                    <h5>Subnet Mask: </h5>255.255.255.255<br>
+                                    <br>
+                                    <h5>Detected Wifi:</h5>
+                                    <br>
+                                    <h5>Trace Route:</h5>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -248,7 +273,30 @@ while ($row = mysqli_fetch_array($result)) {
                         </div>
                         <div id="collapseTwo" class="panel-collapse collapse">
                             <div class="panel-body">
-                                Content
+                                <div class="accordion-status">
+                                    <h4>Status: </h4><h4 class="status-green">OK</h4>
+                                </div>
+                                
+                                <div class="column-left">
+                                    <h5>Data Added: </h5>May 2nd, 2014<br>
+                                    <h5>Agent Version: </h5>Linux 1.2<br>
+                                </div>
+                                <div class="column-right">
+                                    <h5>Poll Interval: </h5>30 sec<br>
+                                    <h5>Last Record Received: </h5>4:34PM January 2nd, 2014<br>
+                                </div>
+
+                                <div class="panel-body accordion-body clear">
+                                    <h4>Latest Record:</h4><br><br>
+                                    <h5>Network Info:</h5><br>
+                                    <h5>IP Address: </h5>192.168.1.z<br>
+                                    <h5>Subnet Mask: </h5>255.255.255.255<br>
+                                    <br>
+                                    <h5>Detected Wifi:</h5>
+                                    <br>
+                                    <h5>Trace Route:</h5>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
