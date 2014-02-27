@@ -250,15 +250,15 @@ while ($row = mysqli_fetch_array($result)) {
                         <div id="collapse<?php echo $i ?>" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <div class="accordion-status">
-                                    <h4>Status: </h4><h4 class="status-
+                                    <h4>Status: </h4>
     <?php 
     if ($row['status'] == "OK") {
-        echo 'green';
+        echo '<h4 class="status-green">';
     } else {
-        echo 'red';
+        echo '<h4 class="status-red">';
     }
-    ?>">
-    <?php echo $row['status']?></h4>
+    echo $row['status'] . '</h4>';
+    ?>
                                 </div>
                                 
                                 <div class="column-left">
@@ -302,7 +302,13 @@ while ($row = mysqli_fetch_array($result)) {
             
             <!-- Device Page(Generated per device) -->
             <div class="tab-pane" id="device1">
-                This is other sterf:
+                
+                
+                
+                
+                
+                
+                
                 <div class="panel-group spacer" id="accordion">
                     
                     <div class="panel panel-default">
