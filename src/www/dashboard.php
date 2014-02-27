@@ -233,7 +233,7 @@ while ($row = mysqli_fetch_array($result)) {
 
     $reports = mysqli_query($connection, $reportsql);
 
-    while ($reportrow = mysqli_fetch_array($reports)) {
+    $reportrow = mysqli_fetch_array($reports);
 
 ?>
 
@@ -264,13 +264,12 @@ while ($row = mysqli_fetch_array($result)) {
 
                                 <div class="panel-body accordion-body clear">
                                     <h4>Latest Report:</h4><br><br>
-                                    <h5>Network Info:</h5><br>
-                                    <h5>Local IP Address: </h5><?php echo $reportrow['localip']?><br>
-                                    <h5>Remote IP Address: </h5><?php echo $reportrow['remoteip']?><br>
+                                    <h5>Local IP Address: </h5><br><code><?php echo nl2br($reportrow['localip'])?></code><br>
+                                    <h5>Remote IP Address: </h5><br><code><?php echo $reportrow['remoteip']?></code><br>
                                     <br>
-                                    <h5>Detected Wifi:</h5><br><code><?php echo $reportrow['wifi']?></code>
+                                    <h5>Detected WiFi Hotspot(s):</h5><br><code><?php echo nl2br($reportrow['wifi'])?></code>
                                     <br>
-                                    <h5>Trace Route:</h5><br><code><?php echo $reportrow['traceroute']?></code>
+                                    <h5>Trace Route:</h5><br><code><?php echo nl2br($reportrow['traceroute'])?></code>
                                 </div>
                                 
                             </div>
@@ -280,9 +279,7 @@ while ($row = mysqli_fetch_array($result)) {
 
                     
 <?php
-    $i++;
-    }
-
+$i++;
 }
 ?>
                     
