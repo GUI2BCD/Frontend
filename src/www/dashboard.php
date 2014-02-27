@@ -252,7 +252,7 @@ while ($row = mysqli_fetch_array($result)) {
                             <div class="panel-body">
                                 <div class="accordion-status">
                                     <h4>Status: </h4>
-<?php 
+    <?php 
     if ($row['status'] == "OK") {
         echo '<h4 class="status-green">';
     } else {
@@ -303,7 +303,13 @@ while ($row = mysqli_fetch_array($result)) {
             
             <!-- Device Page(Generated per device) -->
             <div class="tab-pane" id="device1">
-                This is other sterf:
+                
+                
+                
+                
+                
+                
+                
                 <div class="panel-group spacer" id="accordion">
                     
                     <div class="panel panel-default">
