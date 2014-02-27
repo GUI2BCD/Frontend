@@ -74,15 +74,15 @@ if (! Session::loginCheck($connection)) {
     <div class="container content">
 
         <!-- Nav tabs -->
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-tabs" id="user-tabs">
             <li class="active"><a href="#dashboard" data-toggle="tab">Dashboard</a></li>
             <li class="dropdown">
                 <a class="dropdown-toggle" href="#" data-toggle="dropdown">Devices <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="#devices" data-toggle="tab">All</a></li> <!-- TODO: Pull from db -->
                     <li class="divider"></li>
-                    <li><a href="#device1">Device One</a></li> <!-- TODO: Pull from db -->
-                    <li><a href="#device2">Device Two</a></li> <!-- TODO: Pull from db -->
+                    <li><a href="#device1" data-toggle="tab">Device One</a></li> <!-- TODO: Pull from db -->
+                    <li><a href="#device2" data-toggle="tab">Device Two</a></li> <!-- TODO: Pull from db -->
                 </ul>
             </li>
             <li><a href="#agent" data-toggle="tab">Agent</a></li>
@@ -291,6 +291,52 @@ while ($row = mysqli_fetch_array($result)) {
                 </div>
                     
             </div>
+            
+            <!-- Device Page(Generated per device) -->
+            <div class="tab-pane" id="device1">
+                This is other sterf:
+                <div class="panel-group spacer" id="accordion">
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-title accordion-icon-swap" data-toggle="collapse" data-parent="#accordion" href="#collapseDeviceOne">
+                                <p class="center">Date of Record</p>
+                                <div class="panel-icon-centered">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="collapseDeviceOne" class="panel-collapse collapse">
+                            <div class="panel-body">
+                            </div>
+                        </div>
+                   </div><!-- END OF PANEL 1 -->
+                   
+                   <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-title accordion-icon-swap" data-toggle="collapse" data-parent="#accordion" href="#collapseDeviceTwo">
+                                <p class="center">Date of Record</p>
+                                <div class="panel-icon-centered">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="collapseDeviceTwo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                            heelo
+                            </div>
+                        </div>
+                   </div><!-- END OF PANEL 2 -->
+                   
+               </div> <!-- END OF ACCORDION -->
+            </div><!-- END OF DEVICE(Individual) -->
+            
+            
+            
+            <div class="tab-pane" id="device2">
+                <h2>Currently under construction.</h2>
+            </div>
+            
             <!-- Agent Tab on Dashboard -->
             <div class="tab-pane" id="agent">
                 <ol>
