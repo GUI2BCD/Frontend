@@ -303,19 +303,92 @@ while ($row = mysqli_fetch_array($result)) {
             
             <!-- Device Page(Generated per device) -->
             <div class="tab-pane" id="device1">
-                
-                
-                
-                
-                
-                
-                
-                <div class="panel-group spacer" id="accordion">
+                    <!-- Device Information -->
+                    <div class="device-panel-left">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                               <h3 class="panel-title">Device Information</h3>
+                            </div>
+                            <div class="panel-body">
+                                Status: <br><br>
+                                Date Added: <br>
+                                Poll Interval: <br>
+                                Agent Version: <br>
+                                Last Reported: <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                            </div>
+                        </div>
+                    </div><!-- END OF DEVICE INFO -->
+                    <!-- Device - Last Known Location -->
+                    <div class="device-panel-right">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                               <h3 class="panel-title">Last Known Location</h3>
+                            </div>
+                            <div class="panel-body clear-padding">
+                                <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script><div style="overflow:hidden;height:400px;width:700px;"><div id="gmap_canvas" style="height:400px;width:680px;"></div><a class="google-map-code" href="http://www.embed-google-map.com/de/" id="get-map-data">google maps einbinden</a><iframe src="http://www.embed-google-map.com/map-embed.php"></iframe><a class="google-map-data" href="http://www.stromleo.de" id="get-map-data">hier umgeleitet</a></div><script type="text/javascript"> function init_map(){var myOptions = {zoom:17,center:new google.maps.LatLng(42.6530618,-71.32574769999997),mapTypeId: google.maps.MapTypeId.HYBRID};map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(42.6530618, -71.32574769999997)});infowindow = new google.maps.InfoWindow({content:"<div style='position:relative;line-height:1.34;overflow:hidden;white-space:nowrap;display:block;'><div style='margin-bottom:2px;font-weight:500;'>Area 51</div><span>1 University Way <br>  Lowell</span></div>" });google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+                            </div>
+                        </div>
+                    </div><!-- END OF DEVICE - LAST KNOWN LOCATION -->
+                    
+                    <!-- Device container for all records -->
+                    <div class="panel panel-primary device-records clear">
+                        <div class="panel-heading">
+                           <h3 class="panel-title">Last Known Location</h3>
+                        </div>
+                        <div class="panel-body">
+                        <!-- Recent Records -->
+                        <div class="device-group-left">
+                            <fieldset>
+                                <legend>Recent Records</legend>
+                                <div class="records-column-left">
+                                    <a href="">12:37AM 11/12/2015</a><br>
+                                    <a href="">12:37AM 11/12/2015</a><br>
+                                    <a href="">12:37AM 11/12/2015</a><br>
+                                    <a href="">12:37AM 11/12/2015</a><br>
+                                    <a href="">12:37AM 11/12/2015</a><br>
+                                </div>
+                                <div class="records-column-right">
+                                    <a href="">12:37AM 11/12/2015</a><br>
+                                    <a href="">12:37AM 11/12/2015</a><br>
+                                    <a href="">12:37AM 11/12/2015</a><br>
+                                    <a href="">12:37AM 11/12/2015</a><br>
+                                    <a href="">12:37AM 11/12/2015</a><br>
+                                </div>
+                            </fieldset>
+                        </div><!-- END RECENT RECORDS -->
+                        <!-- Saved Records -->
+                        <div class="device-group-right">
+                            <fieldset>
+                                <legend>Saved Records</legend>
+                                <div class="records-column-left">
+                                    <a href="">12:37AM 11/12/2015</a><br>
+                                    <a href="">12:37AM 11/12/2015</a><br>
+                                    <a href="">12:37AM 11/12/2015</a><br>
+                                    <a href="">12:37AM 11/12/2015</a><br>
+                                    <a href="">12:37AM 11/12/2015</a><br>
+                                </div>
+                                <div class="records-column-right">
+                                    <a href="">12:37AM 11/12/2015</a><br>
+                                    <a href="">12:37AM 11/12/2015</a><br>
+                                    <a href="">12:37AM 11/12/2015</a><br>
+                                    <a href="">12:37AM 11/12/2015</a><br>
+                                    <a href="">12:37AM 11/12/2015</a><br>
+                                </div>
+                            </fieldset>
+                        </div><!-- END SAVED RECORDS -->
+                        
+                        <!-- Record Accordion -->
+                        <div class="device-accordion clear">
+                            <div class="panel-group spacer" id="accordion-device">
                     
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="panel-title accordion-icon-swap" data-toggle="collapse" 
-                            data-parent="#accordion" href="#collapseDeviceOne">
+                            data-parent="#accordion-device" href="#collapseDeviceOne">
                                 <p class="center">Date of Record</p>
                                 <div class="panel-icon-centered">
                                     <span class="glyphicon glyphicon-chevron-down"></span>
@@ -331,7 +404,7 @@ while ($row = mysqli_fetch_array($result)) {
                    <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="panel-title accordion-icon-swap" data-toggle="collapse" 
-                            data-parent="#accordion" href="#collapseDeviceTwo">
+                            data-parent="#accordion-device" href="#collapseDeviceTwo">
                                 <p class="center">Date of Record</p>
                                 <div class="panel-icon-centered">
                                     <span class="glyphicon glyphicon-chevron-down"></span>
@@ -346,6 +419,10 @@ while ($row = mysqli_fetch_array($result)) {
                    </div><!-- END OF PANEL 2 -->
                    
                </div> <!-- END OF ACCORDION -->
+                        </div><!-- END RECORD ACCORDION -->
+                        </div>
+                    </div><!-- END OF DEVICE RECORDS CONTAINER -->
+                
             </div><!-- END OF DEVICE(Individual) -->
             
             

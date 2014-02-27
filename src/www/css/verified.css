@@ -65,11 +65,84 @@
     padding: 15px 0 0 0;
 }
 
+/********** Devices(Individual) **********/
+.device-panel-left {
+    width: 40%;
+    float: left !important;
+    padding: 20px 20px 0 0;
+}
+
+.device-panel-right {
+    width: 60%;
+    float: right !important;
+    padding: 20px 0 0 20px;
+}
+
+.device-group-left {
+    width: 50%;
+    float: left !important;
+    margin-bottom: 20px;
+}
+
+.device-group-left fieldset {
+    border: 1px solid black !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin-right: 20px;
+}
+
+.device-group-left legend {
+    width: auto;
+    padding: 0 10px;
+    border-bottom: none;
+}
+
+.device-group-right {
+    width: 50%;
+    float: right !important;
+    margin-bottom: 20px;
+}
+
+.device-group-right fieldset {
+    border: 1px solid black !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin-left: 20px;
+}
+
+.device-group-right legend {
+    width: auto;
+    padding: 0 10px;
+    border-bottom: none;
+}
+
+.records-column-left {
+    width: 50%;
+    float: left !important;
+    text-align: center;
+}
+
+.records-column-right {
+    width: 50%;
+    float: right !important;
+    text-align: center;
+}
+
+.device-accordion {
+    
+}
+
+/** General **/
 .clear {
     clear: both;
 }
 
-/** General **/
+.clear-padding {
+    padding: 0;
+}
+
+.clear-margin {
+    margin: 0;
+}
+
 .center {
     width: 100%;
     text-align: center;
