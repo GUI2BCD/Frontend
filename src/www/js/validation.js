@@ -29,6 +29,15 @@ $().ready(function() {
                 equalTo: '#regpassword'
             }
         }, //end rules
+        errorPlacement: function(error, element) {
+            $(element).attr("title", "test");
+        },
+        highlight: function(element) {
+          $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+        },
+        success: function(element) {
+            $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+        },
         messages: {
             username: {
                 required: "Username is required.",

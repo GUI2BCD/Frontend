@@ -104,19 +104,30 @@ if (Session::loginCheck($connection)) {
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-body">
-					<form id="form-register" class="form-register" role="form" action="register.php"
+					<form id="form-register" class="form-register form-group" role="form" action="register.php"
 						method="post" >
+						<div class="form-group">
 						<h2 class="form-register-heading">Create your account</h2>
-						<input id="username" name="username" type="text"
-							class="form-control" placeholder="Username" required autofocus> <input
-							id="regemail" name="email" type="email" class="form-control"
-							placeholder="Email address" required> <input id="regpassword"
-							name="password" type="password" class="form-control"
-							placeholder="Password" required> <input id="regcpassword"
-							name="cpassword" type="password" class="form-control"
-							placeholder="Confirm Password" required>
-						<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
-							up</button>
+						<div class="form-group has-feedback">
+						  <input id="username" name="username" type="text" class="form-control" data-toggle="tooltip" data-placement="right" data-content="start" placeholder="Username" required autofocus>
+						  <span class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div class="form-group has-feedback">
+    			          <input id="regemail" name="email" type="email" class="form-control" data-toggle="tooltip" data-placement="right" data-content="start" placeholder="Email address" required>
+    			          <span class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div class="form-group has-feedback">
+	   					  <input id="regpassword" name="password" type="password" class="form-control" data-toggle="tooltip" data-placement="right" data-content="start" placeholder="Password" required>
+                          <span class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div class="form-group has-feedback">
+						  <input id="regcpassword" name="cpassword" type="password" class="form-control" data-toggle="tooltip" data-placement="right" data-content="start" placeholder="Confirm Password" required>
+						  <span class="glyphicon form-control-feedback"></span>
+                        </div>
+						<button class="btn btn-lg btn-primary btn-block" type="submit">
+						  Sign up
+						</button>
+						</div>
 					</form>
 				</div>
 			</div>

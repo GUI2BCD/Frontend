@@ -92,3 +92,7 @@ body {
 .form-register input {
   margin-bottom: 5px;
 }
+
+.tooltip-space {
+    margin-bottom: 15px;
+}
