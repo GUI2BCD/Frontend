@@ -34,9 +34,11 @@ $().ready(function() {
         },
         highlight: function(element) {
           $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+          $(element).next().removeClass('glyphicon-remove').removeClass('glyphicon-ok').addClass('glyphicon-remove');
         },
         success: function(element) {
             $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+            $(element).next().removeClass('glyphicon-ok').removeClass('glyphicon-remove').addClass('glyphicon-ok');
         },
         messages: {
             username: {
