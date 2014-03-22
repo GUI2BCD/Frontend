@@ -51,4 +51,16 @@ $("ul.nav-tabs > li > ul > li > a").on("show.bs.tab", function (e) {
 var hash = window.location.hash;
 $('#user-tabs a[href="'+ hash + '"]').tab('show');
 
+$(".toggleStatusButton").click(
+	function(){
+	        $.post(
+	            "ajax.php",
+	            {action: "togglestatus", deviceid: $( this ).attr('device-id') },
+	            function(responseText){
+	                console.log(responseText);
+	            },
+	            "html"
+	        );
+	});
+
 

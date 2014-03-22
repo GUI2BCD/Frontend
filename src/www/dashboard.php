@@ -256,7 +256,7 @@ while ($row = mysqli_fetch_array($result)) {
     } else {
         echo '<h4 class="status-red">';
     }
-    echo $row['status'] . '</h4>';
+    echo $row['status'] . '</h4> <br><button device-id="' . $row['id'] . '" type="button" class="toggleStatusButton btn btn-danger btn-xs">Toggle status</button>';
     ?>
                                 </div>
                                 
