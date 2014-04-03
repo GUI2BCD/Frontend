@@ -190,7 +190,7 @@ while ($row = mysqli_fetch_array($result)) {
     echo "<h5>Poll Interval: </h5> 30 seconds<br>";
     echo "<h5>Reports: </h5>";
     
-    $reportsql = "SELECT * FROM reports WHERE deviceid='" . $row['id'] . "' ORDER BY 'time' ASC LIMIT 5;";
+    $reportsql = "SELECT * FROM reports WHERE deviceid='" . $row['id'] . "' ORDER BY time ASC LIMIT 5;";
     
     $reports = mysqli_query($connection, $reportsql);
     
@@ -227,7 +227,7 @@ $i = 0;
 
 while ($row = mysqli_fetch_array($result)) {
 
-    $reportsql = "SELECT * FROM reports WHERE deviceid='" . $row['id'] . "' ORDER BY 'time' ASC LIMIT 1;";
+    $reportsql = "SELECT * FROM reports WHERE deviceid='" . $row['id'] . "' ORDER BY time DESC LIMIT 1;";
 
     $reports = mysqli_query($connection, $reportsql);
 
