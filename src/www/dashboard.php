@@ -252,9 +252,9 @@ while ($row = mysqli_fetch_array($result)) {
                                     <h4>Status: </h4>
     <?php 
     if ($row['status'] == "OK") {
-        echo '<h4 class="status-green">';
+        echo '<h4 id="statusval-'.$row['id'].'" class="status-green">';
     } else {
-        echo '<h4 class="status-red">';
+        echo '<h4 id="statusval-'.$row['id'].'" class="status-red">';
     }
     echo $row['status'] .
     '</h4> <br><button device-id="' .
