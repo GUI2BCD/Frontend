@@ -93,6 +93,10 @@ body {
   margin-bottom: 5px;
 }
 
-.tooltip-space {
-    margin-bottom: 15px;
+.tooltip {
+    z-index: 2000 !important;
+}
+
+span {
+    display: inline-block;
 }

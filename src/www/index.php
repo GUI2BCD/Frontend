@@ -104,30 +104,33 @@ if (Session::loginCheck($connection)) {
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-body">
-					<form id="form-register" class="form-register form-group" role="form" action="register.php"
-						method="post" >
-						<div class="form-group">
+					<form id="form-register" class="form-register form-horizontal" role="form" action="register.php" method="post" >
 						<h2 class="form-register-heading">Create your account</h2>
-						<div class="form-group has-feedback">
+						
+						<div class="form-group">
 						  <input id="username" name="username" type="text" class="form-control" data-toggle="tooltip" data-placement="right" data-content="start" placeholder="Username" required autofocus>
 						  <span class="glyphicon form-control-feedback"></span>
                         </div>
+                        
                         <div class="form-group has-feedback">
     			          <input id="regemail" name="email" type="email" class="form-control" data-toggle="tooltip" data-placement="right" data-content="start" placeholder="Email address" required>
-    			          <span class="glyphicon form-control-feedback"></span>
+    			          <span class="glyphicon glyphicon-ok form-control-feedback"></span>
                         </div>
-                        <div class="form-group has-feedback">
+                        
+                        <div class="form-group">
 	   					  <input id="regpassword" name="password" type="password" class="form-control" data-toggle="tooltip" data-placement="right" data-content="start" placeholder="Password" required>
                           <span class="glyphicon form-control-feedback"></span>
                         </div>
-                        <div class="form-group has-feedback">
+                        
+                        <div class="form-group">
 						  <input id="regcpassword" name="cpassword" type="password" class="form-control" data-toggle="tooltip" data-placement="right" data-content="start" placeholder="Confirm Password" required>
 						  <span class="glyphicon form-control-feedback"></span>
                         </div>
+                        
 						<button class="btn btn-lg btn-primary btn-block" type="submit">
 						  Sign up
 						</button>
-						</div>
+
 					</form>
 				</div>
 			</div>
