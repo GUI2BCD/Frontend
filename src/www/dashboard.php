@@ -57,7 +57,7 @@ if (! Session::loginCheck($connection)) {
 
     <div class="navbar navbar-inverse navbar-fixed-top"
         role="navigation">
-        <div class="container-fluid">
+        <div class="container">
             <!-- Brand and toggle are grouped for mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle"
