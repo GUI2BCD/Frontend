@@ -101,7 +101,7 @@ if (Session::loginCheck($connection)) {
 	</div>
 
 	<!-- Modal -->
-	<div class="modal fade" id="RegisterForm" tabindex="-1" role="dialog"
+	<div class="modal fade" id="RegisterForm" role="dialog"
 		aria-labelledby="RegisterForm" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
