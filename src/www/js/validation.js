@@ -33,12 +33,14 @@ $().ready(function() {
             $(element).attr("title", "test");
         },*/
         highlight: function(element) {
-          $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
-          $(element).next().removeClass('glyphicon-remove').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+            var id_attr = "#" + $( element ).attr("id") + "1";
+            $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+            $(id_attr).removeClass('glyphicon-ok').addClass('glyphicon-remove');    
         },
         success: function(element) {
+            var id_attr = "#" + $( element ).attr("id") + "1";
             $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
-            $(element).next().removeClass('glyphicon-ok').removeClass('glyphicon-remove').addClass('glyphicon-ok');
+            $(id_attr).removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
         },
         messages: {
             username: {

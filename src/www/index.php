@@ -111,22 +111,22 @@ if (Session::loginCheck($connection)) {
 						
 						<div class="form-group has-feedback">
 						  <input id="username" name="username" type="text" class="form-control" data-toggle="tooltip" data-placement="right" data-content="start" placeholder="Username" required autofocus>
-						  <span class="glyphicon form-control-feedback"></span>
+						  <span class="glyphicon form-control-feedback" id="username1"></span>
                         </div>
                         
                         <div class="form-group has-feedback">
     			          <input id="regemail" name="email" type="email" class="form-control" data-toggle="tooltip" data-placement="right" data-content="start" placeholder="Email address" required>
-    			          <span class="glyphicon form-control-feedback"></span>
+    			          <span class="glyphicon form-control-feedback" id="regemail1"></span>
                         </div>
                         
                         <div class="form-group has-feedback">
 	   					  <input id="regpassword" name="password" type="password" class="form-control" data-toggle="tooltip" data-placement="right" data-content="start" placeholder="Password" required>
-                          <span class="glyphicon form-control-feedback"></span>
+                          <span class="glyphicon form-control-feedback" id="regpassword1"></span>
                         </div>
                         
                         <div class="form-group has-feedback">
 						  <input id="regcpassword" name="cpassword" type="password" class="form-control" data-toggle="tooltip" data-placement="right" data-content="start" placeholder="Confirm Password" required>
-						  <span class="glyphicon form-control-feedback"></span>
+						  <span class="glyphicon form-control-feedback" id="regcpassword1"></span>
                         </div>
                         
 						<button class="btn btn-lg btn-primary btn-block" type="submit">
