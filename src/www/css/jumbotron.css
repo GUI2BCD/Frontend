@@ -93,10 +93,6 @@ body {
   margin-bottom: 5px;
 }
 
-.tooltip {
-    z-index: 2000 !important;
-}
-
-span {
-    display: inline-block;
+.form-register .form-register-heading {
+    margin-bottom: 40px;
 }
