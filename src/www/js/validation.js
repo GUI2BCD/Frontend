@@ -29,9 +29,9 @@ $().ready(function() {
                 equalTo: '#regpassword'
             }
         }, //end rules
-        errorPlacement: function(error, element) {
+        /*errorPlacement: function(error, element) {
             $(element).attr("title", "test");
-        },
+        },*/
         highlight: function(element) {
           $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
           $(element).next().removeClass('glyphicon-remove').removeClass('glyphicon-ok').addClass('glyphicon-remove');
