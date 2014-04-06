@@ -78,14 +78,14 @@ if (! Session::loginCheck($connection)) {
                     <li class="dropdown">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown">Devices <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#devices" data-toggle="tab">All</a></li> <!-- TODO: Pull from db -->
+                            <li><a href="#agent" data-toggle="tab">Add Device</a></li> <!-- TODO: Pull from db -->
                             <li class="divider"></li>
-                            <li><a href="#device1" data-toggle="tab">Device One</a></li> <!-- TODO: Pull from db -->
-                            <li><a href="#device2" data-toggle="tab">Device Two</a></li> <!-- TODO: Pull from db -->
+                            <li><a href="#devices" data-toggle="tab">Style 1</a></li> <!-- TODO: Pull from db -->
+                            <li><a href="#device1" data-toggle="tab">Style 2</a></li> <!-- TODO: Pull from db -->
                         </ul>
                     </li>
-                    <li><a href="#agent" data-toggle="tab">Agent</a></li>
                     <li><a href="#account" data-toggle="tab">Account</a></li>
+                    <li><a href="#agent" data-toggle="tab">Help</a></li>
                 </ul>
             </div>
             
@@ -323,12 +323,6 @@ while ($row = mysqli_fetch_array($result)) {
                     </div><!-- END OF DEVICE RECORDS CONTAINER -->
                 
             </div><!-- END OF DEVICE(Individual) -->
-            
-            
-            
-            <div class="tab-pane" id="device2">
-                <h2>Currently under construction.</h2>
-            </div>
             
             <!-- Agent Tab on Dashboard -->
             <?php new addDevice() ?>

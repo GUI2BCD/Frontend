@@ -75,6 +75,7 @@ namespace LastResortRecovery
                         </div>
                     </div>
                 </div>
+                
                 <!-- Panels along right side of window. -->
                 <div class="dashboard-right">
                     <!-- Devices Panel on Dashboard page. -->
@@ -103,7 +104,9 @@ while ($row = mysqli_fetch_array($result)) {
     echo "<br>";
 }
 ?>
-                        </div>
+            <h2>Learn how to <a href="">add a device!</a></h2>
+
+                    </div>
                     </div>
                     <!-- Missing Devices Panel on Dashboard -->
                     <div class="panel panel-primary">
