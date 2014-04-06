@@ -78,9 +78,7 @@ if (! Session::loginCheck($connection)) {
                     <li class="dropdown">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown">Devices <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#agent" data-toggle="tab">Add Device</a></li> <!-- TODO: Pull from db -->
-                            <li class="divider"></li>
-                            <li><a href="#devices" data-toggle="tab">Style 1</a></li> <!-- TODO: Pull from db -->
+                            <li><a href="#help" data-toggle="tab">Add Device</a></li> <!-- TODO: Pull from db -->
                             <li class="divider"></li>
                             
                             <?php 
@@ -90,7 +88,8 @@ if (! Session::loginCheck($connection)) {
                             
                             while ($row = mysqli_fetch_array($result)) {
                                 ?>
-                                <li><a href="#device<?php echo $row['id'];?>" data-toggle="tab">Device <?php echo $row['id'];?></a></li>
+                                <li><a href="#device<?php echo $row['id'];?>" "data-toggle="tab">Device <?php echo $row['id'];?></a></li>
+                   
                                 <?php 
                             }
                             ?>
@@ -115,9 +114,6 @@ if (! Session::loginCheck($connection)) {
         
             <!-- Dashboard Tab -->
             <?php new dashboardPage($connection) ?>
-            
-            <!-- Devices Tab -->
-            <?php // new displayDevice( 1 , 1 ) ?>
             
             <!-- Device Page(Generated per device) -->
             <?php 

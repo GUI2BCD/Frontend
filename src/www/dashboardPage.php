@@ -81,40 +81,9 @@ namespace LastResortRecovery
                     <!-- Devices Panel on Dashboard page. -->
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Devices</h3>
-                        </div>
-                        <div class="panel-body">
-<?php 
-$sql = "SELECT * FROM devices WHERE userid='" . $_SESSION['userid'] . "';";
-
-$result = mysqli_query($connection, $sql);
-
-echo "<h5>Number of Devices: </h5>";
-echo $result->num_rows . "<br><br>";
-
-while ($row = mysqli_fetch_array($result)) {
-    echo "<h5>Device name: </h5>";
-    echo $row['name'] . "<br>";
-    echo "<h5>ID: </h5>";
-    echo $row['id'] . "<br>";
-    echo "<h5>Status: </h5>";
-    echo $row['status'] . "<br>";
-    // TODO Last report
-    // TODO Link to device
-    echo "<br>";
-}
-?>
-            <h2>Learn how to <a href="">add a device!</a></h2>
-
-                    </div>
-                    </div>
-                    <!-- Missing Devices Panel on Dashboard -->
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
                             <h3 class="panel-title">Missing Devices</h3>
                         </div>
                         <div class="panel-body">
-
 <?php 
 
 
@@ -150,7 +119,42 @@ while ($row = mysqli_fetch_array($result)) {
 
 ?>
 
+                    </div>
+                    </div>
+                    <!-- Missing Devices Panel on Dashboard -->
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Devices</h3>
+                        </div>
+                        <div class="panel-body">
 
+
+<?php 
+$sql = "SELECT * FROM devices WHERE userid='" . $_SESSION['userid'] . "';";
+
+$result = mysqli_query($connection, $sql);
+
+if( $result->num_rows == 0 ) {
+    echo "You don't have any devices! Let us show you how to add devices to your account!";
+} else {
+    echo "<h5>Number of Devices: </h5>";
+    echo $result->num_rows . "<br><br>";
+}
+
+
+while ($row = mysqli_fetch_array($result)) {
+    echo "<h5>Device name: </h5>";
+    echo $row['name'] . "<br>";
+    echo "<h5>ID: </h5>";
+    echo $row['id'] . "<br>";
+    echo "<h5>Status: </h5>";
+    echo $row['status'] . "<br>";
+    // TODO Last report
+    // TODO Link to device
+    echo "<br>";
+}
+?>
+<p><a href="#help" data-toggle="tab">Add a device!</a></p>
                         </div>
                     </div>
                 </div>
