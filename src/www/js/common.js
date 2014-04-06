@@ -31,7 +31,7 @@ $('user-tabs').click(function(e) {
 /**
  * Stores the currently selected tab in the hash value. (First Tier)
  */
-$("ul.nav-tabs > li > a").on("show.bs.tab", function (e) {
+$("ul.nav-pills > li > a").on("show.bs.tab", function (e) {
     var id = $(e.target).attr("href").substr(1);
     window.location.hash = id;
 });
@@ -41,6 +41,7 @@ $("ul.nav-tabs > li > a").on("show.bs.tab", function (e) {
  *      - I had to add this to accomadate my drop-down menu.
  */
 $("ul.nav-pills > li > ul > li > a").on("show.bs.tab", function (e) {
+    console.log("Here");
     var id = $(e.target).attr("href").substr(1);
     window.location.hash = id;
 });
