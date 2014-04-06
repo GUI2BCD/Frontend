@@ -85,7 +85,7 @@ if (! Session::loginCheck($connection)) {
                         </ul>
                     </li>
                     <li><a href="#account" data-toggle="tab">Account</a></li>
-                    <li><a href="#agent" data-toggle="tab">Help</a></li>
+                    <li><a href="#help" data-toggle="tab">Help</a></li>
                 </ul>
             </div>
             

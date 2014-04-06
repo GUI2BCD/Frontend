@@ -26,7 +26,7 @@ namespace LastResortRecovery
         private function generatePage()
         {
             ?>
-            <div class="tab-pane" id="agent">
+            <div class="tab-pane" id="help">
                 <ol>
                     <!-- Download link isn't actually for real. Just filler. -->
                     <li>Download <a href="/download/agent.deb">agent.deb</a> file.</li>
