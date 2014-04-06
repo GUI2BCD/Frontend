@@ -5,6 +5,11 @@ namespace LastResortRecovery;
 include_once 'db.php';
 include_once 'session.php';
 
+include_once 'dashboardPage.php';
+include_once 'devicePage.php';
+include_once 'addDevicePage.php';
+include_once 'accountPage.php';
+
 Session::startSecureSession();
 if (! Session::loginCheck($connection)) {
     header('Location: index.php');
@@ -52,18 +57,39 @@ if (! Session::loginCheck($connection)) {
 
     <div class="navbar navbar-inverse navbar-fixed-top"
         role="navigation">
-        <div class="container">
+        <div class="container-fluid">
+            <!-- Brand and toggle are grouped for mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle"
                     data-toggle="collapse"
                     data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span> <span
-                        class="icon-bar"></span> <span class="icon-bar"></span>
+                    <span class="sr-only">Toggle navigation</span> 
+                    <span class="icon-bar"></span> 
+                    <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">Last Resort Recovery</a>
             </div>
-            <div class="navbar-right navbar-collapse collapse">
+                
+            <div class="navbar-left collapse navbar-collapse">
+                <!-- Nav tabs -->
+                <ul class="nav nav-pills" id="user-tabs">
+                    <li class="active"><a href="#dashboard" data-toggle="tab">Dashboard</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">Devices <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#devices" data-toggle="tab">All</a></li> <!-- TODO: Pull from db -->
+                            <li class="divider"></li>
+                            <li><a href="#device1" data-toggle="tab">Device One</a></li> <!-- TODO: Pull from db -->
+                            <li><a href="#device2" data-toggle="tab">Device Two</a></li> <!-- TODO: Pull from db -->
+                        </ul>
+                    </li>
+                    <li><a href="#agent" data-toggle="tab">Agent</a></li>
+                    <li><a href="#account" data-toggle="tab">Account</a></li>
+                </ul>
+            </div>
+            
+            <div class="navbar-right collapse navbar-collapse">
                 <a class="navbar-brand">Welcome, <?php echo $_SESSION['username'] ?>!</a>
             </div>
         </div>
@@ -71,147 +97,11 @@ if (! Session::loginCheck($connection)) {
 
     <div class="container content">
 
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs" id="user-tabs">
-            <li class="active"><a href="#dashboard" data-toggle="tab">Dashboard</a></li>
-            <li class="dropdown">
-                <a class="dropdown-toggle" href="#" data-toggle="dropdown">Devices <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#devices" data-toggle="tab">All</a></li> <!-- TODO: Pull from db -->
-                    <li class="divider"></li>
-                    <li><a href="#device1" data-toggle="tab">Device One</a></li> <!-- TODO: Pull from db -->
-                    <li><a href="#device2" data-toggle="tab">Device Two</a></li> <!-- TODO: Pull from db -->
-                </ul>
-            </li>
-            <li><a href="#agent" data-toggle="tab">Agent</a></li>
-            <li><a href="#account" data-toggle="tab">Account</a></li>
-        </ul>
-
         <!-- Tab panes -->
         <div class="tab-content">
+        
             <!-- Dashboard Tab -->
-            <div class="tab-pane active" id="dashboard">
-                <!-- Panels on left side of window. -->
-                <div class="dashboard-left">
-                    <!-- Account Panel on Dashboard -->
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Account</h3>
-                        </div>
-                        <div class="panel-body">
-                            <h5>Name: </h5><?php echo $_SESSION['username'] ?><br>
-                            <h5>Username: </h5><?php echo $_SESSION['username'] ?><br> <br>
-                            <h5>Last Login: </h5>Nov. 22nd 2014<br><!-- TODO: Pull from DB. -->
-                            <h5>Account ID: </h5><?php echo $_SESSION['userid'] ?><br>
-                        </div>
-                    </div>
-
-                    <!-- News Panel on Dashboard -->
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">News</h3>
-                        </div>
-                        <div class="panel-body">
-                            <h5>Important Information</h5><br>
-                            <a href="">See more...</a>
-                            <br> <br> 
-                            Like
-                            the name says, Last Resort should not be
-                            your cure-all for laptop security. We at
-                            Last Resort highly recommend our users take
-                            advantage of other hardware and software
-                            securities. The following list will provide
-                            you with information on the various other
-                            methods of computer security. <br> 
-                            <h5>Anti-virus: </h5>
-                            <a href="">Top 5 Anti-virus softwares.</a><br> 
-                            <h5>Data Encryption: </h5> 
-                            <a href="">What is Data Encryption?</a><br> 
-                            <h5>Cloud Storage: </h5> 
-                            <a href="">Google vs. Amazon, who should I use?</a><br><br>
-                            For more information and news about Last
-                            Resort and computer security in general... 
-                            <a href="">To the Forums!</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Panels along right side of window. -->
-                <div class="dashboard-right">
-                    <!-- Devices Panel on Dashboard page. -->
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Devices</h3>
-                        </div>
-                        <div class="panel-body">
-<?php 
-$sql = "SELECT * FROM devices WHERE userid='" . $_SESSION['userid'] . "';";
-
-$result = mysqli_query($connection, $sql);
-
-echo "<h5>Number of Devices: </h5>";
-echo $result->num_rows . "<br><br>";
-
-while ($row = mysqli_fetch_array($result)) {
-    echo "<h5>Device name: </h5>";
-    echo $row['name'] . "<br>";
-    echo "<h5>ID: </h5>";
-    echo $row['id'] . "<br>";
-    echo "<h5>Status: </h5>";
-    echo $row['status'] . "<br>";
-    // TODO Last report
-    // TODO Link to device
-    echo "<br>";
-}
-?>
-                        </div>
-                    </div>
-                    <!-- Missing Devices Panel on Dashboard -->
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Missing Devices</h3>
-                        </div>
-                        <div class="panel-body">
-
-<?php 
-
-
-$sql = "SELECT * FROM devices WHERE status='LOST' AND userid='" . $_SESSION['userid'] . "';";
-
-$result = mysqli_query($connection, $sql);
-
-echo "<h5>Number of Devices: </h5>";
-echo $result->num_rows . "<br><br>";
-
-while ($row = mysqli_fetch_array($result)) {
-    echo "<h5>Device name: </h5>";
-    echo $row['name'] . "<br>";
-    echo "<h5>Current status: </h5>";
-    echo $row['status'] . "<br>";
-    echo "<h5>Poll Interval: </h5> 30 seconds<br>";
-    echo "<h5>Reports: </h5>";
-    
-    $reportsql = "SELECT * FROM reports WHERE deviceid='" . $row['id'] . "' ORDER BY 'time' ASC LIMIT 5;";
-    
-    $reports = mysqli_query($connection, $reportsql);
-    
-    echo $reports->num_rows . "<br>";
-    while ($reportrow = mysqli_fetch_array($reports)) {
-        echo '<a class="report-link" href="report.php?id=';
-        echo $reportrow['id'];
-        echo '">';
-        echo $reportrow['time'] . "</a>";
-        echo '<br>';
-    }
-    echo "<br>";
-}
-
-?>
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php new dashboardPage($connection) ?>
             
             <!-- Devices Tab -->
             <div class="tab-pane" id="devices">
@@ -441,23 +331,10 @@ while ($row = mysqli_fetch_array($result)) {
             </div>
             
             <!-- Agent Tab on Dashboard -->
-            <div class="tab-pane" id="agent">
-                <ol>
-                    <!-- Download link isn't actually for real. Just filler. -->
-                    <li>Download <a href="/download/agent.deb">agent.deb</a> file.</li>
-                    <li>Install with deb file by either using a package manager or running:<br>
-                        <kbd>dpkg -i agent.deb</kbd>
-                        <br>
-                        <kbd>sudo apt-get -f install</kbd>
-                    </li>
-                    <li>Run linux_agent.</li>
-                    <li>Follow application instructions.</li>
-                </ol>
-            </div>
+            <?php new addDevice() ?>
             
             <!-- Account Tab on Dashboard -->
-            <div class="tab-pane" id="account">
-            <br /> This page is currently under construction.</div>
+            <?php new accountPage() ?>
             
         </div>
 
