@@ -37,6 +37,7 @@ if (Session::loginCheck($connection)) {
 <!-- Load javascript files -->
 <script src="js/holder.js"></script>
 <script type="text/javascript" src="js/sha512.js"></script>
+<script type="text/javascript" src="js/tooltips.js"></script>
 
 <!-- Used for hashing passwords post-registration/login -->
 <script type="text/javascript">
