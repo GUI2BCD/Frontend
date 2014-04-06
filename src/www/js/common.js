@@ -41,7 +41,6 @@ $("ul.nav-pills > li > a").on("show.bs.tab", function (e) {
  *      - I had to add this to accomadate my drop-down menu.
  */
 $("ul.nav-pills > li > ul > li > a").on("show.bs.tab", function (e) {
-    console.log("Here");
     var id = $(e.target).attr("href").substr(1);
     window.location.hash = id;
 });

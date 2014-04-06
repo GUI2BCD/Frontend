@@ -6,6 +6,9 @@
     margin-top: 5px;
     width: auto;
 }
+.navbar-button {
+    margin-top: 8px;
+}
 
 /** Restricts footer from the primary view. **/
 .tab-pane {
