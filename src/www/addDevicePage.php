@@ -32,14 +32,35 @@ namespace LastResortRecovery
             <div class="panel-heading">Linux Instructions</div>
                 <div class="panel-body">
                 <ol>
-                    <!-- Download link isn't actually for real. Just filler. -->
+                    <!-- Download link is legit now. -->
                     <li>Download <a href="download/lastresortrecovery-0.2beta-1-x86_64.pkg.tar.xz">Package file</a></li>
+                    <div class="row">
+                        <div class="col-xs-6 col-md-3">
+                            <a href="images/step1.png" class="thumbnail">
+                                <img src="images/step1.png" alt="Step1">
+                            </a>
+                        </div>
+                    </div>
                     <li>Install the package file with the following:<br>
                         <kbd>sudo pacman -U *.pkg.tar.xz</kbd>
                     </li>
+                    <div class="row">
+                        <div class="col-xs-6 col-md-3">
+                            <a href="images/step2.png" class="thumbnail">
+                                <img src="images/step2.png" alt="Step2">
+                            </a>
+                        </div>
+                    </div>
                     <li>Run the agent:<br>
                         <kbd>lastresortagent</kbd>
                     </li>
+                    <div class="row">
+                        <div class="col-xs-6 col-md-3">
+                            <a href="images/step3.png" class="thumbnail">
+                                <img src="images/step3.png" alt="Step3">
+                            </a>
+                        </div>
+                    </div>
                     <li>Follow application instructions.</li>
                 </ol>
                 </div>
