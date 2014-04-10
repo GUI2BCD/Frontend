@@ -29,6 +29,19 @@ $().ready(function() {
                 equalTo: '#regpassword'
             }
         }, //end rules
+        /*errorPlacement: function(error, element) {
+            $(element).attr("title", "test");
+        },*/
+        highlight: function(element) {
+            var id_attr = "#" + $( element ).attr("id") + "1";
+            $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+            $(id_attr).removeClass('glyphicon-ok').addClass('glyphicon-remove');    
+        },
+        success: function(element) {
+            var id_attr = "#" + $( element ).attr("id") + "1";
+            $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+            $(id_attr).removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
+        },
         messages: {
             username: {
                 required: "Username is required.",

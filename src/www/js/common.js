@@ -13,14 +13,13 @@ $(".accordion-icon-swap").click(
                     .toggleClass('glyphicon-chevron-up');
         });
 
-/** *********************************************************************** */
-/** The following group of functions will make sure the browser displays * */
-/** the tab that the user was on before a browser refresh. * */
-/** * */
-/*******************************************************************************
- * Source:
- * http://stackoverflow.com/questions/18999501/bootstrap-3-keep-selected-tab-on-page-refresh /
- ******************************************************************************/
+/**************************************************************************/
+/** The following group of functions will make sure the browser displays **/
+/** the tab that the user was on before a browser refresh.               **/
+/**                                                                      **/
+/** Source:
+http://stackoverflow.com/questions/18999501/bootstrap-3-keep-selected-tab-on-page-refresh
+/**************************************************************************/
 /**
  * Prevents the rendering of the default tab.
  */
@@ -32,7 +31,7 @@ $('user-tabs').click(function(e) {
 /**
  * Stores the currently selected tab in the hash value. (First Tier)
  */
-$("ul.nav-tabs > li > a").on("show.bs.tab", function(e) {
+$("ul.nav-pills > li > a").on("show.bs.tab", function (e) {
     var id = $(e.target).attr("href").substr(1);
     window.location.hash = id;
 });
@@ -41,7 +40,7 @@ $("ul.nav-tabs > li > a").on("show.bs.tab", function(e) {
  * Stores the currently selected tab in the hash value. (Second Tier) - I had to
  * add this to accomadate my drop-down menu.
  */
-$("ul.nav-tabs > li > ul > li > a").on("show.bs.tab", function(e) {
+$("ul.nav-pills > li > ul > li > a").on("show.bs.tab", function (e) {
     var id = $(e.target).attr("href").substr(1);
     window.location.hash = id;
 });

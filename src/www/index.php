@@ -37,6 +37,7 @@ if (Session::loginCheck($connection)) {
 <!-- Load javascript files -->
 <script src="js/holder.js"></script>
 <script type="text/javascript" src="js/sha512.js"></script>
+<script type="text/javascript" src="js/tooltips.js"></script>
 
 <!-- Used for hashing passwords post-registration/login -->
 <script type="text/javascript">
@@ -65,6 +66,7 @@ if (Session::loginCheck($connection)) {
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
 </head>
 
 <body>
@@ -99,24 +101,38 @@ if (Session::loginCheck($connection)) {
 	</div>
 
 	<!-- Modal -->
-	<div class="modal fade" id="RegisterForm" tabindex="-1" role="dialog"
+	<div class="modal fade" id="RegisterForm" role="dialog"
 		aria-labelledby="RegisterForm" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-body">
-					<form id="form-register" class="form-register" role="form" action="register.php"
-						method="post" >
+					<form id="form-register" class="form-register form-horizontal" role="form" action="register.php" method="post" >
 						<h2 class="form-register-heading">Create your account</h2>
-						<input id="username" name="username" type="text"
-							class="form-control" placeholder="Username" required autofocus> <input
-							id="regemail" name="email" type="email" class="form-control"
-							placeholder="Email address" required> <input id="regpassword"
-							name="password" type="password" class="form-control"
-							placeholder="Password" required> <input id="regcpassword"
-							name="cpassword" type="password" class="form-control"
-							placeholder="Confirm Password" required>
-						<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
-							up</button>
+						
+						<div class="form-group has-feedback">
+						  <input id="username" name="username" type="text" class="form-control" data-toggle="tooltip" data-placement="right" data-content="start" placeholder="Username" required autofocus>
+						  <span class="glyphicon form-control-feedback" id="username1"></span>
+                        </div>
+                        
+                        <div class="form-group has-feedback">
+    			          <input id="regemail" name="email" type="email" class="form-control" data-toggle="tooltip" data-placement="right" data-content="start" placeholder="Email address" required>
+    			          <span class="glyphicon form-control-feedback" id="regemail1"></span>
+                        </div>
+                        
+                        <div class="form-group has-feedback">
+	   					  <input id="regpassword" name="password" type="password" class="form-control" data-toggle="tooltip" data-placement="right" data-content="start" placeholder="Password" required>
+                          <span class="glyphicon form-control-feedback" id="regpassword1"></span>
+                        </div>
+                        
+                        <div class="form-group has-feedback">
+						  <input id="regcpassword" name="cpassword" type="password" class="form-control" data-toggle="tooltip" data-placement="right" data-content="start" placeholder="Confirm Password" required>
+						  <span class="glyphicon form-control-feedback" id="regcpassword1"></span>
+                        </div>
+                        
+						<button class="btn btn-lg btn-primary btn-block" type="submit">
+						  Sign up
+						</button>
+
 					</form>
 				</div>
 			</div>

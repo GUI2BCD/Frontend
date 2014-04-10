@@ -3,7 +3,11 @@
 /********** Verified User pages. **********/
 /** Space between the tab nav and the service bar. **/
 .nav {
-    margin-top: 15px;
+    margin-top: 5px;
+    width: auto;
+}
+.navbar-button {
+    margin-top: 8px;
 }
 
 /** Restricts footer from the primary view. **/
