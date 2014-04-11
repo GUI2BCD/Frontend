@@ -12,17 +12,26 @@
  */
 namespace LastResortRecovery;
 
-$uploaddir = realpath('./') . '/files/';
-$uploadfile = $uploaddir . basename($_FILES['file_contents']['name']);
-echo '<pre>';
-if (move_uploaded_file($_FILES['file_contents']['tmp_name'], $uploadfile)) {
-    echo "File is valid, and was successfully uploaded.\n";
-} else {
-    echo "Possible file upload attack!\n";
+include 'config.php';
+
+if( isset($_FILES['filename'])) {
+
+if ($_FILES['filename']['error'] == 0) {
+    
+    $uploaddir = realpath('./') . '/files/';
+    $uploadfile = $uploaddir . basename($_FILES['filename']['name']);
+    echo '<pre>';
+    if (move_uploaded_file($_FILES['filename']['tmp_name'], $uploadfile)) {
+        echo "File is valid, and was successfully uploaded.";
+    } else {
+        echo "Bad upload";
+    }
 }
-echo 'Here is some more debugging info:';
-print_r($_FILES);
-echo "\n<hr />\n";
-print_r($_POST);
-print "</pr" . "e>\n";
+else {
+    echo BAD_REQUEST;
+}
+}
+else {
+    echo BAD_REQUEST;
+}
 ?>
