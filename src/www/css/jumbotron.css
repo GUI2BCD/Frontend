@@ -92,3 +92,7 @@ body {
 .form-register input {
   margin-bottom: 5px;
 }
+
+.form-register .form-register-heading {
+    margin-bottom: 40px;
+}
