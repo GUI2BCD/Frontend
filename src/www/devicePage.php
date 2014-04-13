@@ -273,22 +273,22 @@ namespace LastResortRecovery
                     <h5>Local IP Address:</h5>
                         <br>
                         <code>
-                                                <?php echo nl2br($reportrow['localip'])?>
+                                                <?php echo nl2br($deviceRow['localip'])?>
                                                 </code>
                         <br>
                         <h5>Remote IP Address:</h5>
                         <br>
-                        <code><?php echo $reportrow['remoteip']?></code>
+                        <code><?php echo $deviceRow['remoteip']?></code>
                         <br> <br>
                         <h5>Detected WiFi Hotspot(s):</h5>
                         <br>
                         <code>
-                                                <?php echo nl2br($reportrow['wifi'])?>
+                                                <?php echo nl2br($deviceRow['wifi'])?>
                                                 </code>
                         <br>
                         <h5>Trace Route:</h5>
                         <br>
-                        <code><?php echo nl2br($reportrow['traceroute'])?></code>
+                        <code><?php echo nl2br($deviceRow['traceroute'])?></code>
                     <?php 
                     echo '</div>';
                     echo '</div>';
