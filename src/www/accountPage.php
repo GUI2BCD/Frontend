@@ -18,7 +18,7 @@ namespace LastResortRecovery
 {
 
     include_once 'config.php';
-    
+
     class accountPage
     {
 
@@ -30,10 +30,10 @@ namespace LastResortRecovery
         private function generatePage()
         {
             ?>
-            <div class="tab-pane" id="account">
-                <br /> This page is currently under construction.
-            </div>
-            <?php
+<div class="tab-pane" id="account">
+    <br /> This page is currently under construction.
+</div>
+<?php
         }
     }
 }

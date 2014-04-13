@@ -63,48 +63,54 @@ if (! Session::loginCheck($connection)) {
                 <button type="button" class="navbar-toggle"
                     data-toggle="collapse"
                     data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span> 
-                    <span class="icon-bar"></span> 
-                    <span class="icon-bar"></span>
+                    <span class="sr-only">Toggle navigation</span> <span
+                        class="icon-bar"></span> <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">Last Resort Recovery</a>
             </div>
-                
+
             <div class="navbar-left collapse navbar-collapse">
                 <!-- Nav tabs -->
                 <ul class="nav nav-pills" id="user-tabs">
-                    <li class="active"><a href="#dashboard" data-toggle="pill">Dashboard</a></li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">Devices <span class="caret"></span></a>
+                    <li class="active"><a href="#dashboard"
+                        data-toggle="pill">Dashboard</a></li>
+                    <li class="dropdown"><a class="dropdown-toggle"
+                        href="#" data-toggle="dropdown">Devices <span
+                            class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#help" data-toggle="pill">Add Device</a></li> <!-- TODO: Pull from db -->
+                            <li><a href="#help" data-toggle="pill">Add
+                                    Device</a></li>
+                            <!-- TODO: Pull from db -->
                             <li class="divider"></li>
                             
-                            <?php 
-                            $sql = "SELECT * FROM devices WHERE userid='" . $_SESSION['userid'] . "';";
-                            
-                            $result = mysqli_query($connection, $sql);
-                            $i = 1;
-                            
-                            while ($row = mysqli_fetch_array($result)) {
-                                ?>
-                                <li><a href="#device<?php echo $i;?>" data-toggle="pill">Device <?php echo $row['id'];?></a></li>
+                            <?php
+$sql = "SELECT * FROM devices WHERE userid='" . $_SESSION['userid'] . "';";
 
-                                <?php 
-                                $i++;
-                            }
-                            ?>
-                        </ul>
-                    </li>
+$result = mysqli_query($connection, $sql);
+$i = 1;
+
+while ($row = mysqli_fetch_array($result)) {
+    ?>
+                                <li><a href="#device<?php echo $i;?>"
+                                data-toggle="pill">Device <?php echo $row['id'];?></a></li>
+
+                                <?php
+    $i ++;
+}
+?>
+                        </ul></li>
                     <li><a href="#account" data-toggle="pill">Account</a></li>
                     <li><a href="#help" data-toggle="pill">Help</a></li>
                 </ul>
             </div>
-            
+
             <div class="navbar-right collapse navbar-collapse">
                 <a class="navbar-brand">Welcome, <?php echo $_SESSION['username'] ?>!</a>
-                <a class="navbar-right" href="logout.php"><button type="button" class="btn btn-primary navbar-button navbar-right">Log Out</button></a>
+                <a class="navbar-right" href="logout.php"><button
+                        type="button"
+                        class="btn btn-primary navbar-button navbar-right">Log
+                        Out</button></a>
             </div>
         </div>
     </div>
@@ -113,28 +119,28 @@ if (! Session::loginCheck($connection)) {
 
         <!-- Tab panes -->
         <div class="tab-content">
-        
+
             <!-- Dashboard Tab -->
-            <?php new dashboardPage($connection) ?>
+            <?php new DashboardPage($connection)?>
             
             <!-- Device Page(Generated per device) -->
-            <?php 
-            $sql = "SELECT * FROM devices WHERE userid='" . $_SESSION['userid'] . "';";
-            
-            $result = mysqli_query($connection, $sql);    
-            $i = 1;     
-            while ($row = mysqli_fetch_array($result)) {
+            <?php
+$sql = "SELECT * FROM devices WHERE userid='" . $_SESSION['userid'] . "';";
 
-                new displayDevice($i, $row);
-                $i++;
-            }
-            
-            ?>
+$result = mysqli_query($connection, $sql);
+$i = 1;
+while ($row = mysqli_fetch_array($result)) {
+    
+    new displayDevice($i, $row);
+    $i ++;
+}
+
+?>
             <!-- Agent Tab on Dashboard -->
-            <?php new addDevice() ?>
+            <?php new addDevice()?>
             
             <!-- Account Tab on Dashboard -->
-            <?php new accountPage() ?>
+            <?php new accountPage()?>
             
         </div>
 
@@ -160,10 +166,9 @@ if (! Session::loginCheck($connection)) {
     <!-- Latest compiled and minified JavaScript -->
     <script
         src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-        
+
     <!-- Additional Scripts -->
-    <script
-        src="./js/common.js"></script>
-    
+    <script src="./js/common.js"></script>
+
 </body>
 </html>
