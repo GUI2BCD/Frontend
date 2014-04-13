@@ -259,14 +259,14 @@ namespace LastResortRecovery
                     echo '<div class="panel-title accordion-icon-swap"';
                     echo ' data-toggle="collapse"';
                     echo ' data-parent="#accordion-device"';
-                    echo ' href="#collapseDeviceOne">';
+                    echo ' href="#collapseRecentRecord' . $j . '">';
                     echo '<p class="center">' . $row['time'] . '</p>';
                     echo '<div class="panel-icon-centered">';
                     echo '<span class="glyphicon glyphicon-chevron-down"></span>';
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
-                    echo '<div id="collapseDeviceOne"';
+                    echo '<div id="collapseRecentRecord' . $j . '">';
                     echo ' class="panel-collapse collapse">';
                     echo '<div class="panel-body">';
                     
