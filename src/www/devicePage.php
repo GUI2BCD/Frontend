@@ -200,27 +200,28 @@ namespace LastResortRecovery
                     
                     $reports = mysqli_query($connection, $reportsql);
                     
-                    for( $j = 1 ; $j < 5 ; $j++ ) {
-                        $row = mysqli_fetch_array($result);
+                    for( $j = 1 ; $j <= 5 ; $j++ ) {
+                        $row = mysqli_fetch_array($reports);
 
-                        echo Hello;
+                        echo '<a href=#"' . $j .'>';
+                        echo $row['time'];
+                        echo '</a><br>';
+                        
                     }
                     
+                    echo '</div>';
+                    echo '<div class="records-column-right">';
+                    
+                    for( $j = 6 ; $j <= 10 ; $j++ ) {
+                        $row = mysqli_fetch_array($reports);
+                    
+                        echo '<a href=#"' . $j .'>';
+                        echo $row['time'];
+                        echo '</a><br>';
+                    
+                    }
                     ?>
                     
-                        <a href="">12:37AM 11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br>
-                    </div>
-                    
-                    <div class="records-column-right">
-                        <a href="">12:37AM 11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br>
                     </div>
                 </fieldset>
             </div>
