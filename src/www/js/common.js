@@ -51,4 +51,13 @@ $("ul.nav-pills > li > ul > li > a").on("show.bs.tab", function (e) {
 var hash = window.location.hash;
 $('#user-tabs a[href="'+ hash + '"]').tab('show');
 
+/**
+ * Anchor Offset
+ */
+var offset = 40;
 
+$('.navbar li a').click(function(event) {
+    event.preventDefault();
+    $($(this).attr('href'))[0].scrollIntoView();
+    scrollBy(0, -offset);
+});

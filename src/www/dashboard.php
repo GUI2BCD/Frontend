@@ -56,8 +56,6 @@ if (! Session::loginCheck($connection)) {
 <body>
 
     <div class="navbar navbar-inverse navbar-fixed-top"
-        data-spy="affix" 
-        data-offset-bottom="40" 
         role="navigation">
         <div class="container">
             <!-- Brand and toggle are grouped for mobile display -->
