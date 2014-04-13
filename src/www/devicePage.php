@@ -269,9 +269,27 @@ namespace LastResortRecovery
                     echo '<div id="collapseRecentRecord' . $deviceRow['id'] . '-' . $j . '"';
                     echo ' class="panel-collapse collapse">';
                     echo '<div class="panel-body">';
-                    
-                    // Put the record's content here.
-                    
+                    ?>
+                    <h5>Local IP Address:</h5>
+                        <br>
+                        <code>
+                                                <?php echo nl2br($reportrow['localip'])?>
+                                                </code>
+                        <br>
+                        <h5>Remote IP Address:</h5>
+                        <br>
+                        <code><?php echo $reportrow['remoteip']?></code>
+                        <br> <br>
+                        <h5>Detected WiFi Hotspot(s):</h5>
+                        <br>
+                        <code>
+                                                <?php echo nl2br($reportrow['wifi'])?>
+                                                </code>
+                        <br>
+                        <h5>Trace Route:</h5>
+                        <br>
+                        <code><?php echo nl2br($reportrow['traceroute'])?></code>
+                    <?php 
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
@@ -291,7 +309,7 @@ namespace LastResortRecovery
 
 </div>
 <?php
-            return 1;
+
         }
     }
 }
