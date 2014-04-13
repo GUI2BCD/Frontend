@@ -203,7 +203,7 @@ namespace LastResortRecovery
                     for( $j = 1 ; $j <= 5 ; $j++ ) {
                         $row = mysqli_fetch_array($reports);
 
-                        echo '<a href="#recentRecord' . $j . '">';
+                        echo '<a href="#recentRecord' . $deviceRow . '-' . $j . '">';
                         echo $row['time'];
                         echo '</a><br>';
                         
@@ -215,7 +215,7 @@ namespace LastResortRecovery
                     for( $j = 6 ; $j <= 10 ; $j++ ) {
                         $row = mysqli_fetch_array($reports);
                     
-                        echo '<a href="#recentRecord' . $j . '">';
+                        echo '<a href="#recentRecord' . $deviceRow . '-' . $j . '">';
                         echo $row['time'];
                         echo '</a><br>';
                     
@@ -254,19 +254,19 @@ namespace LastResortRecovery
                 for( $j = 1 ; $j <= 10 ; $j++ ) {
                     $row = mysqli_fetch_array($reports);
                     
-                    echo '<div id="recentRecord' . $j . '" class="panel panel-default">';
+                    echo '<div id="recentRecord' . $deviceRow . '-' . $j . '" class="panel panel-default">';
                     echo '<div class="panel-heading">';
                     echo '<div class="panel-title accordion-icon-swap"';
                     echo ' data-toggle="collapse"';
                     echo ' data-parent="#accordion-device"';
-                    echo ' href="#collapseRecentRecord' . $j . '">';
+                    echo ' href="#collapseRecentRecord' . $deviceRow . '-' . $j . '">';
                     echo '<p class="center">' . $row['time'] . '</p>';
                     echo '<div class="panel-icon-centered">';
                     echo '<span class="glyphicon glyphicon-chevron-down"></span>';
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
-                    echo '<div id="collapseRecentRecord' . $j . '"';
+                    echo '<div id="collapseRecentRecord' . $deviceRow . '-' . $j . '"';
                     echo ' class="panel-collapse collapse">';
                     echo '<div class="panel-body">';
                     
