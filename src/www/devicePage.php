@@ -196,7 +196,7 @@ namespace LastResortRecovery
                     <div class="records-column-left">
 
                     <?php 
-                    $reportsql = "SELECT * FROM reports WHERE deviceid='" . $deviceRow['id'] . "' ORDER BY 'time' ASC LIMIT 5;";
+                    $reportsql = "SELECT * FROM reports WHERE deviceid='" . $deviceRow['id'] . "' ORDER BY 'time' ASC LIMIT 10;";
                     
                     $reports = mysqli_query($connection, $reportsql);
                     
