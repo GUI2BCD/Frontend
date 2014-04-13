@@ -20,9 +20,9 @@ namespace LastResortRecovery
     class DisplayDevice
     {
 
-        public function __construct($i, $deviceRow)
+        public function __construct($i, $deviceRow, $connection)
         {
-            return DisplayDevice::generatePageNew($i, $deviceRow);
+            return DisplayDevice::generatePageNew($i, $deviceRow, $connection);
         }
 
         private function generatePageOld()
@@ -134,7 +134,7 @@ namespace LastResortRecovery
             return 1;
         }
 
-        private function generatePageNew($i, $deviceRow)
+        private function generatePageNew($i, $deviceRow, $connection)
         {
 ?>
 <div class="tab-pane" id="device<?php echo $i;?>">
@@ -196,14 +196,14 @@ namespace LastResortRecovery
                     <div class="records-column-left">
 
                     <?php 
-                    $reportsql = "SELECT * FROM reports WHERE deviceid='" . $row['id'] . "' ORDER BY 'time' ASC LIMIT 5;";
+                    $reportsql = "SELECT * FROM reports WHERE deviceid='" . $deviceRow['id'] . "' ORDER BY 'time' ASC LIMIT 5;";
                     
                     $reports = mysqli_query($connection, $reportsql);
                     
                     for( $j = 1 ; $j <= 5 ; $j++ ) {
                         $row = mysqli_fetch_array($reports);
 
-                        echo '<a href=#recentRecord"' . $j .'>';
+                        echo '<a href=#recentRecord' . $j .'">';
                         echo $row['time'];
                         echo '</a><br>';
                         

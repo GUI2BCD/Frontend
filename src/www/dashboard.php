@@ -131,7 +131,7 @@ $result = mysqli_query($connection, $sql);
 $i = 1;
 while ($row = mysqli_fetch_array($result)) {
     
-    new displayDevice($i, $row);
+    new displayDevice($i, $row, $connection);
     $i ++;
 }
 
