@@ -196,7 +196,7 @@ namespace LastResortRecovery
                     <div class="records-column-left">
 
                     <?php 
-                    $reportsql = "SELECT * FROM reports WHERE deviceid='" . $deviceRow['id'] . "' ORDER BY 'time' DESC LIMIT 10;";
+                    $reportsql = "SELECT * FROM reports WHERE deviceid='" . $deviceRow['id'] . "' ORDER BY time DESC LIMIT 10;";
                     
                     $reports = mysqli_query($connection, $reportsql);
                     
@@ -247,7 +247,7 @@ namespace LastResortRecovery
                 <?php 
                 // Renders the last 10 records into an accordian.
                 
-                $reportsql = "SELECT * FROM reports WHERE deviceid='" . $deviceRow['id'] . "' ORDER BY 'time' ASC LIMIT 10;";
+                $reportsql = "SELECT * FROM reports WHERE deviceid='" . $deviceRow['id'] . "' ORDER BY time DESC LIMIT 10;";
                 
                 $reports = mysqli_query($connection, $reportsql);
                 
