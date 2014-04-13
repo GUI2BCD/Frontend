@@ -56,7 +56,7 @@ $('#user-tabs a[href="'+ hash + '"]').tab('show');
  */
 var offset = 40;
 
-$('.navbar li a').click(function(event) {
+$('a').click(function(event) {
     event.preventDefault();
     $($(this).attr('href'))[0].scrollIntoView();
     scrollBy(0, -offset);
