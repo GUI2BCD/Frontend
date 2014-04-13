@@ -36,6 +36,7 @@ if (Session::loginCheck($connection)) {
 
 <!-- Load javascript files -->
 <script src="js/holder.js"></script>
+<script src="js/helpWizard.js"></script>
 <script type="text/javascript" src="js/sha512.js"></script>
 <script type="text/javascript" src="js/tooltips.js"></script>
 
@@ -238,7 +239,8 @@ if (Session::loginCheck($connection)) {
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script 
 	    src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-    <script src="./js/validation.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/jquery.bootstrap.wizard.js"></script>
 	<!-- Latest compiled and minified JavaScript -->
 	<script
 		src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
