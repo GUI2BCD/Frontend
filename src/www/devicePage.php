@@ -203,7 +203,7 @@ namespace LastResortRecovery
                     for( $j = 1 ; $j <= 5 ; $j++ ) {
                         $row = mysqli_fetch_array($reports);
 
-                        echo '<a href=#"' . $j .'>';
+                        echo '<a href=#recentRecord"' . $j .'>';
                         echo $row['time'];
                         echo '</a><br>';
                         
@@ -244,45 +244,42 @@ namespace LastResortRecovery
             <div class="device-accordion clear">
                 <div class="panel-group spacer" id="accordion-device">
 
-                    <div id="" class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="panel-title accordion-icon-swap"
-                                data-toggle="collapse"
-                                data-parent="#accordion-device"
-                                href="#collapseDeviceOne">
-                                <p class="center">Date of Record</p>
-                                <div class="panel-icon-centered">
-                                    <span
-                                        class="glyphicon glyphicon-chevron-down"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="collapseDeviceOne"
-                            class="panel-collapse collapse">
-                            <div class="panel-body">Hello</div>
-                        </div>
-                    </div>
-                    <!-- END OF PANEL 1 -->
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="panel-title accordion-icon-swap"
-                                data-toggle="collapse"
-                                data-parent="#accordion-device"
-                                href="#collapseDeviceTwo">
-                                <p class="center">Date of Record</p>
-                                <div class="panel-icon-centered">
-                                    <span
-                                        class="glyphicon glyphicon-chevron-down"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="collapseDeviceTwo"
-                            class="panel-collapse collapse">
-                            <div class="panel-body">heelo</div>
-                        </div>
-                    </div>
-                    <!-- END OF PANEL 2 -->
+                <?php 
+                // Renders the last 10 records into an accordian.
+                
+                $reportsql = "SELECT * FROM reports WHERE deviceid='" . $row['id'] . "' ORDER BY 'time' ASC LIMIT 5;";
+                
+                $reports = mysqli_query($connection, $reportsql);
+                
+                for( $j = 1 ; $j <= 10 ; $j++ ) {
+                    $row = mysqli_fetch_array($reports);
+                    
+                    echo '<div id="recentRecord' . $j . '" class="panel panel-default">';
+                    echo '<div class="panel-heading">';
+                    echo '<div class="panel-title accordion-icon-swap"';
+                    echo ' data-toggle="collapse"';
+                    echo ' data-parent="#accordion-device"';
+                    echo ' href="#collapseDeviceOne">';
+                    echo '<p class="center">' . $row['time'] . '</p>';
+                    echo '<div class="panel-icon-centered">';
+                    echo '<span class="glyphicon glyphicon-chevron-down"></span>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '<div id="collapseDeviceOne"';
+                    echo ' class="panel-collapse collapse">';
+                    echo '<div class="panel-body">';
+                    
+                    // Put the record's content here.
+                    
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                    
+                    
+                }
+                
+                ?>
 
                 </div>
                 <!-- END OF ACCORDION -->
