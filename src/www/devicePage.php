@@ -131,7 +131,7 @@ namespace LastResortRecovery
 
 </div>
 <?php
-            return 1;
+
         }
 
         private function generatePageNew($i, $deviceRow, $connection)
@@ -266,7 +266,7 @@ namespace LastResortRecovery
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
-                    echo '<div id="collapseRecentRecord' . $j . '">';
+                    echo '<div id="collapseRecentRecord' . $j . '"';
                     echo ' class="panel-collapse collapse">';
                     echo '<div class="panel-body">';
                     

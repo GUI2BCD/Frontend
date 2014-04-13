@@ -1,6 +1,14 @@
 @CHARSET "ISO-8859-1";
 
 /********** Verified User pages. **********/
+
+/** Fixes the issue anchors have with fixed nav bars. **/
+.body {
+    padding-top: 40px;
+    margin-top: -40px;
+}
+
+
 /** Space between the tab nav and the service bar. **/
 .nav {
     margin-top: 5px;
