@@ -31,7 +31,7 @@ namespace LastResortRecovery
 
         private function generatePage($connection)
         {
-            ?>
+?>
 <div class="tab-pane active" id="dashboard">
     <!-- Panels on left side of window. -->
     <div class="dashboard-left">
@@ -118,7 +118,7 @@ namespace LastResortRecovery
                 echo "<br>";
             }
             
-            ?>
+?>
 
                     </div>
         </div>

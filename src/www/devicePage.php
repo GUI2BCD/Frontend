@@ -14,19 +14,20 @@
  *              on the account.
  */
 namespace LastResortRecovery
+
 {
 
-    class displayDevice
+    class DisplayDevice
     {
 
         public function __construct($i, $deviceRow)
         {
-            return displayDevice::generatePageNew($i, $deviceRow);
+            return DisplayDevice::generatePageNew($i, $deviceRow);
         }
 
         private function generatePageOld()
         {
-            ?>
+?>
 <div class="tab-pane" id="devices">
 
     <!-- TODO: Generate based on devices. -->
@@ -45,7 +46,7 @@ namespace LastResortRecovery
                 
                 $reportrow = mysqli_fetch_array($reports);
                 
-                ?>
+?>
             
                                 <div class="panel panel-default">
             <div class="panel-heading">
@@ -74,7 +75,7 @@ namespace LastResortRecovery
                     echo '<h4 class="status-red">';
                 }
                 echo $row['status'] . '</h4>';
-                ?>
+?>
                                             </div>
 
                     <div class="column-left">
@@ -122,7 +123,7 @@ namespace LastResortRecovery
                 <?php
                 $i ++;
             }
-            ?>
+?>
                                 
                                 
                                 
@@ -135,7 +136,7 @@ namespace LastResortRecovery
 
         private function generatePageNew($i, $deviceRow)
         {
-            ?>
+?>
 <div class="tab-pane" id="device<?php echo $i;?>">
     <!-- Device Information -->
     <div class="device-panel-left">
