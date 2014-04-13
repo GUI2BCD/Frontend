@@ -94,7 +94,7 @@ if (isset($_GET['action'])) {
         
         // Check post variables
         // TODO Make this a function please
-        if (isset($_POST['email'], $_POST['password'], $_POST['deviceid'], $_POST['localip'], $_POST['wifi'],
+        if (isset($_POST['email'], $_POST['password'], $_POST['deviceid'], $_POST['localip'], $_POST['wifi'], 
             $_POST['traceroute'])) {
             
             // User
@@ -135,6 +135,51 @@ if (isset($_GET['action'])) {
         } else {
             echo BAD_REQUEST;
         }
+    } elseif ($_GET['action'] == 'upload') {
+        if (isset($_FILES['webcam']) || isset($_FILES['screenshot'])) {
+            
+            
+            ini_set("display_startup_errors", "1");
+            ini_set("display_errors", "1");
+            error_reporting(E_ALL);
+            echo "<pre>";
+            echo "POST:";
+            print_r($_POST);
+            echo "FILES:";
+            print_r($_FILES);
+            echo "</pre>";
+            
+            if ($_FILES['webcam']['error'] == 0) {
+                
+                $uploaddir = realpath('./') . '/files/';
+                $uploadfile = $uploaddir . $_POST['reportid'] . "_webcam.png";
+                echo '<pre>';
+                if (move_uploaded_file($_FILES['webcam']['tmp_name'], $uploadfile)) {
+                    echo "File is valid, and was successfully uploaded.";
+                } else {
+                    echo "Bad upload";
+                }
+            } else {
+                echo BAD_REQUEST;
+            }
+            if ($_FILES['screenshot']['error'] == 0) {
+                
+                $uploaddir = realpath('./') . '/files/';
+                $uploadfile = $uploaddir . $_POST['reportid'] . "_" . basename($_FILES['screenshot']['name']);
+                echo '<pre>';
+                if (move_uploaded_file($_FILES['screenshot']['tmp_name'], $uploadfile)) {
+                    echo "File is valid, and was successfully uploaded.";
+                } else {
+                    echo "Bad upload";
+                }
+            } else {
+                echo BAD_REQUEST;
+            }
+        } else {
+            echo BAD_REQUEST;
+        }
+    } else {
+        echo BAD_REQUEST;
     }
 } else {
     echo BAD_REQUEST;
