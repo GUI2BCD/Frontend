@@ -20,9 +20,9 @@ namespace LastResortRecovery
     class DisplayDevice
     {
 
-        public function __construct($i, $deviceRow)
+        public function __construct($i, $deviceRow, $connection)
         {
-            return DisplayDevice::generatePageNew($i, $deviceRow);
+            return DisplayDevice::generatePageNew($i, $deviceRow, $connection);
         }
 
         private function generatePageOld()
@@ -134,7 +134,7 @@ namespace LastResortRecovery
             return 1;
         }
 
-        private function generatePageNew($i, $deviceRow)
+        private function generatePageNew($i, $deviceRow, $connection)
         {
 ?>
 <div class="tab-pane" id="device<?php echo $i;?>">
@@ -195,19 +195,33 @@ namespace LastResortRecovery
                     <legend>Recent Records</legend>
                     <div class="records-column-left">
 
+                    <?php 
+                    $reportsql = "SELECT * FROM reports WHERE deviceid='" . $deviceRow['id'] . "' ORDER BY 'time' DESC LIMIT 10;";
+                    
+                    $reports = mysqli_query($connection, $reportsql);
+                    
+                    for( $j = 1 ; $j <= 5 ; $j++ ) {
+                        $row = mysqli_fetch_array($reports);
 
-                        <a href="">12:37AM 11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br>
-                    </div>
-                    <div class="records-column-right">
-                        <a href="">12:37AM 11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br>
+                        echo '<a href="#recentRecord' . $j . '">';
+                        echo $row['time'];
+                        echo '</a><br>';
+                        
+                    }
+                    
+                    echo '</div>';
+                    echo '<div class="records-column-right">';
+                    
+                    for( $j = 6 ; $j <= 10 ; $j++ ) {
+                        $row = mysqli_fetch_array($reports);
+                    
+                        echo '<a href="#recentRecord' . $j . '">';
+                        echo $row['time'];
+                        echo '</a><br>';
+                    
+                    }
+                    ?>
+                    
                     </div>
                 </fieldset>
             </div>
@@ -217,18 +231,10 @@ namespace LastResortRecovery
                 <fieldset>
                     <legend>Saved Records</legend>
                     <div class="records-column-left">
-                        <a href="">12:37AM 11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br>
+                        This feature has not been added yet.<br><br><br><br><br>
                     </div>
                     <div class="records-column-right">
-                        <a href="">12:37AM 11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br>
+
                     </div>
                 </fieldset>
             </div>
@@ -238,45 +244,42 @@ namespace LastResortRecovery
             <div class="device-accordion clear">
                 <div class="panel-group spacer" id="accordion-device">
 
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="panel-title accordion-icon-swap"
-                                data-toggle="collapse"
-                                data-parent="#accordion-device"
-                                href="#collapseDeviceOne">
-                                <p class="center">Date of Record</p>
-                                <div class="panel-icon-centered">
-                                    <span
-                                        class="glyphicon glyphicon-chevron-down"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="collapseDeviceOne"
-                            class="panel-collapse collapse">
-                            <div class="panel-body"></div>
-                        </div>
-                    </div>
-                    <!-- END OF PANEL 1 -->
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="panel-title accordion-icon-swap"
-                                data-toggle="collapse"
-                                data-parent="#accordion-device"
-                                href="#collapseDeviceTwo">
-                                <p class="center">Date of Record</p>
-                                <div class="panel-icon-centered">
-                                    <span
-                                        class="glyphicon glyphicon-chevron-down"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="collapseDeviceTwo"
-                            class="panel-collapse collapse">
-                            <div class="panel-body">heelo</div>
-                        </div>
-                    </div>
-                    <!-- END OF PANEL 2 -->
+                <?php 
+                // Renders the last 10 records into an accordian.
+                
+                $reportsql = "SELECT * FROM reports WHERE deviceid='" . $deviceRow['id'] . "' ORDER BY 'time' ASC LIMIT 10;";
+                
+                $reports = mysqli_query($connection, $reportsql);
+                
+                for( $j = 1 ; $j <= 10 ; $j++ ) {
+                    $row = mysqli_fetch_array($reports);
+                    
+                    echo '<div id="recentRecord' . $j . '" class="panel panel-default">';
+                    echo '<div class="panel-heading">';
+                    echo '<div class="panel-title accordion-icon-swap"';
+                    echo ' data-toggle="collapse"';
+                    echo ' data-parent="#accordion-device"';
+                    echo ' href="#collapseRecentRecord' . $j . '">';
+                    echo '<p class="center">' . $row['time'] . '</p>';
+                    echo '<div class="panel-icon-centered">';
+                    echo '<span class="glyphicon glyphicon-chevron-down"></span>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '<div id="collapseRecentRecord' . $j . '">';
+                    echo ' class="panel-collapse collapse">';
+                    echo '<div class="panel-body">';
+                    
+                    // Put the record's content here.
+                    
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                    
+                    
+                }
+                
+                ?>
 
                 </div>
                 <!-- END OF ACCORDION -->
