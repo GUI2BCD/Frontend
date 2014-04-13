@@ -54,7 +54,7 @@ $('#user-tabs a[href="'+ hash + '"]').tab('show');
 /**
  * Anchor Offset
  */
-var offset = 40;
+var offset = 50;
 
 $('a').click(function(event) {
     event.preventDefault();
