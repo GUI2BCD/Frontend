@@ -215,7 +215,7 @@ namespace LastResortRecovery
                     for( $j = 6 ; $j <= 10 ; $j++ ) {
                         $row = mysqli_fetch_array($reports);
                     
-                        echo '<a href=#"' . $j .'>';
+                        echo '<a href=#recentRecord' . $j .'">';
                         echo $row['time'];
                         echo '</a><br>';
                     
