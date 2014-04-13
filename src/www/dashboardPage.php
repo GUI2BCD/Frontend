@@ -162,7 +162,6 @@ namespace LastResortRecovery
     </div>
 </div>
 <?php
-            return 1;
         }
     }
 }
