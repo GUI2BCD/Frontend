@@ -42,6 +42,12 @@ $().ready(function() {
             $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
             $(id_attr).removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
         },
+        tooltip_options: {
+            username: {placement:'top',trigger:'focus', },
+            email: {placement:'top',trigger:'focus'},
+            password: {placement:'top',trigger:'focus'},
+            cpassword: {placement:'top',trigger:'focus'},
+        },
         messages: {
             username: {
                 required: "Username is required.",
@@ -76,6 +82,10 @@ $().ready(function() {
                 required: true
             }
         }, //end rules
+        tooltip_options: {
+            email: {placement:'bottom',trigger:'focus'},
+            password: {placement:'bottom',trigger:'focus'}
+        },
         messages: {
             email: {
                 required: "Username is required."
