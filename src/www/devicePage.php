@@ -18,13 +18,9 @@ namespace LastResortRecovery
     class displayDevice
     {
         
-        public function __construct($style, $deviceID)
+        public function __construct($i, $deviceRow)
         {
-            if( $style == 1 ) {
-                return displayDevice::generatePageOld();
-            } else {
-                return displayDevice::generatePageNew($row);
-            }
+            return displayDevice::generatePageNew($i, $deviceRow);
             
         }
         
@@ -119,10 +115,10 @@ $result = mysqli_query($connection, $sql);
             return 1;
         }
         
-        private function generatePageNew($deviceID)
+        private function generatePageNew($i, $deviceRow)
         {
             ?>
-            <div class="tab-pane" id="device1">
+            <div class="tab-pane" id="device<?php echo $i;?>">
                     <!-- Device Information -->
                     <div class="device-panel-left">
                         <div class="panel panel-primary">
@@ -176,6 +172,8 @@ $result = mysqli_query($connection, $sql);
                             <fieldset>
                                 <legend>Recent Records</legend>
                                 <div class="records-column-left">
+                                
+                                
                                     <a href="">12:37AM 11/12/2015</a><br>
                                     <a href="">12:37AM 11/12/2015</a><br>
                                     <a href="">12:37AM 11/12/2015</a><br>

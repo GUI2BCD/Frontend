@@ -74,29 +74,31 @@ if (! Session::loginCheck($connection)) {
             <div class="navbar-left collapse navbar-collapse">
                 <!-- Nav tabs -->
                 <ul class="nav nav-pills" id="user-tabs">
-                    <li class="active"><a href="#dashboard" data-toggle="tab">Dashboard</a></li>
+                    <li class="active"><a href="#dashboard" data-toggle="pill">Dashboard</a></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown">Devices <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#help" data-toggle="tab">Add Device</a></li> <!-- TODO: Pull from db -->
+                            <li><a href="#help" data-toggle="pill">Add Device</a></li> <!-- TODO: Pull from db -->
                             <li class="divider"></li>
                             
                             <?php 
                             $sql = "SELECT * FROM devices WHERE userid='" . $_SESSION['userid'] . "';";
                             
                             $result = mysqli_query($connection, $sql);
+                            $i = 1;
                             
                             while ($row = mysqli_fetch_array($result)) {
                                 ?>
-                                <li><a href="#device<?php echo $row['id'];?>" "data-toggle="tab">Device <?php echo $row['id'];?></a></li>
-                   
+                                <li><a href="#device<?php echo $i;?>" data-toggle="pill">Device <?php echo $row['id'];?></a></li>
+
                                 <?php 
+                                $i++;
                             }
                             ?>
                         </ul>
                     </li>
-                    <li><a href="#account" data-toggle="tab">Account</a></li>
-                    <li><a href="#help" data-toggle="tab">Help</a></li>
+                    <li><a href="#account" data-toggle="pill">Account</a></li>
+                    <li><a href="#help" data-toggle="pill">Help</a></li>
                 </ul>
             </div>
             
@@ -120,17 +122,14 @@ if (! Session::loginCheck($connection)) {
             $sql = "SELECT * FROM devices WHERE userid='" . $_SESSION['userid'] . "';";
             
             $result = mysqli_query($connection, $sql);    
-            
-            ?><div class="tab-pane" id="device1"><?php 
-                        
+            $i = 1;     
             while ($row = mysqli_fetch_array($result)) {
 
-                new displayDevice($row);
-                
+                new displayDevice($i, $row);
+                $i++;
             }
             
             ?>
-            </div>
             <!-- Agent Tab on Dashboard -->
             <?php new addDevice() ?>
             
