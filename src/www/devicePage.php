@@ -152,7 +152,15 @@ namespace LastResortRecovery
 
             $row = mysqli_fetch_array($reports);
             ?>
-                <b>Status:</b> <?php echo $deviceRow['status']; ?> <br>
+                <b>Status:</b> <?php 
+                if ($deviceRow['status'] == "OK") {
+                    echo '<h4 id="statusval-'.$deviceRow['id'].'" class="status-green">';
+                } else {
+                    echo '<h4 id="statusval-'.$deviceRow['id'].'" class="status-red">';
+                }
+                echo $deviceRow['status'] . '</h4>';
+                ?> 
+                <br>
                 <b>Poll Interval:</b> 30 seconds<br> 
                 <b>Agent Version:</b> Beta 0.02<br>
                 <b>Last Reported:</b> <?php echo $row['time']; ?> <br>
@@ -163,7 +171,10 @@ namespace LastResortRecovery
                 <h3 class="panel-title">Device Controls</h3>
             </div>
             <div class="panel-body">
-            Toggle Status: 
+             <?php 
+             echo '<button device-id="' .
+             $deviceRow['id'] .'" type="button" class="toggleStatusButton btn btn-danger btn-xs">Toggle status</button>';
+             ?>
             </div>
         </div>
     </div>

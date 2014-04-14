@@ -61,3 +61,29 @@ $('a').click(function(event) {
     $($(this).attr('href'))[0].scrollIntoView();
     scrollBy(0, -offset);
 });
+
+
+/**
+ * Handles ajax call to toggle device status
+ */
+$(".toggleStatusButton").click(function() {
+
+    // Holds the device ID for the callback
+    var deviceid = $(this).attr('device-id');
+    $.post("ajax.php", {
+        action : "togglestatus",
+        deviceid : deviceid
+    }, function(responseText) {
+        console.log("statusval-" + deviceid);
+
+        // Update content based on response
+        $("#statusval-" + deviceid).html(responseText);
+        if (responseText == 'OK') {
+            $("#statusval-" + deviceid).removeClass('status-red');
+            $("#statusval-" + deviceid).addClass('status-green');
+        } else {
+            $("#statusval-" + deviceid).addClass('status-red');
+            $("#statusval-" + deviceid).removeClass('status-green');
+        }
+    }, "html");
+});
