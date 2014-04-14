@@ -56,7 +56,7 @@ namespace LastResortRecovery
                 <br>
                 <b>Poll Interval:</b> 30 seconds<br> 
                 <b>Agent Version:</b> Beta 0.02<br>
-                <b>Last Reported:</b> <?php echo $row['time']; ?> Not yet implemented.<br>
+                <b>Last Reported:</b> <?php echo $row['time']; ?><br>
             </div>
         </div>
         <div class="panel panel-primary">
