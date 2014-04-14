@@ -45,7 +45,7 @@ namespace LastResortRecovery
                             Profile
                         </div>
                         <div class="panel-body">
-                            Testing the body.
+                            This page is under construction.
                         </div>
                     </div>
                 </div>
@@ -56,6 +56,7 @@ namespace LastResortRecovery
                             Change Password
                         </div>
                         <div class="ChngPass panel-body">
+                            Under construction.
                             <form id="change-password" class="form-register form-horizontal" role="form">
                                 <div class="form-group has-feedback">
                                     <label for="ChngPass-OldPass">Old Password</label>
