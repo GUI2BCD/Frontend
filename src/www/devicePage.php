@@ -288,11 +288,15 @@ namespace LastResortRecovery
                     ?>
                     <h5>Screenshot:</h5>
                     <br>
+                    <a href=<?php echo '"files/'.$row['id'].'_screenshot.png"' ?> class="thumbnail">
                     <img alt="No image" <?php echo 'src="files/'.$row['id'].'_screenshot.png"' ?>>
+                    </a>
                     <br>
                     <h5>Webcam:</h5>
                     <br>
+                    <a href=<?php echo '"files/'.$row['id'].'_screenshot.png"' ?> class="thumbnail">
                     <img alt="No image" <?php echo 'src="files/'.$row['id'].'_webcam.png"' ?>>
+                    </a>
                     <br>
                     <h5>Local IP Address:</h5>
                         <br>
