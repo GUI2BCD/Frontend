@@ -100,7 +100,7 @@ namespace LastResortRecovery
                 echo "<h5>Poll Interval: </h5> 30 seconds<br>";
                 echo "<h5>Reports: </h5>";
                 
-                $reportsql = "SELECT * FROM reports WHERE deviceid='" . $row['id'] . "' ORDER BY 'time' ASC LIMIT 10;";
+                $reportsql = "SELECT * FROM reports WHERE deviceid='" . $row['id'] . "' ORDER BY 'time' ASC LIMIT 3;";
                 
                 $reports = mysqli_query($connection, $reportsql);
                 

@@ -84,9 +84,9 @@ namespace LastResortRecovery
                 <script type="text/javascript"
                     src="http://maps.google.com/maps/api/js?sensor=false"></script>
                 <div
-                    style="overflow: hidden; height: 244px; width: 700px;">
+                    style="overflow: hidden; height: 243px; width: 700px;">
                     <div id="gmap_canvas"
-                        style="height: 244px; width: 680px;"></div>
+                        style="height: 243px; width: 680px;"></div>
                     <a class="google-map-code"
                         href="http://www.embed-google-map.com/de/"
                         id="get-map-data">google maps einbinden</a>
