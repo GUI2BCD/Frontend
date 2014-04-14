@@ -144,10 +144,26 @@ namespace LastResortRecovery
             <div class="panel-heading">
                 <h3 class="panel-title">Device Information</h3>
             </div>
+            <div class="panel-body"> 
+            <?php 
+            $reportsql = "SELECT time FROM reports WHERE deviceid='" . $deviceRow['id'] . "' ORDER BY time DESC LIMIT 1;";
+                    
+            $reports = mysqli_query($connection, $reportsql);
+
+            $row = mysqli_fetch_array($reports);
+            ?>
+                <b>Status:</b> <?php echo $deviceRow['status']; ?> <br>
+                <b>Poll Interval:</b> 30 seconds<br> 
+                <b>Agent Version:</b> Beta 0.02<br>
+                <b>Last Reported:</b> <?php echo $row['time']; ?> <br>
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Device Controls</h3>
+            </div>
             <div class="panel-body">
-                Status: <br>
-                <br> Date Added: <br> Poll Interval: <br> Agent Version:
-                <br> Last Reported: <br> <br> <br> <br> <br>
+            Toggle Status: 
             </div>
         </div>
     </div>
@@ -270,6 +286,14 @@ namespace LastResortRecovery
                     echo ' class="panel-collapse collapse">';
                     echo '<div class="panel-body">';
                     ?>
+                    <h5>Screenshot:</h5>
+                    <br>
+                    <img alt="No image" <?php echo 'src="files/'.$row['id'].'_screenshot.png"' ?>>
+                    <br>
+                    <h5>Webcam:</h5>
+                    <br>
+                    <img alt="No image" <?php echo 'src="files/'.$row['id'].'_webcam.png"' ?>>
+                    <br>
                     <h5>Local IP Address:</h5>
                         <br>
                         <code>
