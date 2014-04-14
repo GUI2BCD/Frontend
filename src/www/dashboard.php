@@ -115,7 +115,7 @@ while ($row = mysqli_fetch_array($result)) {
         </div>
     </div>
 
-    <div class="container content">
+    <div id="top" class="container content">
 
         <!-- Tab panes -->
         <div class="tab-content">
@@ -149,7 +149,7 @@ while ($row = mysqli_fetch_array($result)) {
     <div class="container content">
         <footer>
             <p class="pull-right">
-                <a href="#">Back to top</a>
+                <a href="#top">Back to top</a>
             </p>
             <p>
                 &copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a>
