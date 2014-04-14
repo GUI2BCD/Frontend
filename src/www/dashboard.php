@@ -93,7 +93,7 @@ $i = 1;
 while ($row = mysqli_fetch_array($result)) {
     ?>
                                 <li><a href="#device<?php echo $i;?>"
-                                data-toggle="pill">Device <?php echo $i;?></a></li>
+                                data-toggle="pill"><?php echo $row['name'];?></a></li>
 
                                 <?php
     $i ++;

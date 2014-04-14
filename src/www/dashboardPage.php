@@ -41,13 +41,10 @@ namespace LastResortRecovery
                 <h3 class="panel-title">Account</h3>
             </div>
             <div class="panel-body">
-                <h5>Name:</h5><?php echo $_SESSION['username'] ?><br>
-                <h5>Username:</h5><?php echo $_SESSION['username'] ?><br>
+                <h5>Username: </h5><?php echo $_SESSION['username'] ?><br>
                 <br>
-                <h5>Last Login:</h5>
-                Nov. 22nd 2014<br>
                 <!-- TODO: Pull from DB. -->
-                <h5>Account ID:</h5><?php echo $_SESSION['userid'] ?><br>
+                <h5>Account ID: </h5><?php echo $_SESSION['userid'] ?><br>
             </div>
         </div>
 
