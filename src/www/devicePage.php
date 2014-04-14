@@ -145,6 +145,8 @@ namespace LastResortRecovery
                 <h3 class="panel-title">Device Information</h3>
             </div>
             <div class="panel-body"> 
+            <b>Name:</b> <?php echo $deviceRow['name']?>
+            <br>
             <?php 
             $reportsql = "SELECT time FROM reports WHERE deviceid='" . $deviceRow['id'] . "' ORDER BY time DESC LIMIT 1;";
                     
