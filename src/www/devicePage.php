@@ -24,116 +24,7 @@ namespace LastResortRecovery
         {
             return DisplayDevice::generatePageNew($i, $deviceRow, $connection);
         }
-
-        private function generatePageOld()
-        {
-?>
-<div class="tab-pane" id="devices">
-
-    <!-- TODO: Generate based on devices. -->
-    <div class="panel-group spacer" id="accordion">
-            <?php
-            $sql = "SELECT * FROM devices WHERE userid='" . $_SESSION['userid'] . "';";
-            
-            $result = mysqli_query($connection, $sql);
-            $i = 0;
-            
-            while ($row = mysqli_fetch_array($result)) {
-                
-                $reportsql = "SELECT * FROM reports WHERE deviceid='" . $row['id'] . "' ORDER BY 'time' ASC LIMIT 1;";
-                
-                $reports = mysqli_query($connection, $reportsql);
-                
-                $reportrow = mysqli_fetch_array($reports);
-                
-?>
-            
-                                <div class="panel panel-default">
-            <div class="panel-heading">
-                <div class="panel-title accordion-icon-swap"
-                    data-toggle="collapse" data-parent="#accordion"
-                    href="#collapse<?php echo $i ?>">
-                    <p class="pull-right">
-                        <strong>ID: </strong><?php echo $row['id'] ?></p>
-                    <p class="">
-                        <strong><?php echo $row['name'] ?></strong>
-                    </p>
-                    <div class="panel-icon-centered">
-                        <span class="glyphicon glyphicon-chevron-down"></span>
-                    </div>
-                </div>
-            </div>
-            <div id="collapse<?php echo $i ?>"
-                class="panel-collapse collapse">
-                <div class="panel-body">
-                    <div class="accordion-status">
-                        <h4>Status:</h4>
-                <?php
-                if ($row['status'] == "OK") {
-                    echo '<h4 class="status-green">';
-                } else {
-                    echo '<h4 class="status-red">';
-                }
-                echo $row['status'] . '</h4>';
-?>
-                                            </div>
-
-                    <div class="column-left">
-                        <h5>Date Added:</h5><?php echo 'todo'?><br>
-                        <h5>Agent Version:</h5>
-                        Linux 0.1<br>
-                    </div>
-                    <div class="column-right">
-                        <h5>Poll Interval:</h5>
-                        30 sec<br>
-                        <h5>Last Report Received:</h5><?php echo $reportrow['time']?><br>
-                    </div>
-
-                    <div class="panel-body accordion-body clear">
-                        <h4>Latest Report:</h4>
-                        <br>
-                        <br>
-                        <h5>Local IP Address:</h5>
-                        <br>
-                        <code>
-                                                <?php echo nl2br($reportrow['localip'])?>
-                                                </code>
-                        <br>
-                        <h5>Remote IP Address:</h5>
-                        <br>
-                        <code><?php echo $reportrow['remoteip']?></code>
-                        <br> <br>
-                        <h5>Detected WiFi Hotspot(s):</h5>
-                        <br>
-                        <code>
-                                                <?php echo nl2br($reportrow['wifi'])?>
-                                                </code>
-                        <br>
-                        <h5>Trace Route:</h5>
-                        <br>
-                        <code><?php echo nl2br($reportrow['traceroute'])?></code>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-            
-            
-                                
-                <?php
-                $i ++;
-            }
-?>
-                                
-                                
-                                
-                            </div>
-
-</div>
-<?php
-
-        }
-
+        
         private function generatePageNew($i, $deviceRow, $connection)
         {
 ?>
@@ -195,7 +86,7 @@ namespace LastResortRecovery
                 <div
                     style="overflow: hidden; height: 342px; width: 700px;">
                     <div id="gmap_canvas"
-                        style="height: 342px; width: 680px;"></div>
+                        style="height: 300px; width: 680px;"></div>
                     <a class="google-map-code"
                         href="http://www.embed-google-map.com/de/"
                         id="get-map-data">google maps einbinden</a>
