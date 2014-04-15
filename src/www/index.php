@@ -278,6 +278,7 @@ if (Session::loginCheck($connection)) {
 	<script 
 	    src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
     <script src="js/validation.js"></script>
+    <script type="text/javascript" src="js/jquery-validate.bootstrap-tooltip.min.js" /></script>
 	<!-- Latest compiled and minified JavaScript -->
 	<script
 		src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
