@@ -220,9 +220,11 @@ namespace LastResortRecovery
                                                 </code>
                         <br>
                         <h5>Trace Route:</h5>
-                        <a class="back-to-top pull-right" href="#top">Back to top</a>'
+
                         <br>
                         <code><?php echo nl2br($row['traceroute'])?></code>
+											  <br>
+                        <a class="back-to-top pull-right" href="#top">Back to top</a>
                     <?php 
                     echo '</div>';
                     echo '</div>';
