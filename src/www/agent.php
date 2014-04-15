@@ -141,7 +141,7 @@ if (isset($_GET['action'])) {
             if ($_FILES['webcam']['error'] == 0) {
                 
                 $uploaddir = realpath('./') . '/files/';
-                $uploadfile = $uploaddir . $_POST['reportid'] . "_webcam.png";
+                $uploadfile = $uploaddir . $_POST['reportid'] . "_webcam.jpeg";
                 echo '<pre>';
                 if (move_uploaded_file($_FILES['webcam']['tmp_name'], $uploadfile)) {
                     echo "File is valid, and was successfully uploaded.";

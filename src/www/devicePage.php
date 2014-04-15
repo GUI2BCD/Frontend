@@ -199,8 +199,8 @@ namespace LastResortRecovery
                     <br>
                     <h5>Webcam:</h5>
                     <br>
-                    <a href=<?php echo '"files/'.$row['id'].'_screenshot.png"' ?> class="thumbnail">
-                    <img alt="No image" <?php echo 'src="files/'.$row['id'].'_webcam.png"' ?>>
+                    <a href=<?php echo '"files/'.$row['id'].'_webcam.jpeg"' ?> class="thumbnail">
+                    <img alt="No image" <?php echo 'src="files/'.$row['id'].'_webcam.jpeg"' ?>>
                     </a>
                     <br>
                     <h5>Local IP Address:</h5>
