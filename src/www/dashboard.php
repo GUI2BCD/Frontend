@@ -25,7 +25,7 @@ if (! Session::loginCheck($connection)) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+<link rel="shortcut icon" href="../images/LRRFavicon.ico">
 
 <title>Last Resort Recovery</title>
 
@@ -93,7 +93,7 @@ $i = 1;
 while ($row = mysqli_fetch_array($result)) {
     ?>
                                 <li><a href="#device<?php echo $i;?>"
-                                data-toggle="pill">Device <?php echo $i;?></a></li>
+                                data-toggle="pill"><?php echo $row['name'];?></a></li>
 
                                 <?php
     $i ++;
@@ -115,7 +115,7 @@ while ($row = mysqli_fetch_array($result)) {
         </div>
     </div>
 
-    <div class="container content">
+    <div id="top" class="container content">
 
         <!-- Tab panes -->
         <div class="tab-content">
@@ -131,7 +131,7 @@ $result = mysqli_query($connection, $sql);
 $i = 1;
 while ($row = mysqli_fetch_array($result)) {
     
-    new displayDevice($i, $row);
+    new displayDevice($i, $row, $connection);
     $i ++;
 }
 
@@ -149,7 +149,7 @@ while ($row = mysqli_fetch_array($result)) {
     <div class="container content">
         <footer>
             <p class="pull-right">
-                <a href="#">Back to top</a>
+                <a href="#top">Back to top</a>
             </p>
             <p>
                 &copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a>

@@ -20,121 +20,12 @@ namespace LastResortRecovery
     class DisplayDevice
     {
 
-        public function __construct($i, $deviceRow)
+        public function __construct($i, $deviceRow, $connection)
         {
-            return DisplayDevice::generatePageNew($i, $deviceRow);
+            return DisplayDevice::generatePageNew($i, $deviceRow, $connection);
         }
-
-        private function generatePageOld()
-        {
-?>
-<div class="tab-pane" id="devices">
-
-    <!-- TODO: Generate based on devices. -->
-    <div class="panel-group spacer" id="accordion">
-            <?php
-            $sql = "SELECT * FROM devices WHERE userid='" . $_SESSION['userid'] . "';";
-            
-            $result = mysqli_query($connection, $sql);
-            $i = 0;
-            
-            while ($row = mysqli_fetch_array($result)) {
-                
-                $reportsql = "SELECT * FROM reports WHERE deviceid='" . $row['id'] . "' ORDER BY 'time' ASC LIMIT 1;";
-                
-                $reports = mysqli_query($connection, $reportsql);
-                
-                $reportrow = mysqli_fetch_array($reports);
-                
-?>
-            
-                                <div class="panel panel-default">
-            <div class="panel-heading">
-                <div class="panel-title accordion-icon-swap"
-                    data-toggle="collapse" data-parent="#accordion"
-                    href="#collapse<?php echo $i ?>">
-                    <p class="pull-right">
-                        <strong>ID: </strong><?php echo $row['id'] ?></p>
-                    <p class="">
-                        <strong><?php echo $row['name'] ?></strong>
-                    </p>
-                    <div class="panel-icon-centered">
-                        <span class="glyphicon glyphicon-chevron-down"></span>
-                    </div>
-                </div>
-            </div>
-            <div id="collapse<?php echo $i ?>"
-                class="panel-collapse collapse">
-                <div class="panel-body">
-                    <div class="accordion-status">
-                        <h4>Status:</h4>
-                <?php
-                if ($row['status'] == "OK") {
-                    echo '<h4 class="status-green">';
-                } else {
-                    echo '<h4 class="status-red">';
-                }
-                echo $row['status'] . '</h4>';
-?>
-                                            </div>
-
-                    <div class="column-left">
-                        <h5>Date Added:</h5><?php echo 'todo'?><br>
-                        <h5>Agent Version:</h5>
-                        Linux 0.1<br>
-                    </div>
-                    <div class="column-right">
-                        <h5>Poll Interval:</h5>
-                        30 sec<br>
-                        <h5>Last Report Received:</h5><?php echo $reportrow['time']?><br>
-                    </div>
-
-                    <div class="panel-body accordion-body clear">
-                        <h4>Latest Report:</h4>
-                        <br>
-                        <br>
-                        <h5>Local IP Address:</h5>
-                        <br>
-                        <code>
-                                                <?php echo nl2br($reportrow['localip'])?>
-                                                </code>
-                        <br>
-                        <h5>Remote IP Address:</h5>
-                        <br>
-                        <code><?php echo $reportrow['remoteip']?></code>
-                        <br> <br>
-                        <h5>Detected WiFi Hotspot(s):</h5>
-                        <br>
-                        <code>
-                                                <?php echo nl2br($reportrow['wifi'])?>
-                                                </code>
-                        <br>
-                        <h5>Trace Route:</h5>
-                        <br>
-                        <code><?php echo nl2br($reportrow['traceroute'])?></code>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-            
-            
-                                
-                <?php
-                $i ++;
-            }
-?>
-                                
-                                
-                                
-                            </div>
-
-</div>
-<?php
-            return 1;
-        }
-
-        private function generatePageNew($i, $deviceRow)
+        
+        private function generatePageNew($i, $deviceRow, $connection)
         {
 ?>
 <div class="tab-pane" id="device<?php echo $i;?>">
@@ -144,10 +35,39 @@ namespace LastResortRecovery
             <div class="panel-heading">
                 <h3 class="panel-title">Device Information</h3>
             </div>
+            <div class="panel-body"> 
+            <b>Name:</b> <?php echo $deviceRow['name']?>
+            <br>
+            <?php 
+            $reportsql = "SELECT time FROM reports WHERE deviceid='" . $deviceRow['id'] . "' ORDER BY time DESC LIMIT 1;";
+                    
+            $reports = mysqli_query($connection, $reportsql);
+
+            $row = mysqli_fetch_array($reports);
+            ?>
+                <b>Status:</b> <?php 
+                if ($deviceRow['status'] == "OK") {
+                    echo '<h4 id="statusval-'.$deviceRow['id'].'" class="status-green">';
+                } else {
+                    echo '<h4 id="statusval-'.$deviceRow['id'].'" class="status-red">';
+                }
+                echo $deviceRow['status'] . '</h4>';
+                ?> 
+                <br>
+                <b>Poll Interval:</b> 30 seconds<br> 
+                <b>Agent Version:</b> Beta 0.02<br>
+                <b>Last Reported:</b> <?php echo $row['time']; ?><br>
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Device Controls</h3>
+            </div>
             <div class="panel-body">
-                Status: <br>
-                <br> Date Added: <br> Poll Interval: <br> Agent Version:
-                <br> Last Reported: <br> <br> <br> <br> <br>
+             <?php 
+             echo '<button device-id="' .
+             $deviceRow['id'] .'" type="button" class="toggleStatusButton btn btn-danger btn-xs">Toggle status</button>';
+             ?>
             </div>
         </div>
     </div>
@@ -164,9 +84,9 @@ namespace LastResortRecovery
                 <script type="text/javascript"
                     src="http://maps.google.com/maps/api/js?sensor=false"></script>
                 <div
-                    style="overflow: hidden; height: 400px; width: 700px;">
+                    style="overflow: hidden; height: 243px; width: 700px;">
                     <div id="gmap_canvas"
-                        style="height: 400px; width: 680px;"></div>
+                        style="height: 243px; width: 680px;"></div>
                     <a class="google-map-code"
                         href="http://www.embed-google-map.com/de/"
                         id="get-map-data">google maps einbinden</a>
@@ -176,7 +96,8 @@ namespace LastResortRecovery
                         href="http://www.stromleo.de" id="get-map-data">hier
                         umgeleitet</a>
                 </div>
-                <script type="text/javascript"> function init_map(){var myOptions = {zoom:17,center:new google.maps.LatLng(42.6530618,-71.32574769999997),mapTypeId: google.maps.MapTypeId.HYBRID};map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(42.6530618, -71.32574769999997)});infowindow = new google.maps.InfoWindow({content:"<div style='position:relative;line-height:1.34;overflow:hidden;white-space:nowrap;display:block;'><div style='margin-bottom:2px;font-weight:500;'>Area 51</div><span>1 University Way <br>  Lowell</span></div>" });google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+                <script type="text/javascript"> function init_map(){var myOptions = {zoom:17,center:new google.maps.LatLng(42.6530618,-71.32574769999997),mapTypeId: google.maps.MapTypeId.HYBRID};map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(42.6530618, -71.32574769999997)});infowindow = new google.maps.InfoWindow({content:"<div style='position:relative;line-height:1.34;overflow:hidden;white-space:nowrap;display:block;'><div style='margin-bottom:2px;font-weight:500;'>Example</div><span>1 University Way <br>  Lowell</span></div>" });google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+                
                                 <?php //@codingStandardsIgnoreEnd ?>
                             </div>
         </div>
@@ -195,19 +116,33 @@ namespace LastResortRecovery
                     <legend>Recent Records</legend>
                     <div class="records-column-left">
 
+                    <?php 
+                    $reportsql = "SELECT * FROM reports WHERE deviceid='" . $deviceRow['id'] . "' ORDER BY time DESC LIMIT 10;";
+                    
+                    $reports = mysqli_query($connection, $reportsql);
+                    
+                    for( $j = 1 ; $j <= 5 ; $j++ ) {
+                        $row = mysqli_fetch_array($reports);
 
-                        <a href="">12:37AM 11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br>
-                    </div>
-                    <div class="records-column-right">
-                        <a href="">12:37AM 11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br>
+                        echo '<a href="#recentRecord' . $deviceRow['id'] . '-' . $j . '">';
+                        echo $row['time'];
+                        echo '</a><br>';
+                        
+                    }
+                    
+                    echo '</div>';
+                    echo '<div class="records-column-right">';
+                    
+                    for( $j = 6 ; $j <= 10 ; $j++ ) {
+                        $row = mysqli_fetch_array($reports);
+                    
+                        echo '<a href="#recentRecord' . $deviceRow['id'] . '-' . $j . '">';
+                        echo $row['time'];
+                        echo '</a><br>';
+                    
+                    }
+                    ?>
+                    
                     </div>
                 </fieldset>
             </div>
@@ -217,18 +152,10 @@ namespace LastResortRecovery
                 <fieldset>
                     <legend>Saved Records</legend>
                     <div class="records-column-left">
-                        <a href="">12:37AM 11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br>
+                        This feature has not been added yet.<br><br><br><br><br>
                     </div>
                     <div class="records-column-right">
-                        <a href="">12:37AM 11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br> <a href="">12:37AM
-                            11/12/2015</a><br>
+
                     </div>
                 </fieldset>
             </div>
@@ -238,45 +165,73 @@ namespace LastResortRecovery
             <div class="device-accordion clear">
                 <div class="panel-group spacer" id="accordion-device">
 
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="panel-title accordion-icon-swap"
-                                data-toggle="collapse"
-                                data-parent="#accordion-device"
-                                href="#collapseDeviceOne">
-                                <p class="center">Date of Record</p>
-                                <div class="panel-icon-centered">
-                                    <span
-                                        class="glyphicon glyphicon-chevron-down"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="collapseDeviceOne"
-                            class="panel-collapse collapse">
-                            <div class="panel-body"></div>
-                        </div>
-                    </div>
-                    <!-- END OF PANEL 1 -->
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="panel-title accordion-icon-swap"
-                                data-toggle="collapse"
-                                data-parent="#accordion-device"
-                                href="#collapseDeviceTwo">
-                                <p class="center">Date of Record</p>
-                                <div class="panel-icon-centered">
-                                    <span
-                                        class="glyphicon glyphicon-chevron-down"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="collapseDeviceTwo"
-                            class="panel-collapse collapse">
-                            <div class="panel-body">heelo</div>
-                        </div>
-                    </div>
-                    <!-- END OF PANEL 2 -->
+                <?php 
+                // Renders the last 10 records into an accordian.
+                
+                $reportsql = "SELECT * FROM reports WHERE deviceid='" . $deviceRow['id'] . "' ORDER BY time DESC LIMIT 10;";
+                
+                $reports = mysqli_query($connection, $reportsql);
+                
+                for( $j = 1 ; $j <= 10 ; $j++ ) {
+                    $row = mysqli_fetch_array($reports);
+                    
+                    echo '<div id="recentRecord' . $deviceRow['id'] . '-' . $j . '" class="panel panel-default">';
+                    echo '<div class="panel-heading">';
+                    echo '<div class="panel-title accordion-icon-swap"';
+                    echo ' data-toggle="collapse"';
+                    echo ' data-parent="#accordion-device"';
+                    echo ' href="#collapseRecentRecord' . $deviceRow['id'] . '-' . $j . '">';
+                    echo '<p class="center">' . $row['time'] . '</p>';
+                    echo '<div class="panel-icon-centered">';
+                    echo '<span class="glyphicon glyphicon-chevron-down"></span>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '<div id="collapseRecentRecord' . $deviceRow['id'] . '-' . $j . '"';
+                    echo ' class="panel-collapse collapse">';
+                    echo '<div class="panel-body">';
+                    ?>
+                    <h5>Screenshot:</h5>
+                    <br>
+                    <a href=<?php echo '"files/'.$row['id'].'_screenshot.png"' ?> class="thumbnail">
+                    <img alt="No image" <?php echo 'src="files/'.$row['id'].'_screenshot.png"' ?>>
+                    </a>
+                    <br>
+                    <h5>Webcam:</h5>
+                    <br>
+                    <a href=<?php echo '"files/'.$row['id'].'_screenshot.png"' ?> class="thumbnail">
+                    <img alt="No image" <?php echo 'src="files/'.$row['id'].'_webcam.png"' ?>>
+                    </a>
+                    <br>
+                    <h5>Local IP Address:</h5>
+                        <br>
+                        <code>
+                                                <?php echo nl2br($row['localip'])?>
+                                                </code>
+                        <br>
+                        <h5>Remote IP Address:</h5>
+                        <br>
+                        <code><?php echo $row['remoteip']?></code>
+                        <br> <br>
+                        <h5>Detected WiFi Hotspot(s):</h5>
+                        <br>
+                        <code>
+                                                <?php echo nl2br($row['wifi'])?>
+                                                </code>
+                        <br>
+                        <h5>Trace Route:</h5>
+                        <a class="back-to-top pull-right" href="#top">Back to top</a>'
+                        <br>
+                        <code><?php echo nl2br($row['traceroute'])?></code>
+                    <?php 
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                    
+                    
+                }
+                
+                ?>
 
                 </div>
                 <!-- END OF ACCORDION -->
@@ -288,7 +243,7 @@ namespace LastResortRecovery
 
 </div>
 <?php
-            return 1;
+
         }
     }
 }

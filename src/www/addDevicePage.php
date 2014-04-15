@@ -31,38 +31,47 @@ namespace LastResortRecovery
             <div class="panel panel-default">
             <div class="panel-heading">Linux Instructions</div>
                 <div class="panel-body">
-                <ol>
-                    <!-- Download link is legit now. -->
-                    <li>Download <a href="download/lastresortrecovery-0.2beta-1-x86_64.pkg.tar.xz">Package file</a></li>
                     <div class="row">
-                        <div class="col-xs-6 col-md-3">
-                            <a href="images/step1.png" class="thumbnail">
-                                <img src="images/step1.png" alt="Step1">
-                            </a>
+                        <div class="col-xs-10 col-sm-5 col-md-6">
+                            <!-- Download link is legit now. -->
+                            1. Download <a href="download/lastresortrecovery-0.2beta-1-x86_64.pkg.tar.xz">Package file</a>
+                            <div class="row">
+                                <div class="col-xs-6 col-md-3">
+                                    <a href="images/step1.png" class="thumbnail">
+                                        <img src="images/step1.png" alt="Step1">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-10 col-sm-5 col-md-6">
+                            2. Install the package file with the following:<br>
+                            <kbd>sudo pacman -U *.pkg.tar.xz</kbd>
+                            <div class="row">
+                                <div class="col-xs-6 col-md-3">
+                                    <a href="images/step2.png" class="thumbnail">
+                                        <img src="images/step2.png" alt="Step2">
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <li>Install the package file with the following:<br>
-                        <kbd>sudo pacman -U *.pkg.tar.xz</kbd>
-                    </li>
+                
                     <div class="row">
-                        <div class="col-xs-6 col-md-3">
-                            <a href="images/step2.png" class="thumbnail">
-                                <img src="images/step2.png" alt="Step2">
-                            </a>
+                        <div class="col-xs-10 col-sm-5 col-md-6">
+                            3.Run the agent:<br>
+                            <kbd>lastresortagent</kbd>
+                            <div class="row">
+                                <div class="col-xs-6 col-md-3">
+                                    <a href="images/step3.png" class="thumbnail">
+                                        <img src="images/step3.png" alt="Step3"  width="100" height="100">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-10 col-sm-5 col-md-6">
+                            4. Follow application instructions.
                         </div>
                     </div>
-                    <li>Run the agent:<br>
-                        <kbd>lastresortagent</kbd>
-                    </li>
-                    <div class="row">
-                        <div class="col-xs-6 col-md-3">
-                            <a href="images/step3.png" class="thumbnail">
-                                <img src="images/step3.png" alt="Step3">
-                            </a>
-                        </div>
-                    </div>
-                    <li>Follow application instructions.</li>
-                </ol>
                 </div>
             </div>
             </div>
