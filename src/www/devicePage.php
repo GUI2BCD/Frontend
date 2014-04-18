@@ -220,7 +220,7 @@ namespace LastResortRecovery
                     <h5>Webcam:</h5>
                     <br>
                     <a href=<?php 
-                    if( file_exists('"files/'.$row['id'].'_webcam.jpeg"')) {
+                    if( file_exists('files/'.$row['id'].'_webcam.jpeg')) {
                         echo '"files/'.$row['id'].'_webcam.jpeg"';
                     }
                     else {
@@ -228,7 +228,7 @@ namespace LastResortRecovery
                     }
                     ?> class="thumbnail">
                     <img alt="No image" <?php 
-                    if( file_exists('"files/'.$row['id'].'_webcam.jpeg"')) {
+                    if( file_exists('files/'.$row['id'].'_webcam.jpeg')) {
                         echo 'src="files/'.$row['id'].'_webcam.jpeg">';
                     }
                     else {
