@@ -178,8 +178,8 @@ namespace LastResortRecovery
                 
                 $reports = mysqli_query($connection, $reportsql);
                 
-                for( $j = 1 ; $j <= 10 ; $j++ ) {
-                    $row = mysqli_fetch_array($reports);
+                for( $j = 1 ; $row = mysqli_fetch_array($reports) ; $j++ ) {
+                    
                     
                     echo '<div id="recentRecord' . $deviceRow['id'] . '-' . $j . '" class="panel panel-default">';
                     echo '<div class="panel-heading">';
@@ -200,7 +200,7 @@ namespace LastResortRecovery
                     <h5>Screenshot:</h5>
                     <br>
                     <a href=<?php 
-                    if( file_exists('"files/'.$row['id'].'_screenshot.png"')) {
+                    if( file_exists('files/'.$row['id'].'_screenshot.png')) {
                         echo '"files/'.$row['id'].'_screenshot.png"';
                     }
                     else {
@@ -208,7 +208,7 @@ namespace LastResortRecovery
                     }
                     ?> class="thumbnail">
                     <img alt="No image" <?php 
-                    if( file_exists('"files/'.$row['id'].'_screenshot.png"')) {
+                    if( file_exists('files/'.$row['id'].'_screenshot.png')) {
                         echo 'src="files/'.$row['id'].'_screenshot.png">';
                     }
                     else {
