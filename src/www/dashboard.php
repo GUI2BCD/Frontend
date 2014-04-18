@@ -67,12 +67,12 @@ if (! Session::loginCheck($connection)) {
                         class="icon-bar"></span> <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Last Resort Recovery</a>
+                <a class="navbar-brand" href="dashboard.php">Last Resort Recovery</a>
             </div>
 
-            <div class="navbar-left collapse navbar-collapse">
+            <div class="navbar-collapse collapse">
                 <!-- Nav tabs -->
-                <ul class="nav nav-pills" id="user-tabs">
+                <ul class="nav nav-pills navbar-nav" id="user-tabs">
                     <li class="active"><a href="#dashboard"
                         data-toggle="pill">Dashboard</a></li>
                     <li class="dropdown"><a class="dropdown-toggle"
@@ -103,14 +103,13 @@ while ($row = mysqli_fetch_array($result)) {
                     <li><a href="#account" data-toggle="pill">Account</a></li>
                     <li><a href="#help" data-toggle="pill">Help</a></li>
                 </ul>
-            </div>
-
-            <div class="navbar-right collapse navbar-collapse">
-                <a class="navbar-brand">Welcome, <?php echo $_SESSION['username'] ?>!</a>
-                <a class="navbar-right" href="logout.php"><button
-                        type="button"
-                        class="btn btn-primary navbar-button navbar-right">Log
-                        Out</button></a>
+            <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome <?php echo $_SESSION['username']; ?>!<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="logout.php">Logout</a></li>
+              </ul>
+            </li>
             </div>
         </div>
     </div>
