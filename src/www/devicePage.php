@@ -68,9 +68,15 @@ namespace LastResortRecovery
              echo '<button device-id="' .
              $deviceRow['id'] .'" type="button" class="toggleStatusButton btn btn-danger btn-xs">Toggle status</button>';
              ?>
+             
+             <div id="alert" class="alert alert-warning alert-dismissable hidden">
+             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+             <strong>Device updated</strong> Please wait at least 30 seconds for a report.
+             </div>
             </div>
         </div>
     </div>
+    
     <!-- END OF DEVICE INFO -->
     <!-- Device - Last Known Location -->
     <div class="device-panel-right">
@@ -193,14 +199,42 @@ namespace LastResortRecovery
                     ?>
                     <h5>Screenshot:</h5>
                     <br>
-                    <a href=<?php echo '"files/'.$row['id'].'_screenshot.png"' ?> class="thumbnail">
-                    <img alt="No image" <?php echo 'src="files/'.$row['id'].'_screenshot.png"' ?>>
+                    <a href=<?php 
+                    if( file_exists('"files/'.$row['id'].'_screenshot.png"')) {
+                        echo '"files/'.$row['id'].'_screenshot.png"';
+                    }
+                    else {
+                        echo "#";
+                    }
+                    ?> class="thumbnail">
+                    <img alt="No image" <?php 
+                    if( file_exists('"files/'.$row['id'].'_screenshot.png"')) {
+                        echo 'src="files/'.$row['id'].'_screenshot.png">';
+                    }
+                    else {
+                        echo 'data-src="js/holder.js/500x500/auto">';
+                    }
+                    ?>
                     </a>
                     <br>
                     <h5>Webcam:</h5>
                     <br>
-                    <a href=<?php echo '"files/'.$row['id'].'_webcam.jpeg"' ?> class="thumbnail">
-                    <img alt="No image" <?php echo 'src="files/'.$row['id'].'_webcam.jpeg"' ?>>
+                    <a href=<?php 
+                    if( file_exists('"files/'.$row['id'].'_webcam.jpeg"')) {
+                        echo '"files/'.$row['id'].'_webcam.jpeg"';
+                    }
+                    else {
+                        echo "#";
+                    }
+                    ?> class="thumbnail">
+                    <img alt="No image" <?php 
+                    if( file_exists('"files/'.$row['id'].'_webcam.jpeg"')) {
+                        echo 'src="files/'.$row['id'].'_webcam.jpeg">';
+                    }
+                    else {
+                        echo 'data-src="js/holder.js/500x500/auto">';
+                    }
+                    ?>
                     </a>
                     <br>
                     <h5>Local IP Address:</h5>
