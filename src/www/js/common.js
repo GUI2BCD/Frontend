@@ -89,7 +89,7 @@ $(".toggleStatusButton").click(function() {
         }
         // Re-enable button
         $('.toggleStatusButton').prop('disabled', false);
-        $("#alert").removeClass('hidden');
-        $('#alert').slideDown().delay(5000).slideUp();
+        $("#alert" + deviceid).removeClass('hidden');
+        $('#alert' + deviceid).slideDown().delay(5000).slideUp();
     }, "html");
 });

@@ -35,7 +35,11 @@ namespace LastResortRecovery
             <div class="panel-heading">
                 <h3 class="panel-title">Device Information</h3>
             </div>
-            <div class="panel-body"> 
+            <div class="panel-body">
+            <div id="reportUpdate<?php echo $deviceRow['id'];?>" class="alert alert-warning alert-dismissable hidden">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong>New report received.</strong>
+            </div> 
             <b>Name:</b> <?php echo $deviceRow['name']?>
             <br>
             <?php 
@@ -54,9 +58,11 @@ namespace LastResortRecovery
                 echo $deviceRow['status'] . '</h4>';
                 ?> 
                 <br>
+                
                 <b>Poll Interval:</b> 30 seconds<br> 
                 <b>Agent Version:</b> Beta 0.02<br>
                 <b>Last Reported:</b> <?php echo $row['time']; ?><br>
+                
             </div>
         </div>
         <div class="panel panel-primary">
@@ -69,7 +75,7 @@ namespace LastResortRecovery
              $deviceRow['id'] .'" type="button" class="toggleStatusButton btn btn-danger btn-xs">Toggle status</button>';
              ?>
              
-             <div id="alert" class="alert alert-warning alert-dismissable hidden">
+             <div id="alert<?php echo $deviceRow['id']; ?>" class="alert alert-warning alert-dismissable hidden">
              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
              <strong>Device updated</strong> Please wait at least 30 seconds for a report.
              </div>
