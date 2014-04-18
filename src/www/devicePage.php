@@ -39,7 +39,8 @@ namespace LastResortRecovery
             <div id="reportUpdate<?php echo $deviceRow['id'];?>" class="alert alert-warning alert-dismissable hidden">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <strong>New report received.</strong>
-            </div> 
+            </div>
+            <?php echo '<script> setInterval(function(){ checkReport('.$deviceRow['id'].'); },10000); </script>'?>
             <b>Name:</b> <?php echo $deviceRow['name']?>
             <br>
             <?php 

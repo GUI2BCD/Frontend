@@ -93,3 +93,22 @@ $(".toggleStatusButton").click(function() {
         $('#alert' + deviceid).slideDown().delay(5000).slideUp();
     }, "html");
 });
+
+/**
+ * Checks and update content for reporting
+ */
+function checkReport(deviceid) {
+    
+    $.post("ajax.php", {
+        action : "checkreport",
+        deviceid : deviceid
+    }, function(responseText) {
+
+
+        // Re-enable button
+        $('.toggleStatusButton').prop('disabled', false);
+        $("#reportUpdate" + deviceid).removeClass('hidden');
+        $('#reportUpdate' + deviceid).slideDown().delay(5000).slideUp();
+    }, "html");
+}
+
