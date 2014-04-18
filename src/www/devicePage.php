@@ -120,7 +120,7 @@ namespace LastResortRecovery
     <!-- Device container for all records -->
     <div class="panel panel-primary device-records clear">
         <div class="panel-heading">
-            <h3 class="panel-title">Last Known Location</h3>
+            <h3 class="panel-title">Reports</h3>
         </div>
         <div class="panel-body">
             <!-- Recent Records -->
