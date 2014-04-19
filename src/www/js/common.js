@@ -98,17 +98,18 @@ $(".toggleStatusButton").click(function() {
  * Checks and update content for reporting
  */
 function checkReport(deviceid) {
-    
+    var numReports = $("#accordian" + deviceid).children().attr("numreports");
     $.post("ajax.php", {
         action : "checkreport",
-        deviceid : deviceid
+        deviceid : deviceid,
+        reports: numReports
     }, function(responseText) {
-
-
-        // Re-enable button
-        $('.toggleStatusButton').prop('disabled', false);
-        $("#reportUpdate" + deviceid).removeClass('hidden');
-        $('#reportUpdate' + deviceid).slideDown().delay(5000).slideUp();
+        
+        if( responseText != "OK" ) {
+            $("#accordian" + deviceid).empty().append(responseText);
+            $("#reportUpdate" + deviceid).removeClass('hidden');
+            $('#reportUpdate' + deviceid).slideDown().delay(5000).slideUp();
+        }
     }, "html");
 }
 

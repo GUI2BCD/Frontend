@@ -25,6 +25,120 @@ namespace LastResortRecovery
             return DisplayDevice::generatePageNew($i, $deviceRow, $connection);
         }
         
+        public function generateAccordian($deviceID, $connection) {
+            
+            $reportsql = "SELECT * FROM reports WHERE deviceid='" . $deviceID . "' ORDER BY time DESC";
+            
+            $reports = mysqli_query($connection, $reportsql);
+            ?>
+                        
+
+
+            <div class="panel-group spacer" id="accordion-device" numReports="<?php echo $reports->num_rows; ?>">
+            
+            <?php
+            // Renders the last 10 records into an accordian.
+            
+            $reportsql = "SELECT * FROM reports WHERE deviceid='" . $deviceID . "' ORDER BY time DESC LIMIT 10;";
+            
+            $reports = mysqli_query($connection, $reportsql);
+            
+            for( $j = 1 ; $row = mysqli_fetch_array($reports) ; $j++ ) {
+            
+            
+                echo '<div id="recentRecord' . $deviceID . '-' . $j . '" class="panel panel-default">';
+                echo '<div class="panel-heading">';
+                echo '<div class="panel-title accordion-icon-swap"';
+                echo ' data-toggle="collapse"';
+                echo ' data-parent="#accordion-device"';
+                echo ' href="#collapseRecentRecord' . $deviceID . '-' . $j . '">';
+                echo '<p class="center">' . $row['time'] . '</p>';
+                echo '<div class="panel-icon-centered">';
+                echo '<span class="glyphicon glyphicon-chevron-down"></span>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '<div id="collapseRecentRecord' . $deviceID . '-' . $j . '"';
+                echo ' class="panel-collapse collapse">';
+                echo '<div class="panel-body">';
+                ?>
+                                <h5>Screenshot:</h5>
+                                <br>
+                                <a href=<?php 
+                                if( file_exists('files/'.$row['id'].'_screenshot.png')) {
+                                    echo '"files/'.$row['id'].'_screenshot.png"';
+                                }
+                                else {
+                                    echo "#";
+                                }
+                                ?> class="thumbnail">
+                                <img alt="No image" <?php 
+                                if( file_exists('files/'.$row['id'].'_screenshot.png')) {
+                                    echo 'src="files/'.$row['id'].'_screenshot.png">';
+                                }
+                                else {
+                                    echo 'data-src="js/holder.js/500x500/auto">';
+                                }
+                                ?>
+                                </a>
+                                <br>
+                                <h5>Webcam:</h5>
+                                <br>
+                                <a href=<?php 
+                                if( file_exists('files/'.$row['id'].'_webcam.jpeg')) {
+                                    echo '"files/'.$row['id'].'_webcam.jpeg"';
+                                }
+                                else {
+                                    echo "#";
+                                }
+                                ?> class="thumbnail">
+                                <img alt="No image" <?php 
+                                if( file_exists('files/'.$row['id'].'_webcam.jpeg')) {
+                                    echo 'src="files/'.$row['id'].'_webcam.jpeg">';
+                                }
+                                else {
+                                    echo 'data-src="js/holder.js/500x500/auto">';
+                                }
+                                ?>
+                                </a>
+                                <br>
+                                <h5>Local IP Address:</h5>
+                                    <br>
+                                    <code>
+                                                            <?php echo nl2br($row['localip'])?>
+                                                            </code>
+                                    <br>
+                                    <h5>Remote IP Address:</h5>
+                                    <br>
+                                    <code><?php echo $row['remoteip']?></code>
+                                    <br> <br>
+                                    <h5>Detected WiFi Hotspot(s):</h5>
+                                    <br>
+                                    <code>
+                                                            <?php echo nl2br($row['wifi'])?>
+                                                            </code>
+                                    <br>
+                                    <h5>Trace Route:</h5>
+            
+                                    <br>
+                                    <code><?php echo nl2br($row['traceroute'])?></code>
+            											  <br>
+                                    <a class="back-to-top pull-right" href="#top">Back to top</a>
+                                <?php 
+                                echo '</div>';
+                                echo '</div>';
+                                echo '</div>';
+                                
+                                
+                            }
+                            
+                            ?>
+            
+                            </div>
+                            <!-- END OF ACCORDION -->
+                                <?php 
+        }
+
         private function generatePageNew($i, $deviceRow, $connection)
         {
 ?>
@@ -175,109 +289,8 @@ namespace LastResortRecovery
             <!-- END SAVED RECORDS -->
 
             <!-- Record Accordion -->
-            <div class="device-accordion clear">
-                <div class="panel-group spacer" id="accordion-device">
-
-                <?php 
-                // Renders the last 10 records into an accordian.
-                
-                $reportsql = "SELECT * FROM reports WHERE deviceid='" . $deviceRow['id'] . "' ORDER BY time DESC LIMIT 10;";
-                
-                $reports = mysqli_query($connection, $reportsql);
-                
-                for( $j = 1 ; $row = mysqli_fetch_array($reports) ; $j++ ) {
-                    
-                    
-                    echo '<div id="recentRecord' . $deviceRow['id'] . '-' . $j . '" class="panel panel-default">';
-                    echo '<div class="panel-heading">';
-                    echo '<div class="panel-title accordion-icon-swap"';
-                    echo ' data-toggle="collapse"';
-                    echo ' data-parent="#accordion-device"';
-                    echo ' href="#collapseRecentRecord' . $deviceRow['id'] . '-' . $j . '">';
-                    echo '<p class="center">' . $row['time'] . '</p>';
-                    echo '<div class="panel-icon-centered">';
-                    echo '<span class="glyphicon glyphicon-chevron-down"></span>';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '<div id="collapseRecentRecord' . $deviceRow['id'] . '-' . $j . '"';
-                    echo ' class="panel-collapse collapse">';
-                    echo '<div class="panel-body">';
-                    ?>
-                    <h5>Screenshot:</h5>
-                    <br>
-                    <a href=<?php 
-                    if( file_exists('files/'.$row['id'].'_screenshot.png')) {
-                        echo '"files/'.$row['id'].'_screenshot.png"';
-                    }
-                    else {
-                        echo "#";
-                    }
-                    ?> class="thumbnail">
-                    <img alt="No image" <?php 
-                    if( file_exists('files/'.$row['id'].'_screenshot.png')) {
-                        echo 'src="files/'.$row['id'].'_screenshot.png">';
-                    }
-                    else {
-                        echo 'data-src="js/holder.js/500x500/auto">';
-                    }
-                    ?>
-                    </a>
-                    <br>
-                    <h5>Webcam:</h5>
-                    <br>
-                    <a href=<?php 
-                    if( file_exists('files/'.$row['id'].'_webcam.jpeg')) {
-                        echo '"files/'.$row['id'].'_webcam.jpeg"';
-                    }
-                    else {
-                        echo "#";
-                    }
-                    ?> class="thumbnail">
-                    <img alt="No image" <?php 
-                    if( file_exists('files/'.$row['id'].'_webcam.jpeg')) {
-                        echo 'src="files/'.$row['id'].'_webcam.jpeg">';
-                    }
-                    else {
-                        echo 'data-src="js/holder.js/500x500/auto">';
-                    }
-                    ?>
-                    </a>
-                    <br>
-                    <h5>Local IP Address:</h5>
-                        <br>
-                        <code>
-                                                <?php echo nl2br($row['localip'])?>
-                                                </code>
-                        <br>
-                        <h5>Remote IP Address:</h5>
-                        <br>
-                        <code><?php echo $row['remoteip']?></code>
-                        <br> <br>
-                        <h5>Detected WiFi Hotspot(s):</h5>
-                        <br>
-                        <code>
-                                                <?php echo nl2br($row['wifi'])?>
-                                                </code>
-                        <br>
-                        <h5>Trace Route:</h5>
-
-                        <br>
-                        <code><?php echo nl2br($row['traceroute'])?></code>
-											  <br>
-                        <a class="back-to-top pull-right" href="#top">Back to top</a>
-                    <?php 
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
-                    
-                    
-                }
-                
-                ?>
-
-                </div>
-                <!-- END OF ACCORDION -->
+            <div id="accordian<?php echo $deviceRow['id']; ?>" class="device-accordion clear">
+            <?php DisplayDevice::generateAccordian($deviceRow['id'], $connection) ?>
             </div>
             <!-- END RECORD ACCORDION -->
         </div>
