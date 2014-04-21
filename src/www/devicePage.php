@@ -154,7 +154,7 @@ namespace LastResortRecovery
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <strong>New report received.</strong>
             </div>
-            <?php echo '<script> setInterval(function(){ checkReport('.$deviceRow['id'].'); },10000); </script>'?>
+            <?php echo '<script> setInterval(function(){ checkReport('.$deviceRow['id'].'); },30000); </script>'?>
             <b>Name:</b> <?php echo $deviceRow['name']?>
             <br>
             <?php 
