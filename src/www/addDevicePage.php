@@ -50,7 +50,7 @@ namespace LastResortRecovery
 					<div class="alert alert-info alerthelp">
 						<strong>Download</strong> the appropriate package for your operating system:
 					</div>
-					<div class="well well-lg">
+					<div class="well well-lg alerthelp">
 					   <div class="row helprow">
 					       <div class="col-md-3">
 					           <div class="row"><img alt="Ubuntu/Debian" src="images/deb.svg"></div>
@@ -80,13 +80,13 @@ namespace LastResortRecovery
 					<div class="alert alert-info alerthelp">
 						<strong>Install</strong> the package for your operating system:
 					</div>
-					<div class="well well-lg">
+					<div class="well well-lg alerthelp">
 						<div class="row">
 						  <div class="col-md-2 helprow">
 						      <div class="row"><img alt="Ubuntu/Debian" src="images/deb.svg"></div>
 						      <div class="row"><strong>Ubuntu/Debian</strong></div>
 						  </div>
-						  <div class="col-md-4">
+						  <div class="col-md-10">
 						      <div class="row">Install with software center or through command line:</div>
 						      <div class="row"><kbd>sudo dpkg -i lastresortrecovery-0.2beta.deb</kbd></div>
 						      <div class="row">Resolve dependencies:</div>
@@ -94,13 +94,13 @@ namespace LastResortRecovery
 						  </div>
 						</div>
 					</div>
-					<div class="well well-lg">
+					<div class="well well-lg alerthelp">
 						<div class="row">
 						  <div class="col-md-2 helprow">
 						      <div class="row"><img alt="ArchLinux" src="images/arch.svg"></div>
 						      <div class="row"><strong>Arch Linux</strong></div>
 						  </div>
-						  <div class="col-md-5">
+						  <div class="col-md-10">
 						      <div class="row">Install through command line:</div>
 						      <div class="row"><kbd>sudo pacman -U lastresortrecovery-0.2beta-1-x86_64.pkg.tar.gz</kbd></div>
 						  </div>
@@ -113,11 +113,11 @@ namespace LastResortRecovery
 				<div class="alert alert-info alerthelp" >
 						<strong>Setup</strong> the agent:
 			    </div>
-			    <div class="well well-lg">
+			    <div class="well well-lg alerthelp">
 			    Start the agent with the following command:<br>
 			    <kbd>sudo lastresortagent</kbd><br>
 			    </div>
-			    <div class="well well-lg">
+			    <div class="well well-lg alerthelp">
 			    Follow the prompts to configure the agent with your account<br>
 			    </div>
 			    </div>
