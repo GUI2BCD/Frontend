@@ -51,21 +51,30 @@ namespace LastResortRecovery
 						<strong>Download</strong> the appropriate package for your operating system:
 					</div>
 					<div class="well well-lg">
-						<img alt="Ubuntu/Debian" src="images/deb.svg"><br> Ubuntu/Debian<br>
-						<button type="button" class="btn btn-default">Download</button>
+					   <div class="row">
+					       <div class="col-md-2">
+					           <div class="row"><img alt="Ubuntu/Debian" src="images/deb.svg"></div>
+					           <div class="row"><strong>Ubuntu/Debian</strong></div>
+					           <div class="row"><button type="button" class="btn btn-default">Download</button></div>
+					       </div>
+					       <div class="col-md-2">
+					           <div class="row"><img alt="ArchLinux" src="images/arch.svg"></div>
+					           <div class="row"><strong>Arch Linux</strong></div>
+					           <div class="row"><button type="button" class="btn btn-default">Download</button></div>
+					       </div>
+					       <div class="col-md-2">
+					           <div class="row"><img alt="osx" src="images/osx.svg"></div>
+					           <div class="row"><strong>Mac OSX</strong></div>
+					           <div class="row"><button type="button" class="btn btn-default">Coming Soon</button></div>
+					       </div>
+					       <div class="col-md-2">
+					           <div class="row"><img alt="Windows" src="images/win.svg"></div>
+					           <div class="row"><strong>Windows</strong></div>
+					           <div class="row"><button type="button" class="btn btn-default">Coming soon</button></div>
+					       </div>
+					   </div>
 					</div>
-					<div class="well well-lg">
-						<img alt="ArchLinux" src="images/arch.svg"><br> Arch Linux<br>
-						<button type="button" class="btn btn-default">Download</button>
-					</div>
-					<div class="well well-lg">
-						<img alt="Windows" src="images/win.svg"><br> Windows<br>
-						<button type="button" class="btn btn-default">Coming Soon&trade;</button>
-					</div>
-					<div class="well well-lg">
-						<img alt="Mac" src="images/osx.svg"><br> Mac OSX<br>
-						<button type="button" class="btn btn-default">Coming Soon&trade;</button>
-					</div>
+					
 				</div>
 				<div class="tab-pane" id="tab2">
 					<div class="alert alert-info">

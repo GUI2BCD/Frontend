@@ -101,3 +101,8 @@ body {
 visibility: hidden;
 display: none;
 }
+
+.instructions {
+  padding-left: 25px;
+  padding-right: 25px;
+}
