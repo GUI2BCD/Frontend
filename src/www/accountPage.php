@@ -39,18 +39,14 @@ namespace LastResortRecovery
             ?>
             <div class="tab-pane" id="account">
             
-                <div class="dashboard-left">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            Profile
-                        </div>
-                        <div class="panel-body">
-                            This page is under construction.
-                        </div>
-                    </div>
+                <div class="row">
+                
+                
+                
                 </div>
                 
-                <div class="dashboard-right">
+                <div class="row hide">
+                <div class="col-sx-12 col-md-5">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             Change Password
@@ -82,6 +78,7 @@ namespace LastResortRecovery
                             </form>
                         </div>
                     </div>
+                </div>
                 </div>
                 
             </div>
