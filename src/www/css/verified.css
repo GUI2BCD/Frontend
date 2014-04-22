@@ -1,6 +1,9 @@
 @CHARSET "ISO-8859-1";
 
 /********** Verified user pages. **********/
+test {
+    
+}
 
 /*################ Navbar ################*/
 /** Space between the tab nav and the service bar. **/
@@ -138,8 +141,9 @@
 
 
 /*################ Account Page ################*/
-
-
+.btn-account {
+    margin: 2px 0 !important; /* Needs the important to override btn-block */
+}
 
 /*################ General ################*/
 .clear {
