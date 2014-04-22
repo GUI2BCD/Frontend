@@ -62,7 +62,9 @@ namespace LastResortRecovery
 									<strong>Ubuntu/Debian</strong>
 								</div>
 								<div class="row">
-									<button type="button" class="btn btn-default">Download</button>
+								    <a href="download/lastresortrecovery_0.2-beta.deb">
+									   <button type="button" class="btn btn-default">Download</button>
+								    </a>
 								</div>
 							</div>
 							<div class="col-md-3">
@@ -73,7 +75,9 @@ namespace LastResortRecovery
 									<strong>Arch Linux</strong>
 								</div>
 								<div class="row">
-									<button type="button" class="btn btn-default">Download</button>
+								    <a href="download/lastresortrecovery-0.2beta-1-x86_64.pkg.tar.xz">
+									   <button type="button" class="btn btn-default">Download</button>
+									</a>
 								</div>
 							</div>
 							<div class="col-md-3">
