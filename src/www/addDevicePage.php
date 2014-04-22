@@ -50,7 +50,7 @@ namespace LastResortRecovery
 					<div class="alert alert-info alerthelp">
 						<strong>Download</strong> the appropriate package for your operating system:
 					</div>
-					<div class="well well-lg">
+					<div class="well well-lg alerthelp">
 					   <div class="row helprow">
 					       <div class="col-md-3">
 					           <div class="row"><img alt="Ubuntu/Debian" src="images/deb.svg"></div>
@@ -80,7 +80,7 @@ namespace LastResortRecovery
 					<div class="alert alert-info alerthelp">
 						<strong>Install</strong> the package for your operating system:
 					</div>
-					<div class="well well-lg">
+					<div class="well well-lg alerthelp">
 						<div class="row">
 						  <div class="col-md-2 helprow">
 						      <div class="row"><img alt="Ubuntu/Debian" src="images/deb.svg"></div>
@@ -94,7 +94,7 @@ namespace LastResortRecovery
 						  </div>
 						</div>
 					</div>
-					<div class="well well-lg">
+					<div class="well well-lg alerthelp">
 						<div class="row">
 						  <div class="col-md-2 helprow">
 						      <div class="row"><img alt="ArchLinux" src="images/arch.svg"></div>
@@ -113,11 +113,11 @@ namespace LastResortRecovery
 				<div class="alert alert-info alerthelp" >
 						<strong>Setup</strong> the agent:
 			    </div>
-			    <div class="well well-lg">
+			    <div class="well well-lg alerthelp">
 			    Start the agent with the following command:<br>
 			    <kbd>sudo lastresortagent</kbd><br>
 			    </div>
-			    <div class="well well-lg">
+			    <div class="well well-lg alerthelp">
 			    Follow the prompts to configure the agent with your account<br>
 			    </div>
 			    </div>
