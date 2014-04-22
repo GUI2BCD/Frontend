@@ -86,7 +86,7 @@ namespace LastResortRecovery
 						      <div class="row"><img alt="Ubuntu/Debian" src="images/deb.svg"></div>
 						      <div class="row"><strong>Ubuntu/Debian</strong></div>
 						  </div>
-						  <div class="col-md-4">
+						  <div class="col-md-10">
 						      <div class="row">Install with software center or through command line:</div>
 						      <div class="row"><kbd>sudo dpkg -i lastresortrecovery-0.2beta.deb</kbd></div>
 						      <div class="row">Resolve dependencies:</div>
@@ -100,7 +100,7 @@ namespace LastResortRecovery
 						      <div class="row"><img alt="ArchLinux" src="images/arch.svg"></div>
 						      <div class="row"><strong>Arch Linux</strong></div>
 						  </div>
-						  <div class="col-md-5">
+						  <div class="col-md-10">
 						      <div class="row">Install through command line:</div>
 						      <div class="row"><kbd>sudo pacman -U lastresortrecovery-0.2beta-1-x86_64.pkg.tar.gz</kbd></div>
 						  </div>
