@@ -52,22 +52,22 @@ namespace LastResortRecovery
 					</div>
 					<div class="well well-lg">
 					   <div class="row">
-					       <div class="col-md-2">
+					       <div class="col-md-3">
 					           <div class="row"><img alt="Ubuntu/Debian" src="images/deb.svg"></div>
 					           <div class="row"><strong>Ubuntu/Debian</strong></div>
 					           <div class="row"><button type="button" class="btn btn-default">Download</button></div>
 					       </div>
-					       <div class="col-md-2">
+					       <div class="col-md-3">
 					           <div class="row"><img alt="ArchLinux" src="images/arch.svg"></div>
 					           <div class="row"><strong>Arch Linux</strong></div>
 					           <div class="row"><button type="button" class="btn btn-default">Download</button></div>
 					       </div>
-					       <div class="col-md-2">
+					       <div class="col-md-3">
 					           <div class="row"><img alt="osx" src="images/osx.svg"></div>
 					           <div class="row"><strong>Mac OSX</strong></div>
 					           <div class="row"><button type="button" class="btn btn-default">Coming Soon</button></div>
 					       </div>
-					       <div class="col-md-2">
+					       <div class="col-md-3">
 					           <div class="row"><img alt="Windows" src="images/win.svg"></div>
 					           <div class="row"><strong>Windows</strong></div>
 					           <div class="row"><button type="button" class="btn btn-default">Coming soon</button></div>
@@ -81,14 +81,31 @@ namespace LastResortRecovery
 						<strong>Install</strong> the package for your operating system:
 					</div>
 					<div class="well well-lg">
-						<img alt="Ubuntu/Debian" src="images/deb.svg"><br>Ubuntu/Debian<br>
-						Install with the following:
-						<kbd></kbd>
-						
-						
+						<div class="row">
+						  <div class="col-md-2">
+						      <div class="row"><img alt="Ubuntu/Debian" src="images/deb.svg"></div>
+						      <div class="row"><strong>Ubuntu/Debian</strong></div>
+						  </div>
+						  <div class="col-md-4">
+						      <div class="row">Install with software center or through command line:</div>
+						      <div class="row"><kbd>sudo dpkg -i lastresortrecovery-0.2beta.deb</kbd></div>
+						      <div class="row">Resolve dependencies:</div>
+						      <div class="row"><kbd>sudo apt-get install -f</kbd></div>
+						  </div>
+						</div>
 					</div>
 					<div class="well well-lg">
-						<img alt="ArchLinux" src="images/arch.svg"><br>Arch Linux<br>
+						<div class="row">
+						  <div class="col-md-2">
+						      <div class="row"><img alt="ArchLinux" src="images/arch.svg"></div>
+						      <div class="row"><strong>Arch Linux</strong></div>
+						  </div>
+						  <div class="col-md-5">
+						      <div class="row">Install through command line:</div>
+						      <div class="row"><kbd>sudo pacman -U lastresortrecovery-0.2beta-1-x86_64.pkg.tar.gz</kbd></div>
+						  </div>
+						
+						</div>
 						
 					</div>
 				</div>
