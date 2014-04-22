@@ -31,7 +31,7 @@ namespace LastResortRecovery
 
 <div class="tab-pane" id="help">
 <div class="page-space">
-	<div class="panel panel-default">
+	<div class="panel panel-default panel-primary">
 		<div class="panel-heading">Setup Instructions</div>
 		<div id="rootwizard">
 			<div class="navbar instructnav">
