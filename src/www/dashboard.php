@@ -165,7 +165,7 @@ while ($row = mysqli_fetch_array($result)) {
     <!-- Latest compiled and minified JavaScript -->
     <script
         src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
+      <script src="js/jquery.bootstrap.wizard.min.js"></script>
     <!-- Additional Scripts -->
     <script src="./js/common.js"></script>
 

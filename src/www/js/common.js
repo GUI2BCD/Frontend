@@ -113,3 +113,6 @@ function checkReport(deviceid) {
     }, "html");
 }
 
+$(document).ready(function() {
+    $('#rootwizard').bootstrapWizard();  
+});
