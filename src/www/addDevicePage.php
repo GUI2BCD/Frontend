@@ -33,7 +33,7 @@ namespace LastResortRecovery
 	<div class="panel panel-default">
 		<div class="panel-heading">Setup Instructions</div>
 		<div id="rootwizard">
-			<div class="navbar">
+			<div class="navbar instructnav">
 				<div class="navbar-inner">
 					<div class="container">
 						<ul>
@@ -47,11 +47,11 @@ namespace LastResortRecovery
 			</div>
 			<div class="tab-content instructions">
 				<div class="tab-pane" id="tab1">
-					<div class="alert alert-info">
+					<div class="alert alert-info alerthelp">
 						<strong>Download</strong> the appropriate package for your operating system:
 					</div>
 					<div class="well well-lg">
-					   <div class="row">
+					   <div class="row helprow">
 					       <div class="col-md-3">
 					           <div class="row"><img alt="Ubuntu/Debian" src="images/deb.svg"></div>
 					           <div class="row"><strong>Ubuntu/Debian</strong></div>
@@ -77,12 +77,12 @@ namespace LastResortRecovery
 					
 				</div>
 				<div class="tab-pane" id="tab2">
-					<div class="alert alert-info">
+					<div class="alert alert-info alerthelp">
 						<strong>Install</strong> the package for your operating system:
 					</div>
 					<div class="well well-lg">
 						<div class="row">
-						  <div class="col-md-2">
+						  <div class="col-md-2 helprow">
 						      <div class="row"><img alt="Ubuntu/Debian" src="images/deb.svg"></div>
 						      <div class="row"><strong>Ubuntu/Debian</strong></div>
 						  </div>
@@ -96,7 +96,7 @@ namespace LastResortRecovery
 					</div>
 					<div class="well well-lg">
 						<div class="row">
-						  <div class="col-md-2">
+						  <div class="col-md-2 helprow">
 						      <div class="row"><img alt="ArchLinux" src="images/arch.svg"></div>
 						      <div class="row"><strong>Arch Linux</strong></div>
 						  </div>
@@ -110,7 +110,7 @@ namespace LastResortRecovery
 					</div>
 				</div>
 				<div class="tab-pane" id="tab3">
-				<div class="alert alert-info">
+				<div class="alert alert-info alerthelp" >
 						<strong>Setup</strong> the agent:
 			    </div>
 			    <div class="well well-lg">
@@ -122,7 +122,7 @@ namespace LastResortRecovery
 			    </div>
 			    </div>
 				<div class="tab-pane" id="tab4">
-				<div class="alert alert-info">
+				<div class="alert alert-info alerthelp">
 						<strong>Done!</strong>
 			    </div>
 			    <div class="well well-lg">

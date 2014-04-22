@@ -106,3 +106,12 @@ display: none;
   padding-left: 15px;
   padding-right: 15px;
 }
+.instructnav {
+  margin-bottom: 0;
+}
+.alerthelp {
+  margin-bottom: 5px;
+}
+.helprow {
+  text-align: center;
+}
