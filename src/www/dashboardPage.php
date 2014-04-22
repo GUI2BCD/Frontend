@@ -152,7 +152,7 @@ namespace LastResortRecovery
             }
             ?>
 <p>
-                    <a href="#help" data-toggle="tab">Add a device!</a>
+                    <a href="#help" data-toggle="pill">Add a device!</a>
                 </p>
             </div>
         </div>
