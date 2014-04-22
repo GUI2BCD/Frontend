@@ -38,7 +38,7 @@ namespace LastResortRecovery
 
 <div class="tab-pane" id="account">
 
-    <div class="row">
+    <div class="row page-space">
 
         <div class="col-xs-12 col-sm-6">
             <div class="">
@@ -52,7 +52,7 @@ namespace LastResortRecovery
         <div class="col-xs-12 col-sm-6">
             <div class="panel panel-primary">
                 <div class="panel-heading">Change Password</div>
-                <div class="ChngPass panel-body">
+                <div class="panel-body">
                     Under construction.
                     <form id="change-password"
                         class="form-register form-horizontal"
@@ -60,7 +60,7 @@ namespace LastResortRecovery
                         <div class="form-group has-feedback">
                             <label for="ChngPass-OldPass">Old Password</label>
                             <input type="password"
-                                class="ChngPass-input form-control"
+                                class="form-control"
                                 id="ChngPass-OldPass"
                                 placeholder="Enter your old password"> <span
                                 class="glyphicon form-control-feedback"></span>
@@ -68,7 +68,7 @@ namespace LastResortRecovery
                         <div class="form-group has-feedback">
                             <label for="ChngPass-NewPass">New Password</label>
                             <input type="password"
-                                class="ChngPass-input form-control"
+                                class="form-control"
                                 id="ChngPass-NewPass"
                                 placeholder="Enter your new password"> <span
                                 class="glyphicon form-control-feedback"></span>
@@ -77,13 +77,13 @@ namespace LastResortRecovery
                             <label for="ChngPass-ConfNewPass">Confirm
                                 New Password</label> <input
                                 type="password"
-                                class="ChngPass-input form-control"
+                                class="form-control"
                                 id="ChngPass-ConfNewPass"
                                 placeholder="Confirm your new password">
                             <span
                                 class="glyphicon form-control-feedback"></span>
                         </div>
-                        <div class="ChngPass-btn">
+                        <div class="">
                             <button type="submit"
                                 class="btn btn-lg btn-primary btn-block">Change
                                 Password</button>
