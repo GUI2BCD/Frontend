@@ -135,17 +135,9 @@
 
 
 /** Account Page **/
-/** Change Password Form CSS **/
-
-
-/* .ChngPass-input { */
-/*     width: 50%; */
-/* } */
-
-/* .ChngPass-btn { */
-/*     margin: 0; */
-/*     text-align: center; */
-/* } */
+.row:first-child {
+    padding-top: 20px;
+}
 
 
 /** General **/
