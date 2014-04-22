@@ -5,6 +5,11 @@
 .nav {
     width: auto;
 }
+
+.navbar {
+    margin-bottom: 20px;
+}
+
 .navbar-button {
     margin-top: 8px;
 }
@@ -135,9 +140,7 @@
 
 
 /** Account Page **/
-.row:first-child {
-    padding-top: 20px;
-}
+
 
 
 /** General **/
