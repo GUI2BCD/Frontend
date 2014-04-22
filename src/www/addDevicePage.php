@@ -88,7 +88,7 @@ namespace LastResortRecovery
 									<strong>Mac OSX</strong>
 								</div>
 								<div class="row">
-									<button type="button" class="btn btn-default">Coming Soon</button>
+									<button type="button" class="btn btn-default" disabled>Coming Soon</button>
 								</div>
 							</div>
 							<div class="col-md-3">
@@ -99,7 +99,7 @@ namespace LastResortRecovery
 									<strong>Windows</strong>
 								</div>
 								<div class="row">
-									<button type="button" class="btn btn-default">Coming soon</button>
+									<button type="button" class="btn btn-default" disabled>Coming soon</button>
 								</div>
 							</div>
 						</div>
