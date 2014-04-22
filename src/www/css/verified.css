@@ -1,11 +1,16 @@
 @CHARSET "ISO-8859-1";
 
-/********** Verified User pages. **********/
+/********** Verified user pages. **********/
+test {
+    
+}
+
+/*################ Navbar ################*/
 /** Space between the tab nav and the service bar. **/
 .nav {
-    margin-top: 5px;
     width: auto;
 }
+
 .navbar-button {
     margin-top: 8px;
 }
@@ -15,7 +20,7 @@
     min-height: 300px;
 }
 
-/********** Dashboard Tab **********/
+/*################ Dashboard Tab ################*/
 .dashboard-left {
     float: left;
     width: 50%;
@@ -28,7 +33,7 @@
     padding: 20px 0 0 20px;
 }
 
-/********** Devices Tab(All) *********/
+/*################ Devices Tab(All) ################*/
 /** Centers the accordion on the page. **/
 .spacer {
     margin: 20px 40px 0 40px;
@@ -69,7 +74,7 @@
     padding: 15px 0 0 0;
 }
 
-/********** Devices(Individual) **********/
+/*################ Devices(Individual) ################*/
 .device-panel-left {
     width: 40%;
     float: left !important;
@@ -135,21 +140,12 @@
 }
 
 
-/** Account Page **/
-/** Change Password Form CSS **/
+/*################ Account Page ################*/
+.btn-account {
+    margin: 2px 0 !important; /* Needs the important to override btn-block */
+}
 
-
-/* .ChngPass-input { */
-/*     width: 50%; */
-/* } */
-
-/* .ChngPass-btn { */
-/*     margin: 0; */
-/*     text-align: center; */
-/* } */
-
-
-/** General **/
+/*################ General ################*/
 .clear {
     clear: both;
 }
@@ -167,6 +163,10 @@
     text-align: center;
     display: block;
     margin: 0;
+}
+
+.page-space {
+    margin-top: 20px;
 }
 
 .status-green {

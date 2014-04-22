@@ -96,3 +96,23 @@ body {
 .form-register .form-register-heading {
     margin-bottom: 40px;
 }
+
+.hidden {
+visibility: hidden;
+display: none;
+}
+
+.instructions {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.instructnav {
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+.alerthelp {
+  margin-bottom: 5px;
+}
+.helprow {
+  text-align: center;
+}

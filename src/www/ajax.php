@@ -14,8 +14,8 @@
 namespace LastResortRecovery;
 
 include_once 'db.php';
-//var_dump($_REQUEST);
-
+// var_dump($_REQUEST);
+include_once 'devicePage.php';
 // Check operation
 
 if (isset($_POST['action'])) {
@@ -35,7 +35,7 @@ if (isset($_POST['action'])) {
                 $result->execute();
                 // Save results
                 $result->store_result();
-
+                
                 // Check if device exists
                 if ($result->num_rows == 1) {
                     // Get device status
@@ -48,7 +48,6 @@ if (isset($_POST['action'])) {
                     } else {
                         $status = "OK";
                     }
-                    
                     
                     // Update query
                     $sql = "UPDATE devices SET status = ? WHERE id = ?";
@@ -65,10 +64,32 @@ if (isset($_POST['action'])) {
                     }
                 }
             }
-        } else {
-            echo BAD_REQUEST;
         }
+    } elseif ($_POST['action'] == "checkreport") {
+        
+        $sql = "SELECT * FROM reports WHERE deviceid= ?";
+        
+        // Prepare statement
+        if ($result = $connection->prepare($sql)) {
+            // Bind ID into query
+            $result->bind_param('i', $_POST['deviceid']);
+            // Execute query
+            $result->execute();
+            // Save results
+            $result->store_result();
+        
+            // Check if device exists
+            if ($result->num_rows == $_POST['reports']) {
+                echo 'OK';
+            }
+            else {
+                DisplayDevice::generateAccordian($_POST['deviceid'], $connection);
+            }
+        }
+
+    } else {
+        echo BAD_REQUEST;
     }
 } else {
-    echo BAD_REQUEST;
+   DisplayDevice::generateAccordian(1, $connection);
 }

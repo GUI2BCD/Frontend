@@ -70,6 +70,8 @@ $(".toggleStatusButton").click(function() {
 
     // Holds the device ID for the callback
     var deviceid = $(this).attr('device-id');
+    // Disable button until callback comes back
+    $('.toggleStatusButton').prop('disabled', true);
     $.post("ajax.php", {
         action : "togglestatus",
         deviceid : deviceid
@@ -85,5 +87,32 @@ $(".toggleStatusButton").click(function() {
             $("#statusval-" + deviceid).addClass('status-red');
             $("#statusval-" + deviceid).removeClass('status-green');
         }
+        // Re-enable button
+        $('.toggleStatusButton').prop('disabled', false);
+        $("#alert" + deviceid).removeClass('hidden');
+        $('#alert' + deviceid).slideDown().delay(5000).slideUp();
     }, "html");
+});
+
+/**
+ * Checks and update content for reporting
+ */
+function checkReport(deviceid) {
+    var numReports = $("#accordian" + deviceid).children().attr("numreports");
+    $.post("ajax.php", {
+        action : "checkreport",
+        deviceid : deviceid,
+        reports: numReports
+    }, function(responseText) {
+        
+        if( responseText != "OK" ) {
+            $("#accordian" + deviceid).empty().append(responseText);
+            $("#reportUpdate" + deviceid).removeClass('hidden');
+            $('#reportUpdate' + deviceid).slideDown().delay(5000).slideUp();
+        }
+    }, "html");
+}
+
+$(document).ready(function() {
+    $('#rootwizard').bootstrapWizard();  
 });

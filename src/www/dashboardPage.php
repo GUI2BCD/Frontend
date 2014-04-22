@@ -77,7 +77,7 @@ namespace LastResortRecovery
 
     <!-- Panels along right side of window. -->
     <div class="dashboard-right">
-        <!-- Devices Panel on Dashboard page. -->
+        <!-- Devices Panel on Dashboard page.
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h3 class="panel-title">Missing Devices</h3>
@@ -118,7 +118,7 @@ namespace LastResortRecovery
 ?>
 
                     </div>
-        </div>
+        </div> -->
         <!-- Missing Devices Panel on Dashboard -->
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -133,27 +133,30 @@ namespace LastResortRecovery
             $result = mysqli_query($connection, $sql);
             
             if ($result->num_rows == 0) {
-                echo "You don't have any devices! Let us show you how to add devices to your account!";
+                echo '<div class="alert alert-info">No devices registered. <a href="./dashboard.php#help" data-toggle="tab"><button type="button" class="btn btn-primary btn-sm">Add device</button></a></div>';
             } else {
-                echo "<h5>Number of Devices: </h5>";
-                echo $result->num_rows . "<br><br>";
+
             }
-            
+            $i = 1;
             while ($row = mysqli_fetch_array($result)) {
+
+                if( $row['status'] == 'LOST' ) {
+                    echo '<div class="alert alert-danger">';
+                }
+                else {
+                    echo '<div class="alert alert-success">';
+                }    
+
                 echo "<h5>Device name: </h5>";
                 echo $row['name'] . "<br>";
-                echo "<h5>ID: </h5>";
-                echo $row['id'] . "<br>";
                 echo "<h5>Status: </h5>";
-                echo $row['status'] . "<br>";
+                echo $row['status'];
                 // TODO Last report
                 // TODO Link to device
-                echo "<br>";
+                echo '<br><a href="#device'.$i++.'" data-toggle="tab"><button type="button" class="btn btn-primary btn-xs">View device</button></a></div>';
             }
             ?>
-<p>
-                    <a href="#help" data-toggle="pill">Add a device!</a>
-                </p>
+<p></p>
             </div>
         </div>
     </div>
