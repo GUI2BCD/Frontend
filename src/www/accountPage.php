@@ -91,15 +91,15 @@ namespace LastResortRecovery
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Email</label>
-                            <div class="col-sm-8">
+                            <label class="col-xs-2 control-label">Email</label>
+                            <div class="col-xs-8">
                                 <p class="form-control-static">test@test.com</p>
                                 <input type="text"
                                     class="hide form-control"
                                     id="editName"
                                     placeholder="Enter your name.">
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-xs-2">
                                 <button type="button"
                                     class="test btn btn-sm btn-primary btn-block btn-account">
                                     <span
