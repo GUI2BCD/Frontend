@@ -106,7 +106,10 @@ while ($row = mysqli_fetch_array($result)) {
 }
 ?>
                         </ul></li>
-					<li><a href="#account" data-toggle="pill">Account</a></li>
+                        
+                    <!-- This page has been depricated -->
+					<!-- <li><a href="#account" data-toggle="pill">Account</a></li> -->
+					
 					<li><a href="#help" data-toggle="pill">Help</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
@@ -146,7 +149,8 @@ while ($row = mysqli_fetch_array($result)) {
             <?php new addDevice()?>
             
             <!-- Account Tab on Dashboard -->
-            <?php new accountPage($connection)?>
+            <!-- This has been depricated -->
+            <?php // new accountPage($connection)?>
             
         </div>
 
