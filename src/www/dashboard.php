@@ -51,6 +51,10 @@ if (! Session::loginCheck($connection)) {
 <!-- Local Overrides -->
 <link rel="stylesheet" href="./css/verified.css">
 
+<script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5-jsF9YAtMK3e_zM1rj1XUwCdrkZrK3k&sensor=false">
+     </script>
+
 </head>
 
 <body>
@@ -168,6 +172,7 @@ while ($row = mysqli_fetch_array($result)) {
       <script src="js/jquery.bootstrap.wizard.min.js"></script>
     <!-- Additional Scripts -->
     <script src="./js/common.js"></script>
+    
 
 </body>
 </html>
