@@ -223,7 +223,7 @@ namespace LastResortRecovery
                 var map = new google.maps.Map(document.getElementById("map-canvas<?php echo $i; ?>"),
                     mapOptions);
               }
-              google.maps.event.addDomListener(window, 'load', initialize);
+              google.maps.event.addDomListener(window, 'load', initialize<?php echo $i; ?>);
             </script>
             <div class="panel-body clear-padding">
             <div id="map-canvas<?php echo $i; ?>" class="locationmap"></div>
