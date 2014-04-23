@@ -73,7 +73,13 @@ namespace LastResortRecovery
                 </div>
             </div>
         </div>
-
+<?php
+            $accountsql = "SELECT * FROM users WHERE id='" . $_SESSION['userid'] . "' LIMIT 1;";
+            
+            $account = mysqli_query($connection, $accountsql);
+            
+            $row = mysqli_fetch_array($account);
+            ?>
         <div class="col-md-6">
             <div class="row">
                 <div class="panel panel-primary">
