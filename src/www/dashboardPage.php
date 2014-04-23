@@ -33,14 +33,14 @@ namespace LastResortRecovery
         {
             ?>
 <div class="tab-pane active" id="dashboard">
-	<!-- Panels on left side of window. -->
-	<div class="row page-space">
+    <!-- Panels on left side of window. -->
+    <div class="row page-space">
         <div class="col-md-6">
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<h3 class="panel-title">Devices</h3>
-				</div>
-				<div class="panel-body">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Devices</h3>
+                </div>
+                <div class="panel-body">
 
 
 <?php
@@ -66,60 +66,90 @@ namespace LastResortRecovery
                 echo $row['status'];
                 // TODO Last report
                 // TODO Link to device
-                echo '<br><a href="#device' . $i ++ .
-                     '" data-toggle="tab"><button type="button" class="btn btn-primary btn-xs">View device</button></a></div>';
+                echo '<br><a href="#device' . $i ++ . '" data-toggle="tab"><button type="button" class="btn btn-primary btn-xs">View device</button></a></div>';
             }
             ?>
 <p></p>
-				</div>
-			</div>
-		</div>
-	
-		<div class="col-md-6">
-			<div class="row">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<h3 class="panel-title">Account</h3>
-					</div>
-					<div class="panel-body">
-						<h5>Username: </h5><?php echo $_SESSION['username'] ?><br> <br>
-						<!-- TODO: Pull from DB. -->
-						<h5>Account ID: </h5><?php echo $_SESSION['userid'] ?><br>
-					</div>
-				</div>
+                </div>
+            </div>
+        </div>
 
-				<!-- Devices Panel on Dashboard -->
+        <div class="col-md-6">
+            <div class="row">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">General Account Settings</div>
+                    <div class="panel-body form-horizontal">
+                        <div class="form-group">
+                            <label for="username"
+                                class="col-xs-2 control-label">Name:</label>
+                            <div class="col-xs-10">
+                                <a href="#" id="username"
+                                    data-type="text"
+                                    data-pk="<?php echo $_SESSION['userid']; ?>"
+                                    data-url="form.php"
+                                    data-title="Enter username"><?php echo $row['username']; ?></a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email"
+                                class="col-xs-2 control-label">Email:</label>
+                            <div class="col-xs-10">
+                                <a href="#" id="email" data-type="text"
+                                    data-pk="<?php echo $_SESSION['userid']; ?>"
+                                    data-url="form.php"
+                                    data-title="Enter email"><?php echo $row['email']; ?></a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone"
+                                class="col-xs-2 control-label">Phone:</label>
+                            <div class="col-xs-10">
+                                <a href="#" id="phone" data-type="text"
+                                    data-pk="<?php echo $_SESSION['userid']; ?>"
+                                    data-url="form.php"
+                                    data-title="Enter phone number"><?php echo $row['phone']; ?></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /panel-body -->
+                </div>
 
-				<!-- News Panel on Dashboard -->
+                <!-- Devices Panel on Dashboard -->
 
-			</div>
-			<div class="row">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<h3 class="panel-title">News</h3>
-					</div>
-					<div class="panel-body">
-						<h5>Important Information</h5>
-						<br> <a href="">See more...</a> <br> <br> Like the name says, Last
-						Resort should not be your cure-all for laptop security. We at Last
-						Resort highly recommend our users take advantage of other hardware
-						and software securities. The following list will provide you with
-						information on the various other methods of computer security. <br>
-						<h5>Anti-virus:</h5>
-						<a href="">Top 5 Anti-virus softwares.</a><br>
-						<h5>Data Encryption:</h5>
-						<a href="">What is Data Encryption?</a><br>
-						<h5>Cloud Storage:</h5>
-						<a href="">Google vs. Amazon, who should I use?</a><br> <br> For
-						more information and news about Last Resort and computer security
-						in general... <a href="">To the Forums!</a>
-					</div>
-				</div>
+                <!-- News Panel on Dashboard -->
 
-			</div>
-		</div>
-		
-	</div>
+            </div>
+            <div class="row">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">News</h3>
+                    </div>
+                    <div class="panel-body">
+                        <h5>Important Information</h5>
+                        <br> <a href="">See more...</a> <br> <br> Like
+                        the name says, Last Resort should not be your
+                        cure-all for laptop security. We at Last Resort
+                        highly recommend our users take advantage of
+                        other hardware and software securities. The
+                        following list will provide you with information
+                        on the various other methods of computer
+                        security. <br>
+                        <h5>Anti-virus:</h5>
+                        <a href="">Top 5 Anti-virus softwares.</a><br>
+                        <h5>Data Encryption:</h5>
+                        <a href="">What is Data Encryption?</a><br>
+                        <h5>Cloud Storage:</h5>
+                        <a href="">Google vs. Amazon, who should I use?</a><br>
+                        <br> For more information and news about Last
+                        Resort and computer security in general... <a
+                            href="">To the Forums!</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
 </div>
 <?php
         }
