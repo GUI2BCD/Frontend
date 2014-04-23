@@ -128,10 +128,11 @@ $(document).ready(function() {
  */
 $(".btn-account").click(function() {
     if( $( this ).attr( "value" ) === "Save" ) {
-        
+        console.log('Here1');
         $( this ).addClass( "hide" );
-        console.log("Hello" + $( this ).prev().attr( "value" ));
-        
+        console.log('Here2');
+        $( this ).prev().removeClass( "hide" );
+        console.log("Here3");
         if( $( this ).hasClass( "btn-account-name" ) ) {
             
             $("#acnt-p-name").removeClass( "hide" );
