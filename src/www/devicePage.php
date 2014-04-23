@@ -215,10 +215,10 @@ namespace LastResortRecovery
             $location = json_decode(file_get_contents("http://freegeoip.net/json/".$row['remoteip']));
             
             ?>
-            function initialize() {
+            function initialize<?php echo $i; ?>() {
                 var mapOptions = {
                   center: new google.maps.LatLng(<?php echo $location->latitude . "," . $location->longitude; ?>),
-                  zoom: 8
+                  zoom: 12
                 };
                 var map = new google.maps.Map(document.getElementById("map-canvas<?php echo $i; ?>"),
                     mapOptions);
