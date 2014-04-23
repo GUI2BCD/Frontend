@@ -216,7 +216,8 @@ namespace LastResortRecovery
               }
               google.maps.event.addDomListener(window, 'load', initialize);
             </script>
-            <div id="map" class="panel-body clear-padding">
+            <div class="panel-body clear-padding">
+            <div id="map"></div>
             </div>
         </div>
     </div>
