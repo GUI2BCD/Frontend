@@ -35,21 +35,8 @@ namespace LastResortRecovery
 <div class="tab-pane active" id="dashboard">
     <!-- Panels on left side of window. -->
     <div class="row page-space">
-    <div class="col-md-6">
-        <!-- Account Panel on Dashboard -->
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Account</h3>
-            </div>
-            <div class="panel-body">
-                <h5>Username: </h5><?php echo $_SESSION['username'] ?><br>
-                <br>
-                <!-- TODO: Pull from DB. -->
-                <h5>Account ID: </h5><?php echo $_SESSION['userid'] ?><br>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6">
+    
+    <div class="col-md-12">
     <!-- Devices Panel on Dashboard -->
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -97,7 +84,24 @@ namespace LastResortRecovery
     </div>
     <!-- Panels along right side of window. -->
     <div class="row">
-    <div class="col-md-12">
+    <!-- Account Panel on Dashboard -->
+    <div class="col-md-6">
+        
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Account</h3>
+            </div>
+            <div class="panel-body">
+                <h5>Username: </h5><?php echo $_SESSION['username'] ?><br>
+                <br>
+                <!-- TODO: Pull from DB. -->
+                <h5>Account ID: </h5><?php echo $_SESSION['userid'] ?><br>
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-md-6">
          <div class="panel panel-primary">
             <div class="panel-heading">
                 <h3 class="panel-title">News</h3>
