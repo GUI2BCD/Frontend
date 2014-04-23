@@ -165,7 +165,7 @@ if (isset($_GET['action'])) {
                 echo "Failed to upload screenshot: " . $_FILES['screenshot']['error'];
             }
         } else {
-            echo BAD_REQUEST;
+            echo BAD_REQUEST . " No image submitted.";
         }
     } else {
         echo BAD_REQUEST;
