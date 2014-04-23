@@ -87,24 +87,23 @@ namespace LastResortRecovery
 			<div class="panel panel-primary">
 				<div class="panel-heading">Change Password</div>
 				<div class="panel-body">
-					<strong class="center">Under construction.</strong>
 					<form id="change-password" class="form-register form-horizontal"
-						role="form">
+						role="form" action="register.php" method="post">
 						<div class="form-group has-feedback">
-							<label for="ChngPass-OldPass">Old Password</label> <input
-								type="password" class="form-control" id="ChngPass-OldPass"
+							<label for="oldpassword">Old Password</label> <input
+								type="password" class="form-control" id="oldpassword"
 								placeholder="Enter your old password"> <span
 								class="glyphicon form-control-feedback"></span>
 						</div>
 						<div class="form-group has-feedback">
-							<label for="ChngPass-NewPass">New Password</label> <input
-								type="password" class="form-control" id="ChngPass-NewPass"
+							<label for="newpassword">New Password</label> <input
+								type="password" class="form-control" id="newpassword"
 								placeholder="Enter your new password"> <span
 								class="glyphicon form-control-feedback"></span>
 						</div>
 						<div class="form-group has-feedback">
-							<label for="ChngPass-ConfNewPass">Confirm New Password</label> <input
-								type="password" class="form-control" id="ChngPass-ConfNewPass"
+							<label for="cnewpassword">Confirm New Password</label> <input
+								type="password" class="form-control" id="cnewpassword"
 								placeholder="Confirm your new password"> <span
 								class="glyphicon form-control-feedback"></span>
 						</div>

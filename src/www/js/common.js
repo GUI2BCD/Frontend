@@ -1,25 +1,26 @@
 /**
- * This file contains common jQuery and JavaScript functions that may 
- * be used throughout the website
+ * This file contains common jQuery and JavaScript functions that may be used
+ * throughout the website
  */
 
 /**
- * Toggles all spans(chevrons) from down to up when an element with 
- * the class "accordion-icon-swap" is clicked.
+ * Toggles all spans(chevrons) from down to up when an element with the class
+ * "accordion-icon-swap" is clicked.
  */
 $(".accordion-icon-swap").click(
         function() {
-            $(this).find('.glyphicon').toggleClass('glyphicon-chevron-down').toggleClass(
-                    'glyphicon-chevron-up');
+            $(this).find('.glyphicon').toggleClass('glyphicon-chevron-down')
+                    .toggleClass('glyphicon-chevron-up');
         });
 
-/**************************************************************************/
-/** The following group of functions will make sure the browser displays **/
-/** the tab that the user was on before a browser refresh.               **/
-/**                                                                      **/
-/** Source:
-http://stackoverflow.com/questions/18999501/bootstrap-3-keep-selected-tab-on-page-refresh
-/**************************************************************************/
+/** *********************************************************************** */
+/** The following group of functions will make sure the browser displays * */
+/** the tab that the user was on before a browser refresh. * */
+/** * */
+/*******************************************************************************
+ * Source:
+ * http://stackoverflow.com/questions/18999501/bootstrap-3-keep-selected-tab-on-page-refresh /
+ ******************************************************************************/
 /**
  * Prevents the rendering of the default tab.
  */
@@ -31,16 +32,16 @@ $('user-tabs').click(function(e) {
 /**
  * Stores the currently selected tab in the hash value. (First Tier)
  */
-$("ul.nav-pills > li > a").on("show.bs.tab", function (e) {
+$("ul.nav-pills > li > a").on("show.bs.tab", function(e) {
     var id = $(e.target).attr("href").substr(1);
     window.location.hash = id;
 });
 
 /**
- * Stores the currently selected tab in the hash value. (Second Tier)
- *      - I had to add this to accomadate my drop-down menu.
+ * Stores the currently selected tab in the hash value. (Second Tier) - I had to
+ * add this to accomadate my drop-down menu.
  */
-$("ul.nav-pills > li > ul > li > a").on("show.bs.tab", function (e) {
+$("ul.nav-pills > li > ul > li > a").on("show.bs.tab", function(e) {
     var id = $(e.target).attr("href").substr(1);
     window.location.hash = id;
 });
@@ -49,19 +50,16 @@ $("ul.nav-pills > li > ul > li > a").on("show.bs.tab", function (e) {
  * On page load - switch to currently selected tab
  */
 var hash = window.location.hash;
-$('#user-tabs a[href="'+ hash + '"]').tab('show');
+$('#user-tabs a[href="' + hash + '"]').tab('show');
 
 /**
  * Anchor Offset
  */
 var offset = 60;
 /*
-$('a').click(function(event) {
-//    event.preventDefault();
-    $($(this).attr('href'))[0].scrollIntoView();
-    scrollBy(0, -offset);
-});
-*/
+ * $('a').click(function(event) { // event.preventDefault();
+ * $($(this).attr('href'))[0].scrollIntoView(); scrollBy(0, -offset); });
+ */
 
 /**
  * Handles ajax call to toggle device status
@@ -102,10 +100,10 @@ function checkReport(deviceid) {
     $.post("ajax.php", {
         action : "checkreport",
         deviceid : deviceid,
-        reports: numReports
+        reports : numReports
     }, function(responseText) {
-        
-        if( responseText != "OK" ) {
+
+        if (responseText != "OK") {
             $("#accordian" + deviceid).empty().append(responseText);
             $("#reportUpdate" + deviceid).removeClass('hidden');
             $('#reportUpdate' + deviceid).slideDown().delay(5000).slideUp();
@@ -114,22 +112,69 @@ function checkReport(deviceid) {
 }
 
 /**
- * ################################
- * JavaScript for the Account Page.
+ * ################################ JavaScript for the Account Page.
  * ################################
  */
 
-//turn to inline mode
+// turn to inline mode
 $.fn.editable.defaults.mode = 'inline';
 
-
-$(document).ready(function() {
+$().ready(function() {
     $('#rootwizard').bootstrapWizard();
     $('#username').editable();
     $('#email').editable();
     $('#phone').editable();
     
+    $("#change-password").validate({
+        rules : {
+            oldpassword : {
+                required : true,
+                remote : {
+                    url : 'validation.php',
+                    type : 'post'
+                }
+            },
+            newpassword : {
+                required : true
+            },
+            cnewpassword : {
+                required : true,
+                equalTo : '#newpassword'
+            }
+        }, // end rules
+
+        tooltip_options : {
+            oldpassword : {
+                placement : 'top',
+                trigger : 'focus',
+            },
+            newpassword : {
+                placement : 'top',
+                trigger : 'focus'
+            },
+            cnewpassword : {
+                placement : 'top',
+                trigger : 'focus'
+            }
+        },
+        messages : {
+            oldpassword : {
+                required : "Old password is required.",
+                remote : "Invalid password"
+            },
+            newpassword : {
+                required : "Password is required."
+            },
+            cnewpassword : {
+                required : "Confirming password is required.",
+                equalTo : "Passwords do not match."
+            }
+        }, // end messages
+        submitHandler : function(form) {
+            encrypt_change();
+            form.submit();
+        } // end submitHandler
+    }); // end validate
     
+
 });
-
-
