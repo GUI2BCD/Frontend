@@ -127,9 +127,7 @@ $(document).ready(function() {
  * 
  */
 //toggle `popup` / `inline` mode
-$(document).ready(function() {
-    $.fn.editable.defaults.mode = 'inline'; 
-});
+$.fn.editable.defaults.mode = 'inline';
 
 // Test
 $('#test-btn').editable({
