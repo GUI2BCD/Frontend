@@ -55,13 +55,13 @@ $('#user-tabs a[href="'+ hash + '"]').tab('show');
  * Anchor Offset
  */
 var offset = 60;
-
+/*
 $('a').click(function(event) {
 //    event.preventDefault();
     $($(this).attr('href'))[0].scrollIntoView();
     scrollBy(0, -offset);
 });
-
+*/
 
 /**
  * Handles ajax call to toggle device status
@@ -113,30 +113,23 @@ function checkReport(deviceid) {
     }, "html");
 }
 
-$(document).ready(function() {
-    $('#rootwizard').bootstrapWizard();  
-});
-
 /**
  * ################################
  * JavaScript for the Account Page.
  * ################################
  */
 
-/**
- * 
- */
-//toggle `popup` / `inline` mode
+//turn to inline mode
 $.fn.editable.defaults.mode = 'inline';
 
-// Test
-$('#test-btn').editable({
-    toggle: 'manual'
+
+$(document).ready(function() {
+    $('#rootwizard').bootstrapWizard();
+    $('#username').editable();
+    $('#email').editable();
+    $('#phone').editable();
+    
+    
 });
 
-// Test Controller
-$('#test-Ctrl').click(function(e){
-    e.stopPropagation();
-    $('#test-btn').editable('toggle');
-});
 

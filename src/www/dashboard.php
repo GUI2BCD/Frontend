@@ -179,13 +179,13 @@ while ($row = mysqli_fetch_array($result)) {
     <script
         src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="js/jquery.bootstrap.wizard.min.js"></script>
-    <!-- Additional Scripts -->
-    <script src="./js/common.js"></script>
+    
     <!-- X-editable for AJAX and editable conent field. -->
     <!-- https://vitalets.github.io/x-editable/index.html -->
     <script
         src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
-
+    <!-- Additional Scripts -->
+    <script src="./js/common.js"></script>
 
 </body>
 </html>
