@@ -32,9 +32,16 @@ if (! Session::loginCheck($connection)) {
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
     href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
 <!-- Optional theme -->
 <link rel="stylesheet"
     href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+<!-- X-editable for AJAX and editable conent field. -->
+<!-- https://vitalets.github.io/x-editable/index.html -->
+<link
+    href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css"
+    rel="stylesheet" />
 
 <!-- Custom styles for this template -->
 <link href="css/jumbotron.css" rel="stylesheet">
@@ -50,6 +57,10 @@ if (! Session::loginCheck($connection)) {
 
 <!-- Local Overrides -->
 <link rel="stylesheet" href="./css/verified.css">
+
+<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5-jsF9YAtMK3e_zM1rj1XUwCdrkZrK3k&sensor=false">
+     </script>
 
 </head>
 
@@ -67,7 +78,8 @@ if (! Session::loginCheck($connection)) {
                         class="icon-bar"></span> <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="dashboard.php">Last Resort Recovery</a>
+                <a class="navbar-brand" href="dashboard.php">Last Resort
+                    Recovery</a>
             </div>
 
             <div class="navbar-collapse collapse">
@@ -103,13 +115,14 @@ while ($row = mysqli_fetch_array($result)) {
                     <li><a href="#account" data-toggle="pill">Account</a></li>
                     <li><a href="#help" data-toggle="pill">Help</a></li>
                 </ul>
-            <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome <?php echo $_SESSION['username']; ?>!<b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="logout.php">Logout</a></li>
-              </ul>
-            </li>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown"><a href="#"
+                        class="dropdown-toggle" data-toggle="dropdown">Welcome <?php echo $_SESSION['username']; ?>!<b
+                            class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="logout.php">Logout</a></li>
+                        </ul></li>
+            
             </div>
         </div>
     </div>
@@ -124,17 +137,17 @@ while ($row = mysqli_fetch_array($result)) {
             
             <!-- Device Page(Generated per device) -->
             <?php
-$sql = "SELECT * FROM devices WHERE userid='" . $_SESSION['userid'] . "';";
-
-$result = mysqli_query($connection, $sql);
-$i = 1;
-while ($row = mysqli_fetch_array($result)) {
-    
-    new displayDevice($i, $row, $connection);
-    $i ++;
-}
-
-?>
+            $sql = "SELECT * FROM devices WHERE userid='" . $_SESSION['userid'] . "';";
+            
+            $result = mysqli_query($connection, $sql);
+            $i = 1;
+            while ($row = mysqli_fetch_array($result)) {
+                
+                new displayDevice($i, $row, $connection);
+                $i ++;
+            }
+            
+            ?>
             <!-- Agent Tab on Dashboard -->
             <?php new addDevice()?>
             
@@ -165,9 +178,14 @@ while ($row = mysqli_fetch_array($result)) {
     <!-- Latest compiled and minified JavaScript -->
     <script
         src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-      <script src="js/jquery.bootstrap.wizard.min.js"></script>
+    <script src="js/jquery.bootstrap.wizard.min.js"></script>
     <!-- Additional Scripts -->
     <script src="./js/common.js"></script>
+    <!-- X-editable for AJAX and editable conent field. -->
+    <!-- https://vitalets.github.io/x-editable/index.html -->
+    <script
+        src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+
 
 </body>
 </html>

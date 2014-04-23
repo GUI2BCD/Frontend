@@ -31,7 +31,7 @@ namespace LastResortRecovery
 
 <div class="tab-pane" id="help">
 <div class="page-space">
-	<div class="panel panel-default">
+	<div class="panel panel-default panel-primary">
 		<div class="panel-heading">Setup Instructions</div>
 		<div id="rootwizard">
 			<div class="navbar instructnav">
@@ -62,7 +62,9 @@ namespace LastResortRecovery
 									<strong>Ubuntu/Debian</strong>
 								</div>
 								<div class="row">
-									<button type="button" class="btn btn-default">Download</button>
+								    <a href="download/lastresortrecovery_0.2-beta.deb">
+									   <button type="button" class="btn btn-default">Download</button>
+								    </a>
 								</div>
 							</div>
 							<div class="col-md-3">
@@ -73,7 +75,9 @@ namespace LastResortRecovery
 									<strong>Arch Linux</strong>
 								</div>
 								<div class="row">
-									<button type="button" class="btn btn-default">Download</button>
+								    <a href="download/lastresortrecovery-0.2beta-1-x86_64.pkg.tar.xz">
+									   <button type="button" class="btn btn-default">Download</button>
+									</a>
 								</div>
 							</div>
 							<div class="col-md-3">
@@ -84,7 +88,7 @@ namespace LastResortRecovery
 									<strong>Mac OSX</strong>
 								</div>
 								<div class="row">
-									<button type="button" class="btn btn-default">Coming Soon</button>
+									<button type="button" class="btn btn-default" disabled>Coming Soon</button>
 								</div>
 							</div>
 							<div class="col-md-3">
@@ -95,7 +99,7 @@ namespace LastResortRecovery
 									<strong>Windows</strong>
 								</div>
 								<div class="row">
-									<button type="button" class="btn btn-default">Coming soon</button>
+									<button type="button" class="btn btn-default" disabled>Coming soon</button>
 								</div>
 							</div>
 						</div>
