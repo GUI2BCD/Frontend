@@ -216,12 +216,21 @@ namespace LastResortRecovery
             
             ?>
             function initialize<?php echo $i; ?>() {
+
+                var loc = new google.maps.LatLng(<?php echo $location->latitude . "," . $location->longitude; ?>);
+                
                 var mapOptions = {
-                  center: new google.maps.LatLng(<?php echo $location->latitude . "," . $location->longitude; ?>),
+                  center: loc,
                   zoom: 12
                 };
                 var map = new google.maps.Map(document.getElementById("map-canvas<?php echo $i; ?>"),
                     mapOptions);
+
+                var marker = new google.maps.Marker({
+                    position: loc,
+                    map: map,
+                    title:"Location"
+                });
               }
               google.maps.event.addDomListener(window, 'load', initialize<?php echo $i; ?>);
             </script>
