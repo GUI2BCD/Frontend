@@ -206,18 +206,27 @@ namespace LastResortRecovery
                 <h3 class="panel-title">Last Known Location</h3>
             </div>
             <script>
+            <?php 
+            $reportsql = "SELECT remoteip FROM reports WHERE deviceid='" . $deviceRow['id'] . "' ORDER BY time DESC LIMIT 1;";
+            
+            $reports = mysqli_query($connection, $reportsql);
+            
+            $row = mysqli_fetch_array($reports);
+            $location = json_decode(file_get_contents("http://freegeoip.net/json/".$row['remoteip']));
+            
+            ?>
             function initialize() {
                 var mapOptions = {
-                  center: new google.maps.LatLng(-34.397, 150.644),
+                  center: new google.maps.LatLng(<?php echo $location->latitude . "," . $location->longitude; ?>),
                   zoom: 8
                 };
-                var map = new google.maps.Map(document.getElementById("map-canvas"),
+                var map = new google.maps.Map(document.getElementById("map-canvas<?php echo $i; ?>"),
                     mapOptions);
               }
               google.maps.event.addDomListener(window, 'load', initialize);
             </script>
             <div class="panel-body clear-padding">
-            <div id="map-canvas" class="locationmap"></div>
+            <div id="map-canvas<?php echo $i; ?>" class="locationmap"></div>
             </div>
         </div>
     </div>
