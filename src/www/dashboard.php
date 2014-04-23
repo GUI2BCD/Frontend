@@ -25,7 +25,7 @@ if (! Session::loginCheck($connection)) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="shortcut icon" href="../images/LRRFavicon.ico">
+<link rel="shortcut icon" href="../images/LRRFavicon.png">
 
 <title>Last Resort Recovery</title>
 
