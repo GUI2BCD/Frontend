@@ -116,3 +116,6 @@ display: none;
 .helprow {
   text-align: center;
 }
+.locationmap {
+  height: 250px;
+}
