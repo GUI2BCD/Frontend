@@ -116,3 +116,65 @@ function checkReport(deviceid) {
 $(document).ready(function() {
     $('#rootwizard').bootstrapWizard();  
 });
+
+/**
+ * #####################################
+ * All JavaScript for the Account Page.
+ * #####################################
+ */
+
+/**
+ * Button handler for General Settings
+ */
+$(".btn-account").click(function() {
+    if( $( this ).attr( "value" ) === "Save" ) {
+        
+        $( this ).addClass( "hide" );
+        console.log("Hello" + $( this ).prev().attr( "value" ));
+        
+        if( $( this ).hasClass( "btn-account-name" ) ) {
+            
+            $("#acnt-p-name").removeClass( "hide" );
+            $("#acnt-inpt-name").addClass( "hide" );
+            
+        } else if( $( this ).hasClass( "btn-account-username" ) ) {
+            
+            $("#acnt-p-username").removeClass( "hide" );
+            $("#acnt-inpt-username").addClass( "hide" );
+            
+        } else if( $( this ).hasClass( "btn-account-email" ) ) {
+            
+            $("#acnt-p-email").removeClass( "hide" );
+            $("#acnt-inpt-email").addClass( "hide" );
+            
+        } else {
+            console.log("Account button not recognized.");
+        }
+        
+    } else {
+        
+        $( this ).addClass( "hide" );
+        $( this ).next().removeClass( "hide" );
+        
+        if( $( this ).hasClass( "btn-account-name" ) ) {
+            
+            $("#acnt-p-name").addClass( "hide" );
+            $("#acnt-inpt-name").removeClass( "hide" );
+            
+        } else if( $( this ).hasClass( "btn-account-username" ) ) {
+            
+            $("#acnt-p-username").addClass( "hide" );
+            $("#acnt-inpt-username").removeClass( "hide" );
+            
+        } else if( $( this ).hasClass( "btn-account-email" ) ) {
+            
+            $("#acnt-p-email").addClass( "hide" );
+            $("#acnt-inpt-email").removeClass( "hide" );
+            
+        } else {
+            console.log("Account button not recognized.");
+        }
+        
+    }
+});
+
