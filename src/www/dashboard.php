@@ -107,7 +107,7 @@ while ($row = mysqli_fetch_array($result)) {
 ?>
                         </ul></li>
                         
-                    <!-- This page has been depricated -->
+                    <!-- This page has been deprecated -->
 					<!-- <li><a href="#account" data-toggle="pill">Account</a></li> -->
 					
 					<li><a href="#help" data-toggle="pill">Help</a></li>
@@ -149,7 +149,7 @@ while ($row = mysqli_fetch_array($result)) {
             <?php new addDevice()?>
             
             <!-- Account Tab on Dashboard -->
-            <!-- This has been depricated -->
+            <!-- This has been deprecated -->
             <?php // new accountPage($connection)?>
             
         </div>
