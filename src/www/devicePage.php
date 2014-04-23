@@ -206,7 +206,7 @@ namespace LastResortRecovery
                 <h3 class="panel-title">Last Known Location</h3>
             </div>
             <div class="panel-body clear-padding">
-            <iframe width="600" height="250" frameborder="0" style="border:0"
+            <iframe width="100%" height="235px" frameborder="0" style="border:0"
 src="https://www.google.com/maps/embed/v1/search?q=42.6105%20-71.2306&key=AIzaSyD5-jsF9YAtMK3e_zM1rj1XUwCdrkZrK3k"></iframe>  
             </div>
         </div>
