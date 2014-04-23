@@ -152,7 +152,7 @@ while ($row = mysqli_fetch_array($result)) {
             <?php new addDevice()?>
             
             <!-- Account Tab on Dashboard -->
-            <?php new accountPage()?>
+            <?php new accountPage($connection)?>
             
         </div>
 

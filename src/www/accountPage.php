@@ -26,7 +26,7 @@ namespace LastResortRecovery
 
         /**
          */
-        public function __construct()
+        public function __construct($connection)
         {
             return accountPage::generatePage($connection);
         }
@@ -39,9 +39,9 @@ namespace LastResortRecovery
 
 <div class="tab-pane" id="account">
 <?php
-            $sql = "SELECT * FROM reports WHERE id='" . $_SESSION['userid'] . "' LIMIT 1;";
+            $accountsql = "SELECT * FROM users WHERE id='" . $_SESSION['userid'] . "' LIMIT 1;";
             
-            $account = mysqli_query($connection, $sql);
+            $account = mysqli_query($connection, $accountsql);
             
             $row = mysqli_fetch_array($account);
             ?>
@@ -57,7 +57,7 @@ namespace LastResortRecovery
 						<div class="col-xs-10">
 							<a href="#" id="username" data-type="text"
 								data-pk="<?php echo $_SESSION['userid']; ?>"
-								data-url="/form.php" data-title="Enter username"><?php echo $row['username']; ?></a>
+								data-url="form.php" data-title="Enter username"><?php echo $row['username']; ?></a>
 						</div>
 					</div>
 					<div class="form-group">
@@ -65,7 +65,7 @@ namespace LastResortRecovery
 						<div class="col-xs-10">
 							<a href="#" id="email" data-type="text"
 								data-pk="<?php echo $_SESSION['userid']; ?>"
-								data-url="/form.php" data-title="Enter email"><?php echo $row['email']; ?></a>
+								data-url="form.php" data-title="Enter email"><?php echo $row['email']; ?></a>
 						</div>
 					</div>
 					<div class="form-group">
@@ -73,7 +73,7 @@ namespace LastResortRecovery
 						<div class="col-xs-10">
 							<a href="#" id="phone" data-type="text"
 								data-pk="<?php echo $_SESSION['userid']; ?>"
-								data-url="/form.php" data-title="Enter phone number"><?php echo $row['phone']; ?></a>
+								data-url="form.php" data-title="Enter phone number"><?php echo $row['phone']; ?></a>
 						</div>
 					</div>
 				</div>
