@@ -37,6 +37,12 @@ if (! Session::loginCheck($connection)) {
 <link rel="stylesheet"
     href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 
+<!-- X-editable for AJAX and editable conent field. -->
+<!-- https://vitalets.github.io/x-editable/index.html -->
+<link
+    href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css"
+    rel="stylesheet" />
+
 <!-- Custom styles for this template -->
 <link href="css/jumbotron.css" rel="stylesheet">
 
@@ -177,9 +183,6 @@ while ($row = mysqli_fetch_array($result)) {
     <script src="./js/common.js"></script>
     <!-- X-editable for AJAX and editable conent field. -->
     <!-- https://vitalets.github.io/x-editable/index.html -->
-    <link
-        href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css"
-        rel="stylesheet" />
     <script
         src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 
