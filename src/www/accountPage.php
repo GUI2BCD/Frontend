@@ -49,7 +49,8 @@ namespace LastResortRecovery
                         <div class="form-group">
                             <label id="acnt-lb-name" class="col-xs-2 control-label">Name</label>
                             <div class="col-xs-8">
-                                <p id="acnt-p-name" class="form-control-static">Sir Bob
+                                <a href="#" id="test-btn" data-value="custom value">model</a>
+                                <p class="hide form-control-static">Sir Bob
                                     Wilson Smith Sr.</p>
                                 <input id="acnt-inpt-name" type="text"
                                     class="hide form-control"
@@ -57,7 +58,7 @@ namespace LastResortRecovery
                                     placeholder="Enter your name.">
                             </div>
                             <div class="col-xs-2">
-                                <button type="button"
+                                <button id="test-Ctrl" type="button"
                                     class="btn btn-sm btn-primary btn-block btn-account btn-account-name">
                                     <span
                                         class="glyphicon glyphicon-pencil"></span>

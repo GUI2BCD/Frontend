@@ -127,10 +127,18 @@ $(document).ready(function() {
  * 
  */
 //toggle `popup` / `inline` mode
-$.fn.editable.defaults.mode = 'inline';
+$(document).ready(function() {
+    $.fn.editable.defaults.mode = 'inline'; 
+});
 
 // Test
 $('#test-btn').editable({
-    
+    toggle: 'manual'
+});
+
+// Test Controller
+$('#test-Ctrl').click(function(e){
+    e.stopPropagation();
+    $('#test-btn').editable('toggle');
 });
 
