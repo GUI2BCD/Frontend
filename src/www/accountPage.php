@@ -69,22 +69,22 @@ namespace LastResortRecovery
                         </div>
 
                         <div class="form-group">
-                            <label class="col-xs-2 control-label">Username</label>
+                            <label id="acnt-lb-username" class="col-xs-2 control-label">Username</label>
                             <div class="col-xs-8">
-                                <p class="hide form-control-static">John
+                                <p id="acnt-p-name" class="hide form-control-static">John
                                     Doe</p>
-                                <input type="text" class="form-control"
+                                <input id="acnt-lb-name" type="text" class="form-control"
                                     id="editName"
                                     placeholder="Example after you click edit.">
                             </div>
                             <div class="col-xs-2">
-                                <button type="button"
+                                <button id="acnt-lb-name" type="button"
                                     class="hide btn btn-sm btn-primary btn-block btn-account">
                                     <span
                                         class="glyphicon glyphicon-pencil"></span>
                                     Edit
                                 </button>
-                                <button type="button"
+                                <button id="acnt-lb-name" type="button"
                                     class="btn btn-sm btn-primary btn-block btn-account">Save</button>
                             </div>
                         </div>
