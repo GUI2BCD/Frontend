@@ -147,7 +147,7 @@ namespace LastResortRecovery
 								<div class="row">Install through command line:</div>
 								<div class="row">
 									<kbd>sudo pacman -U
-										lastresortrecovery-0.2beta-1-x86_64.pkg.tar.gz</kbd>
+										lastresortrecovery-0.2beta-1-x86_64.pkg.tar.xz</kbd>
 								</div>
 							</div>
 
