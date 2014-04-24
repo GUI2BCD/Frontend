@@ -105,7 +105,8 @@ namespace LastResortRecovery
                 username VARCHAR(30),
                 password CHAR(128),
                 salt CHAR(128),
-                email VARCHAR(50)
+                email VARCHAR(50),
+                phone VARCHAR(30)
                 );";
             
             // Execute query
