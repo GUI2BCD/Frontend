@@ -205,28 +205,38 @@ namespace LastResortRecovery
             <div class="panel-heading">
                 <h3 class="panel-title">Last Known Location</h3>
             </div>
-            <div class="panel-body clear-padding">
-                                <?php //@codingStandardsIgnoreStart ?>
-                                <!-- Google Maps Embedding - Plan to make this generated and code style compliant. -->
-                <script type="text/javascript"
-                    src="http://maps.google.com/maps/api/js?sensor=false"></script>
-                <div
-                    style="overflow: hidden; height: 243px; width: 700px;">
-                    <div id="gmap_canvas"
-                        style="height: 243px; width: 680px;"></div>
-                    <a class="google-map-code"
-                        href="http://www.embed-google-map.com/de/"
-                        id="get-map-data">google maps einbinden</a>
-                    <iframe
-                        src="http://www.embed-google-map.com/map-embed.php"></iframe>
-                    <a class="google-map-data"
-                        href="http://www.stromleo.de" id="get-map-data">hier
-                        umgeleitet</a>
-                </div>
-                <script type="text/javascript"> function init_map(){var myOptions = {zoom:17,center:new google.maps.LatLng(42.6530618,-71.32574769999997),mapTypeId: google.maps.MapTypeId.HYBRID};map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(42.6530618, -71.32574769999997)});infowindow = new google.maps.InfoWindow({content:"<div style='position:relative;line-height:1.34;overflow:hidden;white-space:nowrap;display:block;'><div style='margin-bottom:2px;font-weight:500;'>Example</div><span>1 University Way <br>  Lowell</span></div>" });google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+            <script>
+            <?php 
+            $reportsql = "SELECT remoteip FROM reports WHERE deviceid='" . $deviceRow['id'] . "' ORDER BY time DESC LIMIT 1;";
+            
+            $reports = mysqli_query($connection, $reportsql);
+            
+            $row = mysqli_fetch_array($reports);
+            $location = json_decode(file_get_contents("http://freegeoip.net/json/".$row['remoteip']));
+            
+            ?>
+            function initialize<?php echo $i; ?>() {
+
+                var loc = new google.maps.LatLng(<?php echo $location->latitude . "," . $location->longitude; ?>);
                 
-                                <?php //@codingStandardsIgnoreEnd ?>
-                            </div>
+                var mapOptions = {
+                  center: loc,
+                  zoom: 12
+                };
+                var map = new google.maps.Map(document.getElementById("map-canvas<?php echo $i; ?>"),
+                    mapOptions);
+
+                var marker = new google.maps.Marker({
+                    position: loc,
+                    map: map,
+                    title:"Location"
+                });
+              }
+              google.maps.event.addDomListener(window, 'load', initialize<?php echo $i; ?>);
+            </script>
+            <div class="panel-body clear-padding">
+            <div id="map-canvas<?php echo $i; ?>" class="locationmap"></div>
+            </div>
         </div>
     </div>
     <!-- END OF DEVICE - LAST KNOWN LOCATION -->

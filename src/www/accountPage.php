@@ -37,7 +37,6 @@ namespace LastResortRecovery
             ?>
 
 <div class="tab-pane" id="account">
-
     <div class="row page-space">
 
         <div class="col-xs-12 col-sm-6">
@@ -48,44 +47,45 @@ namespace LastResortRecovery
                     <form class="form-horizontal" role="form">
 
                         <div class="form-group">
-                            <label class="col-xs-2 control-label">Name</label>
+                            <label id="acnt-lb-name" class="col-xs-2 control-label">Name</label>
                             <div class="col-xs-8">
-                                <p class="form-control-static">Sir Bob
+                                <a href="#" id="test-btn" data-value="custom value">model</a>
+                                <p class="hide form-control-static">Sir Bob
                                     Wilson Smith Sr.</p>
-                                <input type="text"
+                                <input id="acnt-inpt-name" type="text"
                                     class="hide form-control"
                                     id="editName"
                                     placeholder="Enter your name.">
                             </div>
                             <div class="col-xs-2">
-                                <button type="button"
-                                    class="btn btn-sm btn-primary btn-block btn-account">
+                                <button id="test-Ctrl" type="button"
+                                    class="btn btn-sm btn-primary btn-block btn-account btn-account-name">
                                     <span
                                         class="glyphicon glyphicon-pencil"></span>
                                     Edit
                                 </button>
                                 <button type="button"
-                                    class="hide btn btn-sm btn-primary btn-block btn-account">Save</button>
+                                    class="hide btn btn-sm btn-primary btn-block btn-account btn-account-name">Save</button>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-xs-2 control-label">Username</label>
+                            <label id="acnt-lb-username" class="col-xs-2 control-label">Username</label>
                             <div class="col-xs-8">
-                                <p class="hide form-control-static">John
+                                <p id="acnt-p-name" class="hide form-control-static">John
                                     Doe</p>
-                                <input type="text" class="form-control"
+                                <input id="acnt-lb-name" type="text" class="form-control"
                                     id="editName"
                                     placeholder="Example after you click edit.">
                             </div>
                             <div class="col-xs-2">
-                                <button type="button"
+                                <button id="acnt-lb-name" type="button"
                                     class="hide btn btn-sm btn-primary btn-block btn-account">
                                     <span
                                         class="glyphicon glyphicon-pencil"></span>
                                     Edit
                                 </button>
-                                <button type="button"
+                                <button id="acnt-lb-name" type="button"
                                     class="btn btn-sm btn-primary btn-block btn-account">Save</button>
                             </div>
                         </div>

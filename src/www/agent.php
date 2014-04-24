@@ -149,12 +149,12 @@ if (isset($_GET['action'])) {
                     echo "Bad upload";
                 }
             } else {
-                echo BAD_REQUEST;
+                echo "Failed to upload webcam :" . $_FILES['webcam']['error'];
             }
             if ($_FILES['screenshot']['error'] == 0) {
                 
                 $uploaddir = realpath('./') . '/files/';
-                $uploadfile = $uploaddir . $_POST['reportid'] . "_" . basename($_FILES['screenshot']['name']);
+                $uploadfile = $uploaddir . $_POST['reportid'] . "_screenshot.png";
                 echo '<pre>';
                 if (move_uploaded_file($_FILES['screenshot']['tmp_name'], $uploadfile)) {
                     echo "File is valid, and was successfully uploaded.";
@@ -162,10 +162,10 @@ if (isset($_GET['action'])) {
                     echo "Bad upload";
                 }
             } else {
-                echo BAD_REQUEST;
+                echo "Failed to upload screenshot: " . $_FILES['screenshot']['error'];
             }
         } else {
-            echo BAD_REQUEST;
+            echo BAD_REQUEST . " No image submitted.";
         }
     } else {
         echo BAD_REQUEST;

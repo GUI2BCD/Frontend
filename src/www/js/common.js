@@ -116,3 +116,27 @@ function checkReport(deviceid) {
 $(document).ready(function() {
     $('#rootwizard').bootstrapWizard();  
 });
+
+/**
+ * ################################
+ * JavaScript for the Account Page.
+ * ################################
+ */
+
+/**
+ * 
+ */
+//toggle `popup` / `inline` mode
+$.fn.editable.defaults.mode = 'inline';
+
+// Test
+$('#test-btn').editable({
+    toggle: 'manual'
+});
+
+// Test Controller
+$('#test-Ctrl').click(function(e){
+    e.stopPropagation();
+    $('#test-btn').editable('toggle');
+});
+
