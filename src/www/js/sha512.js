@@ -10,6 +10,24 @@
  Several functions taken from Paul Johnston
 */
 // @codingStandardsIgnoreFile
+function encrypt_login() {
+    var password = document.getElementById("password").value;
+
+    var shaObj = new jsSHA(password, "TEXT");
+    document.getElementById("password").value = shaObj
+            .getHash("SHA-512", "HEX");
+    console.log(shaObj.getHash("SHA-512", "HEX"));
+}
+
+function encrypt_register() {
+    var password = document.getElementById("regpassword").value;
+
+    var shaObj = new jsSHA(password, "TEXT");
+    document.getElementById("regpassword").value = shaObj.getHash("SHA-512",
+            "HEX");
+    console.log(shaObj.getHash("SHA-512", "HEX"));
+}
+
 (function(J){function u(a,c,b){var h=0,f=[0],k="",l=null,k=b||"UTF8";if("UTF8"!==k&&"UTF16"!==k)throw"encoding must be UTF8 or UTF16";if("HEX"===c){if(0!==a.length%2)throw"srcString of HEX type must be in byte increments";l=x(a);h=l.binLen;f=l.value}else if("ASCII"===c||"TEXT"===c)l=y(a,k),h=l.binLen,f=l.value;else if("B64"===c)l=z(a),h=l.binLen,f=l.value;else throw"inputFormat must be HEX, TEXT, ASCII, or B64";this.getHash=function(a,c,b,k){var l=null,e=f.slice(),m=h,q;3===arguments.length?"number"!==
 typeof b&&(k=b,b=1):2===arguments.length&&(b=1);if(b!==parseInt(b,10)||1>b)throw"numRounds must a integer >= 1";switch(c){case "HEX":l=A;break;case "B64":l=B;break;default:throw"format must be HEX or B64";}if("SHA-384"===a)for(q=0;q<b;q++)e=t(e,m,a),m=384;else if("SHA-512"===a)for(q=0;q<b;q++)e=t(e,m,a),m=512;else throw"Chosen SHA variant is not supported";return l(e,C(k))};this.getHMAC=function(a,b,c,l,n){var e,m,q,r,p=[],v=[];e=null;switch(l){case "HEX":l=A;break;case "B64":l=B;break;default:throw"outputFormat must be HEX or B64";
 }if("SHA-384"===c)m=128,r=384;else if("SHA-512"===c)m=128,r=512;else throw"Chosen SHA variant is not supported";if("HEX"===b)e=x(a),q=e.binLen,e=e.value;else if("ASCII"===b||"TEXT"===b)e=y(a,k),q=e.binLen,e=e.value;else if("B64"===b)e=z(a),q=e.binLen,e=e.value;else throw"inputFormat must be HEX, TEXT, ASCII, or B64";a=8*m;b=m/4-1;m<q/8?(e=t(e,q,c),e[b]&=4294967040):m>q/8&&(e[b]&=4294967040);for(m=0;m<=b;m+=1)p[m]=e[m]^909522486,v[m]=e[m]^1549556828;c=t(v.concat(t(p.concat(f),a+h,c)),a+r,c);return l(c,

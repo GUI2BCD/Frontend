@@ -19,157 +19,104 @@ namespace LastResortRecovery
 {
 
     include_once 'config.php';
+    include_once 'db.php';
 
     class accountPage
     {
 
         /**
          */
-        public function __construct()
+        public function __construct($connection)
         {
-            return accountPage::generatePage();
+            return accountPage::generatePage($connection);
         }
 
         /**
          */
-        private function generatePage()
+        private function generatePage($connection)
         {
             ?>
 
 <div class="tab-pane" id="account">
-    <div class="row page-space">
+<?php
+            $accountsql = "SELECT * FROM users WHERE id='" . $_SESSION['userid'] . "' LIMIT 1;";
+            
+            $account = mysqli_query($connection, $accountsql);
+            
+            $row = mysqli_fetch_array($account);
+            ?>
 
-        <div class="col-xs-12 col-sm-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">General Account Settings</div>
-                <div class="panel-body">
+	<div class="row page-space">
 
-                    <form class="form-horizontal" role="form">
+		<div class="col-xs-12 col-sm-6">
+			<div class="panel panel-primary">
+				<div class="panel-heading">General Account Settings</div>
+				<div class="panel-body form-horizontal">
+					<div class="form-group">
+						<label for="username" class="col-xs-2 control-label">Name:</label>
+						<div class="col-xs-10">
+							<a href="#" id="username" data-type="text"
+								data-pk="<?php echo $_SESSION['userid']; ?>"
+								data-url="form.php" data-title="Enter username"><?php echo $row['username']; ?></a>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="email" class="col-xs-2 control-label">Email:</label>
+						<div class="col-xs-10">
+							<a href="#" id="email" data-type="text"
+								data-pk="<?php echo $_SESSION['userid']; ?>"
+								data-url="form.php" data-title="Enter email"><?php echo $row['email']; ?></a>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="phone" class="col-xs-2 control-label">Phone:</label>
+						<div class="col-xs-10">
+							<a href="#" id="phone" data-type="text"
+								data-pk="<?php echo $_SESSION['userid']; ?>"
+								data-url="form.php" data-title="Enter phone number"><?php echo $row['phone']; ?></a>
+						</div>
+					</div>
+				</div>
+				<!-- /panel-body -->
+			</div>
+			<!-- /panel -->
+		</div>
+		<!-- /General Account Settings -->
 
-                        <div class="form-group">
-                            <label id="acnt-lb-name" class="col-xs-2 control-label">Name</label>
-                            <div class="col-xs-8">
-                                <a href="#" id="test-btn" data-value="custom value">model</a>
-                                <p class="hide form-control-static">Sir Bob
-                                    Wilson Smith Sr.</p>
-                                <input id="acnt-inpt-name" type="text"
-                                    class="hide form-control"
-                                    id="editName"
-                                    placeholder="Enter your name.">
-                            </div>
-                            <div class="col-xs-2">
-                                <button id="test-Ctrl" type="button"
-                                    class="btn btn-sm btn-primary btn-block btn-account btn-account-name">
-                                    <span
-                                        class="glyphicon glyphicon-pencil"></span>
-                                    Edit
-                                </button>
-                                <button type="button"
-                                    class="hide btn btn-sm btn-primary btn-block btn-account btn-account-name">Save</button>
-                            </div>
-                        </div>
+		<div class="col-xs-12 col-sm-6">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Change Password</div>
+				<div class="panel-body">
+					<form id="change-password" class="form-register form-horizontal"
+						role="form" action="register.php" method="post">
+						<div class="form-group has-feedback">
+							<label for="oldpassword">Old Password</label> <input
+								type="password" class="form-control" id="oldpassword"
+								placeholder="Enter your old password"> <span
+								class="glyphicon form-control-feedback"></span>
+						</div>
+						<div class="form-group has-feedback">
+							<label for="newpassword">New Password</label> <input
+								type="password" class="form-control" id="newpassword"
+								placeholder="Enter your new password"> <span
+								class="glyphicon form-control-feedback"></span>
+						</div>
+						<div class="form-group has-feedback">
+							<label for="cnewpassword">Confirm New Password</label> <input
+								type="password" class="form-control" id="cnewpassword"
+								placeholder="Confirm your new password"> <span
+								class="glyphicon form-control-feedback"></span>
+						</div>
+						<div class="">
+							<button type="submit" class="btn btn-lg btn-primary btn-block">Change
+								Password</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
 
-                        <div class="form-group">
-                            <label id="acnt-lb-username" class="col-xs-2 control-label">Username</label>
-                            <div class="col-xs-8">
-                                <p id="acnt-p-name" class="hide form-control-static">John
-                                    Doe</p>
-                                <input id="acnt-lb-name" type="text" class="form-control"
-                                    id="editName"
-                                    placeholder="Example after you click edit.">
-                            </div>
-                            <div class="col-xs-2">
-                                <button id="acnt-lb-name" type="button"
-                                    class="hide btn btn-sm btn-primary btn-block btn-account">
-                                    <span
-                                        class="glyphicon glyphicon-pencil"></span>
-                                    Edit
-                                </button>
-                                <button id="acnt-lb-name" type="button"
-                                    class="btn btn-sm btn-primary btn-block btn-account">Save</button>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-xs-2 control-label">Email</label>
-                            <div class="col-xs-8">
-                                <p class="form-control-static">test@test.com</p>
-                                <input type="text"
-                                    class="hide form-control"
-                                    id="editName"
-                                    placeholder="Enter your name.">
-                            </div>
-                            <div class="col-xs-2">
-                                <button type="button"
-                                    class="test btn btn-sm btn-primary btn-block btn-account">
-                                    <span
-                                        class="glyphicon glyphicon-pencil"></span>
-                                    Edit
-                                </button>
-                                <button type="button"
-                                    class="hide btn btn-sm btn-primary btn-block btn-account">Save</button>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Password</label>
-                            <div class="col-sm-10">
-                                <p class="form-control-static">Last
-                                    changed 4/14/2014</p>
-                            </div>
-                        </div>
-
-                    </form>
-                    <strong class="center">Under Construction</strong>
-                </div>
-                <!-- /panel-body -->
-            </div>
-            <!-- /panel -->
-        </div>
-        <!-- /General Account Settings -->
-
-        <div class="col-xs-12 col-sm-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Change Password</div>
-                <div class="panel-body">
-                    <strong class="center">Under construction.</strong>
-                    <form id="change-password"
-                        class="form-register form-horizontal"
-                        role="form">
-                        <div class="form-group has-feedback">
-                            <label for="ChngPass-OldPass">Old Password</label>
-                            <input type="password" class="form-control"
-                                id="ChngPass-OldPass"
-                                placeholder="Enter your old password"> <span
-                                class="glyphicon form-control-feedback"></span>
-                        </div>
-                        <div class="form-group has-feedback">
-                            <label for="ChngPass-NewPass">New Password</label>
-                            <input type="password" class="form-control"
-                                id="ChngPass-NewPass"
-                                placeholder="Enter your new password"> <span
-                                class="glyphicon form-control-feedback"></span>
-                        </div>
-                        <div class="form-group has-feedback">
-                            <label for="ChngPass-ConfNewPass">Confirm
-                                New Password</label> <input
-                                type="password" class="form-control"
-                                id="ChngPass-ConfNewPass"
-                                placeholder="Confirm your new password">
-                            <span
-                                class="glyphicon form-control-feedback"></span>
-                        </div>
-                        <div class="">
-                            <button type="submit"
-                                class="btn btn-lg btn-primary btn-block">Change
-                                Password</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-    </div>
+	</div>
 
 </div>
 <?php

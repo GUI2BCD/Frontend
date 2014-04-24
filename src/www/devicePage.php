@@ -233,6 +233,7 @@ namespace LastResortRecovery
                 });
               }
               google.maps.event.addDomListener(window, 'load', initialize<?php echo $i; ?>);
+              google.maps.event.addDomListener(window, 'hashchange', initialize<?php echo $i; ?>);
             </script>
             <div class="panel-body clear-padding">
             <div id="map-canvas<?php echo $i; ?>" class="locationmap"></div>
