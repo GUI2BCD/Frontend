@@ -135,11 +135,6 @@ test {
     text-align: center;
 }
 
-.device-accordion {
-    
-}
-
-
 /*################ Account Page ################*/
 .btn-account {
     margin: 2px 0 !important; /* Needs the important to override btn-block */
