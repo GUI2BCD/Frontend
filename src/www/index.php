@@ -4,6 +4,7 @@ namespace LastResortRecovery;
 
 include 'db.php';
 include 'session.php';
+
 // Redirect to dashboard if already logged in
 Session::startSecureSession();
 if (Session::loginCheck($connection)) {
@@ -68,6 +69,8 @@ if (Session::loginCheck($connection)) {
 				<a class="navbar-brand" href="#">Last Resort Recovery</a>
 			</div>
 			<div class="navbar-collapse collapse">
+			
+			    <!-- Login Form -->
 				<form id="login" class="navbar-form navbar-right" role="form"
 					action="login.php" method="post">
 					<div class="form-group">
@@ -80,12 +83,14 @@ if (Session::loginCheck($connection)) {
 					</div>
 					<button type="submit" class="btn btn-success">Sign in</button>
 				</form>
+				<!-- /Login Form -->
+				
 			</div>
 			<!--/.navbar-collapse -->
 		</div>
 	</div>
 
-	<!-- Modal -->
+	<!-- Registration - Modal -->
 	<div class="modal fade" id="RegisterForm" role="dialog"
 		aria-labelledby="RegisterForm" aria-hidden="true">
 		<div class="modal-dialog">
@@ -135,6 +140,7 @@ if (Session::loginCheck($connection)) {
 			</div>
 		</div>
 	</div>
+	<!-- /Registration - Modal -->
 
 	<!-- Main jumbotron for a primary marketing message or call to action -->
 	<div class="jumbotron">
@@ -156,8 +162,6 @@ if (Session::loginCheck($connection)) {
 	<div class="container content">
 
 		<!-- START THE FEATURETTES -->
-
-
 		<div class="row featurette">
 			<div class="col-md-7">
 				<h2 class="featurette-heading">
@@ -219,8 +223,11 @@ if (Session::loginCheck($connection)) {
 				<a href="#">Back to top</a>
 			</p>
 			<p>
-				&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot;
-				<a href="#">Terms</a>
+				&copy; 2014 Lastresort, Inc. &middot; 
+				Privacy &middot; Terms
+				
+				<!-- <a href="#" disabled>Privacy</a> &middot;
+				<a href="#" disable>Terms</a> -->
 			</p>
 		</footer>
 

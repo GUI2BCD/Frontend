@@ -58,6 +58,7 @@ if (! Session::loginCheck($connection)) {
 <!-- Local Overrides -->
 <link rel="stylesheet" href="./css/verified.css">
 
+<!-- Javascript for embedded Google Maps -->
 <script type="text/javascript"
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5-jsF9YAtMK3e_zM1rj1XUwCdrkZrK3k&sensor=false">
      </script>
@@ -66,6 +67,7 @@ if (! Session::loginCheck($connection)) {
 
 <body>
 
+<!-- Top Navigation Bar - Static -->
 	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container">
 			<!-- Brand and toggle are grouped for mobile display -->
@@ -77,10 +79,10 @@ if (! Session::loginCheck($connection)) {
 						class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="dashboard.php">Last Resort Recovery</a>
-			</div>
+			</div><!-- /navbar-header -->
 
+			<!-- Page Navigation Section - Pills -->
 			<div class="navbar-collapse collapse">
-				<!-- Nav tabs -->
 				<ul class="nav nav-pills navbar-nav" id="user-tabs">
 					<li class="active"><a href="#dashboard" data-toggle="pill">Dashboard</a></li>
 					<li class="dropdown"><a class="dropdown-toggle" href="#"
@@ -112,17 +114,24 @@ while ($row = mysqli_fetch_array($result)) {
 					
 					<li><a href="#help" data-toggle="pill">Help</a></li>
 				</ul>
+				<!-- /Page Navigation Section - Pills -->
+				
+				<!-- Welcome and Logout Section -->
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown">Welcome <?php echo $_SESSION['username']; ?>!<b
 							class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="logout.php">Logout</a></li>
-						</ul></li>
-			
+						</ul>
+				    </li>
+			    </ul>
+			    <!-- /Welcome and Logout Section -->
+			     
 			</div>
 		</div>
 	</div>
+	<!-- /Top Navigation Bar - Static -->
 
 	<div id="top" class="container content">
 
@@ -148,13 +157,13 @@ while ($row = mysqli_fetch_array($result)) {
             <!-- Agent Tab on Dashboard -->
             <?php new addDevice()?>
             
-            <!-- Account Tab on Dashboard -->
-            <!-- This has been deprecated -->
+            <!-- Account Tab on Dashboard - Consolidated into the Dashboard -->
             <?php // new accountPage($connection)?>
             
         </div>
+        <!-- /tab-content - Page content has been generated. -->
 
-	</div>
+	</div><!-- /content -->
 
 	<div class="container content">
 		<footer>
@@ -162,8 +171,11 @@ while ($row = mysqli_fetch_array($result)) {
 				<a href="#top">Back to top</a>
 			</p>
 			<p>
-				&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot;
-				<a href="#">Terms</a>
+				&copy; 2014 Lastresort, Inc. &middot; 
+				Privacy &middot; Terms
+				
+				<!-- <a href="#" disabled>Privacy</a> &middot;
+				<a href="#" disable>Terms</a> -->
 			</p>
 		</footer>
 	</div>
@@ -184,8 +196,8 @@ while ($row = mysqli_fetch_array($result)) {
 	<!-- https://vitalets.github.io/x-editable/index.html -->
 	<script
 		src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
-	<!-- Additional Scripts -->
-	
+		
+	<!-- Additional Scripts - Local Overrides -->
 	<script src="./js/common.js"></script>
 </body>
 </html>

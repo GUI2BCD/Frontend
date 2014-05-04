@@ -20,6 +20,14 @@ namespace LastResortRecovery
     class DisplayDevice
     {
 
+        /**
+         * This function is a wrapper to access our private function to
+         * gererate the Device Page. This will be called once per device on the account.
+         * 
+         * @param unknown $i
+         * @param unknown $deviceRow
+         * @param unknown $connection
+         */
         public function __construct($i, $deviceRow, $connection)
         {
             return DisplayDevice::generatePageNew($i, $deviceRow, $connection);
@@ -248,6 +256,7 @@ namespace LastResortRecovery
             <h3 class="panel-title">Reports</h3>
         </div>
         <div class="panel-body">
+        
             <!-- Recent Records -->
             <div class="device-group-left">
                 <fieldset>
@@ -255,10 +264,12 @@ namespace LastResortRecovery
                     <div class="records-column-left">
 
                     <?php 
+                    // Queries last 10 records for the device.
                     $reportsql = "SELECT * FROM reports WHERE deviceid='" . $deviceRow['id'] . "' ORDER BY time DESC LIMIT 10;";
                     
                     $reports = mysqli_query($connection, $reportsql);
                     
+                    // Creates a link for the first 5 records and points to the record's location in the accoridion.
                     for( $j = 1 ; $j <= 5 ; $j++ ) {
                         $row = mysqli_fetch_array($reports);
 
@@ -271,6 +282,7 @@ namespace LastResortRecovery
                     echo '</div>';
                     echo '<div class="records-column-right">';
                     
+                    // Creates a link for the next 5 records and points to the record's location in the accoridion.
                     for( $j = 6 ; $j <= 10 ; $j++ ) {
                         $row = mysqli_fetch_array($reports);
                     
@@ -280,11 +292,11 @@ namespace LastResortRecovery
                     
                     }
                     ?>
-                    
                     </div>
                 </fieldset>
             </div>
             <!-- END RECENT RECORDS -->
+            
             <!-- Saved Records -->
             <div class="device-group-right">
                 <fieldset>
@@ -300,10 +312,12 @@ namespace LastResortRecovery
             <!-- END SAVED RECORDS -->
 
             <!-- Record Accordion -->
+            <!-- Creates an accordion specific to the device and queries and displays the last 10 records. -->
             <div id="accordian<?php echo $deviceRow['id']; ?>" class="device-accordion clear">
             <?php DisplayDevice::generateAccordian($deviceRow['id'], $connection) ?>
             </div>
             <!-- END RECORD ACCORDION -->
+            
         </div>
     </div>
     <!-- END OF DEVICE RECORDS CONTAINER -->
